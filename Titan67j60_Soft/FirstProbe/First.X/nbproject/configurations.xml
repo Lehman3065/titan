@@ -32,6 +32,8 @@
         <itemPath>mcc_generated_files/TCPIPLibrary/udpv4_port_handler_table.h</itemPath>
         <itemPath>mcc_generated_files/TCPIPLibrary/dhcp_client.h</itemPath>
         <itemPath>mcc_generated_files/TCPIPLibrary/dns_client.h</itemPath>
+        <itemPath>mcc_generated_files/TCPIPLibrary/tcpv4.h</itemPath>
+        <itemPath>mcc_generated_files/TCPIPLibrary/ntp.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -67,6 +69,8 @@
         <itemPath>mcc_generated_files/TCPIPLibrary/udpv4.c</itemPath>
         <itemPath>mcc_generated_files/TCPIPLibrary/dhcp_client.c</itemPath>
         <itemPath>mcc_generated_files/TCPIPLibrary/dns_client.c</itemPath>
+        <itemPath>mcc_generated_files/TCPIPLibrary/tcpv4.c</itemPath>
+        <itemPath>mcc_generated_files/TCPIPLibrary/ntp.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -189,6 +193,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

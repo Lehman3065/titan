@@ -46,6 +46,7 @@ MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE TER
 #include "arpv4.h"
 #include "udpv4.h"
 #include "udpv4_port_handler_table.h"
+#include "tcpv4.h"
 #include "tcpip_types.h"
 #include "ethernet_driver.h"
 #include "ip_database.h"
@@ -55,6 +56,11 @@ uint16_t ipv4StartPosition;
 ipv4Header_t ipv4Header;
 static void IPV4_SaveStartPosition(void);
 
+
+/*
+ *  Callback to TCP protocol to deliver the TCP packets
+ */
+extern void TCP_Recv(uint32_t, uint16_t);
 
 void IPV4_Init(void)
 {
@@ -170,6 +176,20 @@ error_msg IPV4_Packet(void)
                 cksm = IPV4_PseudoHeaderChecksum(length);//Calculate pseudo header checksum
                 cksm = ETH_RxComputeChecksum(length, cksm); //1's complement of pseudo header checksum + 1's complement of UDP header, data
                 UDP_Receive(cksm);
+                break;
+            case TCP_TCPIP:
+                // accept only uni cast TCP packets
+                // check the TCP header checksum
+                length = ipv4Header.length - hdrLen;
+                cksm = IPV4_PseudoHeaderChecksum(length);
+                cksm = ETH_RxComputeChecksum(length, cksm);
+
+                // accept only packets with valid CRC Header
+                if (cksm == 0 && (ipv4Header.dstIpAddress != SPECIAL_IPV4_BROADCAST_ADDRESS) && (ipv4Header.dstIpAddress != IPV4_ZERO_ADDRESS))                
+                {
+                    remoteIpv4Address = ipv4Header.srcIpAddress;
+                    TCP_Recv(remoteIpv4Address, length);
+                }
                 break;
             default:
                 ETH_Dump(ipv4Header.length);

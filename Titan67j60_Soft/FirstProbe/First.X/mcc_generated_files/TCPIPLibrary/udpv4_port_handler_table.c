@@ -41,6 +41,7 @@ MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE TER
 #include "tcpip_types.h"
 #include "dns_client.h"
 #include "dhcp_client.h"
+#include "ntp.h"
 #include "udpv4_port_handler_table.h"
 #include "tcpip_config.h"
 
@@ -50,6 +51,7 @@ const udp_handler_t UDP_CallBackTable[] = \
 {    
     {53,  DNS_Handler},
     {68, DHCP_Handler},     // a catcher to manage the DHCP process
+    {123, NTP_Handler},
 
 };
 

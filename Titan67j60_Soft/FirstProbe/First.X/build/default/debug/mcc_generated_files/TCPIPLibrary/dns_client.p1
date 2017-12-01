@@ -1,0 +1,1230 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"50 mcc_generated_files/TCPIPLibrary/dns_client.c
+[s S35 `*Cuc 1 `ul 1 `ul 1 `uc 1 `l 1 ]
+[n S35 . dnsName ipAddress ttl isValid birthSecond ]
+"16 C:\Program Files\Microchip\xc8\v1.44\include\string.h
+[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
+"56
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
+"81 mcc_generated_files/TCPIPLibrary/dns_client.c
+[c E516 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 .. ]
+[n E516 . ERROR SUCCESS LINK_NOT_FOUND BUFFER_BUSY TX_LOGIC_NOT_IDLE MAC_NOT_FOUND IP_WRONG_VERSION IPV4_CHECKSUM_FAILS DEST_IP_NOT_MATCHED ICMP_CHECKSUM_FAILS UDP_CHECKSUM_FAILS TCP_CHECKSUM_FAILS DMA_TIMEOUT PORT_NOT_AVAILABLE ARP_IP_NOT_MATCHED EAPoL_PACKET_FAILURE INCORRECT_IPV4_HLEN IPV4_NO_OPTIONS TX_QUEUED  ]
+"81 mcc_generated_files/TCPIPLibrary/udpv4.h
+[v _UDP_Start `(E516 ~T0 @X0 0 ef3`ul`ui`ui ]
+"40 mcc_generated_files/TCPIPLibrary/ip_database.h
+[s S34 `ul 1 `ul -> 2 `i `ul 1 `ul 1 `ul 1 `ul -> 2 `i `ul 1 ]
+[n S34 . ipv4_myAddress ipv4_dns ipv4_subnetMask ipv4_router ipv4_gateway ipv4_ntpAddress ipv4_tftpAddress ]
+"51
+[v _ip_database_info `S34 ~T0 @X0 0 e ]
+"120 mcc_generated_files/TCPIPLibrary/ethernet_driver.h
+[v _ETH_Write16 `(v ~T0 @X0 0 ef1`ui ]
+"119
+[v _ETH_Write8 `(v ~T0 @X0 0 ef1`uc ]
+"82 mcc_generated_files/TCPIPLibrary/udpv4.h
+[v _UDP_Send `(E516 ~T0 @X0 0 ef ]
+"108 mcc_generated_files/TCPIPLibrary/ethernet_driver.h
+[v _ETH_Read16 `(ui ~T0 @X0 0 ef ]
+"110
+[v _ETH_Read32 `(ul ~T0 @X0 0 ef ]
+"107
+[v _ETH_Read8 `(uc ~T0 @X0 0 ef ]
+"45 C:\Program Files\Microchip\xc8\v1.44\include\string.h
+[v _strcmp `(i ~T0 @X0 0 ef2`*Cuc`*Cuc ]
+"30 C:\Program Files\Microchip\xc8\v1.44\include\time.h
+[v _time `(l ~T0 @X0 0 ef1`*l ]
+"194 C:\Program Files\Microchip\xc8\v1.44\include\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 36: extern char * strcat(char *, const char *);
+[; ;string.h: 37: extern char * strcpy(char *, const char *);
+[; ;string.h: 38: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 39: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 40: extern char * strdup(const char *);
+[; ;string.h: 41: extern char * strtok(char *, const char *);
+[; ;string.h: 44: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 45: extern int strcmp(const char *, const char *);
+[; ;string.h: 46: extern int stricmp(const char *, const char *);
+[; ;string.h: 47: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 48: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 49: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 50: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 51: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 52: extern size_t strspn(const char *, const char *);
+[; ;string.h: 53: extern char * strstr(const char *, const char *);
+[; ;string.h: 54: extern char * stristr(const char *, const char *);
+[; ;string.h: 55: extern char * strerror(int);
+[; ;string.h: 56: extern size_t strlen(const char *);
+[; ;string.h: 57: extern char * strchr(const char *, int);
+[; ;string.h: 58: extern char * strichr(const char *, int);
+[; ;string.h: 59: extern char * strrchr(const char *, int);
+[; ;string.h: 60: extern char * strrichr(const char *, int);
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;time.h: 8: typedef long time_t;
+[; ;time.h: 9: struct tm {
+[; ;time.h: 10: int tm_sec;
+[; ;time.h: 11: int tm_min;
+[; ;time.h: 12: int tm_hour;
+[; ;time.h: 13: int tm_mday;
+[; ;time.h: 14: int tm_mon;
+[; ;time.h: 15: int tm_year;
+[; ;time.h: 16: int tm_wday;
+[; ;time.h: 17: int tm_yday;
+[; ;time.h: 18: int tm_isdst;
+[; ;time.h: 19: };
+[; ;time.h: 25: extern int time_zone;
+[; ;time.h: 30: extern time_t time(time_t *);
+[; ;time.h: 31: extern int stime(time_t *);
+[; ;time.h: 47: extern char * asctime(const struct tm *) ;
+[; ;time.h: 48: extern char * ctime(const time_t *) ;
+[; ;time.h: 49: extern struct tm * gmtime(const time_t *) ;
+[; ;time.h: 50: extern struct tm * localtime(const time_t *) ;
+[; ;time.h: 51: extern size_t strftime(char *, size_t, const char *, const struct tm *) ;
+[; ;time.h: 52: extern time_t mktime(struct tm *);
+[; ;dns_client.h: 56: void DNS_Init(void);
+[; ;dns_client.h: 68: void DNS_Query(const char *str);
+[; ;dns_client.h: 81: void DNS_Handler(int length);
+[; ;dns_client.h: 95: uint32_t DNS_Lookup(const char *dns_name);
+[; ;dns_client.h: 106: void DNS_Update(void);
+[; ;tcpip_types.h: 49: typedef enum {TCB_ERROR = -1, TCB_NO_ERROR = 0} tcbError_t;
+[; ;tcpip_types.h: 51: typedef union
+[; ;tcpip_types.h: 52: {
+[; ;tcpip_types.h: 53: uint16_t value;
+[; ;tcpip_types.h: 54: struct
+[; ;tcpip_types.h: 55: {
+[; ;tcpip_types.h: 56: unsigned int priorityCodePoint:3;
+[; ;tcpip_types.h: 57: unsigned int dropEligible:1;
+[; ;tcpip_types.h: 58: unsigned int vlanId:12;
+[; ;tcpip_types.h: 59: };
+[; ;tcpip_types.h: 60: } tci_t;
+[; ;tcpip_types.h: 62: typedef struct
+[; ;tcpip_types.h: 63: {
+[; ;tcpip_types.h: 64: uint8_t destinationMAC[6];
+[; ;tcpip_types.h: 65: uint8_t sourceMAC[6];
+[; ;tcpip_types.h: 66: union
+[; ;tcpip_types.h: 67: {
+[; ;tcpip_types.h: 68: uint16_t type;
+[; ;tcpip_types.h: 69: uint16_t length;
+[; ;tcpip_types.h: 70: uint16_t tpid;
+[; ;tcpip_types.h: 71: }id;
+[; ;tcpip_types.h: 76: } ethernetFrame_t;
+"78 mcc_generated_files/TCPIPLibrary/tcpip_types.h
+[v _Control_Byte `uc ~T0 @X0 1 e ]
+[i _Control_Byte
+-> -> 0 `i `uc
+]
+[; ;tcpip_types.h: 78: uint8_t Control_Byte = 0x00;
+[; ;tcpip_types.h: 131: typedef struct
+[; ;tcpip_types.h: 132: {
+[; ;tcpip_types.h: 133: unsigned ihl:4;
+[; ;tcpip_types.h: 134: unsigned version:4;
+[; ;tcpip_types.h: 135: unsigned ecn:2;
+[; ;tcpip_types.h: 136: unsigned dscp:6;
+[; ;tcpip_types.h: 137: uint16_t length;
+[; ;tcpip_types.h: 138: uint16_t identifcation;
+[; ;tcpip_types.h: 139: unsigned fragmentOffsetHigh:5;
+[; ;tcpip_types.h: 140: unsigned :1;
+[; ;tcpip_types.h: 141: unsigned dontFragment:1;
+[; ;tcpip_types.h: 142: unsigned moreFragments:1;
+[; ;tcpip_types.h: 143: uint8_t fragmentOffsetLow;
+[; ;tcpip_types.h: 144: uint8_t timeToLive;
+[; ;tcpip_types.h: 145: uint8_t protocol;
+[; ;tcpip_types.h: 146: uint16_t headerCksm;
+[; ;tcpip_types.h: 147: uint32_t srcIpAddress;
+[; ;tcpip_types.h: 148: uint32_t dstIpAddress;
+[; ;tcpip_types.h: 151: } ipv4Header_t;
+[; ;tcpip_types.h: 154: typedef struct
+[; ;tcpip_types.h: 155: {
+[; ;tcpip_types.h: 156: uint32_t srcIpAddress;
+[; ;tcpip_types.h: 157: uint32_t dstIpAddress;
+[; ;tcpip_types.h: 158: uint8_t protocol;
+[; ;tcpip_types.h: 159: uint8_t z;
+[; ;tcpip_types.h: 160: uint16_t length;
+[; ;tcpip_types.h: 161: } ipv4_pseudo_header_t;
+[; ;tcpip_types.h: 163: typedef struct
+[; ;tcpip_types.h: 164: {
+[; ;tcpip_types.h: 165: union
+[; ;tcpip_types.h: 166: {
+[; ;tcpip_types.h: 167: uint16_t typeCode;
+[; ;tcpip_types.h: 168: struct
+[; ;tcpip_types.h: 169: {
+[; ;tcpip_types.h: 170: uint8_t code;
+[; ;tcpip_types.h: 171: uint8_t type;
+[; ;tcpip_types.h: 172: };
+[; ;tcpip_types.h: 173: };
+[; ;tcpip_types.h: 174: uint16_t checksum;
+[; ;tcpip_types.h: 175: } icmpHeader_t;
+[; ;tcpip_types.h: 178: typedef struct
+[; ;tcpip_types.h: 179: {
+[; ;tcpip_types.h: 180: union
+[; ;tcpip_types.h: 181: {
+[; ;tcpip_types.h: 182: uint16_t typeCode;
+[; ;tcpip_types.h: 183: struct
+[; ;tcpip_types.h: 184: {
+[; ;tcpip_types.h: 185: uint8_t code;
+[; ;tcpip_types.h: 186: uint8_t type;
+[; ;tcpip_types.h: 187: };
+[; ;tcpip_types.h: 188: };
+[; ;tcpip_types.h: 189: uint16_t checksum;
+[; ;tcpip_types.h: 190: } icmpv6Header_t;
+[; ;tcpip_types.h: 193: typedef enum
+[; ;tcpip_types.h: 194: {
+[; ;tcpip_types.h: 195: ECHO_REPLY = 0x0000,
+[; ;tcpip_types.h: 197: DEST_NETWORK_UNREACHABLE = 0x0300,
+[; ;tcpip_types.h: 198: DEST_HOST_UNREACHABLE = 0x0301,
+[; ;tcpip_types.h: 199: DEST_PROTOCOL_UNREACHABLE = 0x0302,
+[; ;tcpip_types.h: 200: DEST_PORT_UNREACHABLE = 0x0303,
+[; ;tcpip_types.h: 201: FRAGMENTATION_REQUIRED = 0x0304,
+[; ;tcpip_types.h: 202: SOURCE_ROUTE_FAILED = 0x0305,
+[; ;tcpip_types.h: 203: DESTINATION_NETWORK_UNKNOWN = 0x0306,
+[; ;tcpip_types.h: 204: SOURCE_HOST_ISOLATED = 0x0307,
+[; ;tcpip_types.h: 205: NETWORK_ADMINISTRATIVELY_PROHIBITED = 0x0308,
+[; ;tcpip_types.h: 206: HOST_ADMINISTRATIVELY_PROHIBITED = 0x0309,
+[; ;tcpip_types.h: 207: NETWORK_UNREACHABLE_FOR_TOS = 0x030A,
+[; ;tcpip_types.h: 208: HOST_UNREACHABLE_FOR_TOS = 0x030B,
+[; ;tcpip_types.h: 209: COMMUNICATION_ADMINISTRATIVELY_PROHIBITED = 0x030C,
+[; ;tcpip_types.h: 210: HOST_PRECEDENCE_VIOLATION = 0x030D,
+[; ;tcpip_types.h: 211: PRECEDENCE_CUTOFF_IN_EFFECT = 0x030E,
+[; ;tcpip_types.h: 213: SOURCE_QUENCH = 0x0400,
+[; ;tcpip_types.h: 215: REDIRECT_DATAGRAM_FOR_THE_NETWORK = 0x0500,
+[; ;tcpip_types.h: 216: REDIRECT_DATAGRAM_FOR_THE_HOST = 0x0501,
+[; ;tcpip_types.h: 217: REDIRECT_DATAGRAM_FOR_THE_TOS_AND_NETWORK = 0x0502,
+[; ;tcpip_types.h: 218: REDIRECT_DATAGRAM_FOR_THE_TOS_AND_HOST = 0x0503,
+[; ;tcpip_types.h: 220: ALTERNATE_HOST_ADDRESS = 0x0600,
+[; ;tcpip_types.h: 222: ECHO_REQUEST = 0x0800,
+[; ;tcpip_types.h: 225: UNASSIGNED_ECHO_TYPE_CODE_REQUEST_1 = 0x082A,
+[; ;tcpip_types.h: 226: UNASSIGNED_ECHO_TYPE_CODE_REQUEST_2 = 0x08FC,
+[; ;tcpip_types.h: 228: ROUTER_ADVERTISEMENT = 0x0900,
+[; ;tcpip_types.h: 229: ROUTER_SOLICITATION = 0x0A00,
+[; ;tcpip_types.h: 230: TRACEROUTE = 0x3000
+[; ;tcpip_types.h: 231: } icmpTypeCodes_t;
+[; ;tcpip_types.h: 233: typedef struct
+[; ;tcpip_types.h: 234: {
+[; ;tcpip_types.h: 235: uint16_t srcPort;
+[; ;tcpip_types.h: 236: uint16_t dstPort;
+[; ;tcpip_types.h: 237: uint16_t length;
+[; ;tcpip_types.h: 238: uint16_t checksum;
+[; ;tcpip_types.h: 239: } udpHeader_t;
+[; ;tcpip_types.h: 241: typedef struct
+[; ;tcpip_types.h: 242: {
+[; ;tcpip_types.h: 243: uint16_t sourcePort;
+[; ;tcpip_types.h: 244: uint16_t destPort;
+[; ;tcpip_types.h: 245: uint32_t sequenceNumber;
+[; ;tcpip_types.h: 246: uint32_t ackNumber;
+[; ;tcpip_types.h: 247: union{
+[; ;tcpip_types.h: 248: uint8_t byte13;
+[; ;tcpip_types.h: 249: struct{
+[; ;tcpip_types.h: 250: uint8_t ns:1;
+[; ;tcpip_types.h: 251: uint8_t reserved:3;
+[; ;tcpip_types.h: 252: uint8_t dataOffset:4;
+[; ;tcpip_types.h: 253: };
+[; ;tcpip_types.h: 254: };
+[; ;tcpip_types.h: 256: union{
+[; ;tcpip_types.h: 257: uint8_t flags;
+[; ;tcpip_types.h: 258: struct{
+[; ;tcpip_types.h: 259: uint8_t fin:1;
+[; ;tcpip_types.h: 260: uint8_t syn:1;
+[; ;tcpip_types.h: 261: uint8_t rst:1;
+[; ;tcpip_types.h: 262: uint8_t psh:1;
+[; ;tcpip_types.h: 263: uint8_t ack:1;
+[; ;tcpip_types.h: 264: uint8_t urg:1;
+[; ;tcpip_types.h: 265: uint8_t ece:1;
+[; ;tcpip_types.h: 266: uint8_t cwr:1;
+[; ;tcpip_types.h: 267: };
+[; ;tcpip_types.h: 268: };
+[; ;tcpip_types.h: 270: uint16_t windowSize;
+[; ;tcpip_types.h: 271: uint16_t checksum;
+[; ;tcpip_types.h: 272: uint16_t urgentPtr;
+[; ;tcpip_types.h: 276: } tcpHeader_t;
+[; ;tcpip_types.h: 278: typedef struct
+[; ;tcpip_types.h: 279: {
+[; ;tcpip_types.h: 280: uint16_t version:4;
+[; ;tcpip_types.h: 281: uint16_t trafficClass:8;
+[; ;tcpip_types.h: 282: uint16_t flowLabel1stNibble:4;
+[; ;tcpip_types.h: 284: uint16_t flowLabelRest;
+[; ;tcpip_types.h: 285: uint16_t payloadLength;
+[; ;tcpip_types.h: 286: uint8_t nextHeader;
+[; ;tcpip_types.h: 287: uint8_t hopLimit;
+[; ;tcpip_types.h: 288: uint8_t srcAddress[16];
+[; ;tcpip_types.h: 289: uint8_t dstAddress[16];
+[; ;tcpip_types.h: 291: } ipv6Header_t;
+[; ;tcpip_types.h: 294: typedef enum
+[; ;tcpip_types.h: 295: {
+[; ;tcpip_types.h: 296: HOPOPT_TCPIP = 0,
+[; ;tcpip_types.h: 297: ICMP_TCPIP = 1,
+[; ;tcpip_types.h: 298: IGMP_TCPIP = 2,
+[; ;tcpip_types.h: 299: GGP_TCPIP = 3,
+[; ;tcpip_types.h: 300: IPV4_TCPIP = 4,
+[; ;tcpip_types.h: 301: ST_TCPIP = 5,
+[; ;tcpip_types.h: 302: TCP_TCPIP = 6,
+[; ;tcpip_types.h: 303: CBT_TCPIP = 7,
+[; ;tcpip_types.h: 304: EGP_TCPIP = 8,
+[; ;tcpip_types.h: 305: IGP_TCPIP = 9,
+[; ;tcpip_types.h: 306: BBN_RCC_MON_TCPIP = 10,
+[; ;tcpip_types.h: 307: NVP_II_TCPIP = 11,
+[; ;tcpip_types.h: 308: PUP_TCPIP = 12,
+[; ;tcpip_types.h: 309: ARGUS_TCPIP = 13,
+[; ;tcpip_types.h: 310: EMCON_TCPIP = 14,
+[; ;tcpip_types.h: 311: XNET_TCPIP = 15,
+[; ;tcpip_types.h: 312: CHAOS_TCPIP = 16,
+[; ;tcpip_types.h: 313: UDP_TCPIP = 17,
+[; ;tcpip_types.h: 314: MUX_TCPIP = 18,
+[; ;tcpip_types.h: 315: DCN_MEAS_TCPIP = 19,
+[; ;tcpip_types.h: 316: HMP_TCPIP = 20,
+[; ;tcpip_types.h: 317: PRM_TCPIP = 21,
+[; ;tcpip_types.h: 318: XNS_IDP_TCPIP = 22,
+[; ;tcpip_types.h: 319: TRUNK_1_TCPIP = 23,
+[; ;tcpip_types.h: 320: TRUNK_2_TCPIP = 24,
+[; ;tcpip_types.h: 321: LEAF_1_TCPIP = 25,
+[; ;tcpip_types.h: 322: LEAF_2_TCPIP = 26,
+[; ;tcpip_types.h: 323: RDP_TCPIP = 27,
+[; ;tcpip_types.h: 324: IRTP_TCPIP = 28,
+[; ;tcpip_types.h: 325: ISO_TP4_TCPIP = 29,
+[; ;tcpip_types.h: 326: NETBLT_TCPIP = 30,
+[; ;tcpip_types.h: 327: MFE_NSP_TCPIP = 31,
+[; ;tcpip_types.h: 328: MERIT_INP_TCPIP = 32,
+[; ;tcpip_types.h: 329: DCCP_TCPIP = 33,
+[; ;tcpip_types.h: 330: THREEPC_TCPIP = 34,
+[; ;tcpip_types.h: 331: IDPR_TCPIP = 35,
+[; ;tcpip_types.h: 332: XTP_TCPIP = 36,
+[; ;tcpip_types.h: 333: DDP_TCPIP = 37,
+[; ;tcpip_types.h: 334: IDPR_CMTP_TCPIP = 38,
+[; ;tcpip_types.h: 335: TPpp_TCPIP = 39,
+[; ;tcpip_types.h: 336: IL_TCPIP = 40,
+[; ;tcpip_types.h: 337: IPV6_TUNNEL_TCPIP = 41,
+[; ;tcpip_types.h: 338: SDRP_TCPIP = 42,
+[; ;tcpip_types.h: 339: IPV6_Route_TCPIP = 43,
+[; ;tcpip_types.h: 340: IPV6_Frag_TCPIP = 44,
+[; ;tcpip_types.h: 341: IDRP_TCPIP = 45,
+[; ;tcpip_types.h: 342: RSVP_TCPIP = 46,
+[; ;tcpip_types.h: 343: GRE_TCPIP = 47,
+[; ;tcpip_types.h: 344: DSR_TCPIP = 48,
+[; ;tcpip_types.h: 345: BNA_TCPIP = 49,
+[; ;tcpip_types.h: 346: ESP_TCPIP = 50,
+[; ;tcpip_types.h: 347: AH_TCPIP = 51,
+[; ;tcpip_types.h: 348: I_NLSP_TCPIP = 52,
+[; ;tcpip_types.h: 349: SWIPE_TCPIP = 53,
+[; ;tcpip_types.h: 350: NARP_TCPIP = 54,
+[; ;tcpip_types.h: 351: MOBILE_TCPIP = 55,
+[; ;tcpip_types.h: 352: TLSP_TCPIP = 56,
+[; ;tcpip_types.h: 353: SKIP_TCPIP = 57,
+[; ;tcpip_types.h: 354: IPV6_ICMP_TCPIP = 58,
+[; ;tcpip_types.h: 355: IPV6_NoNxt_TCPIP = 59,
+[; ;tcpip_types.h: 356: IPV6_Opts_TCPIP = 60,
+[; ;tcpip_types.h: 357: CFTP_TCPIP = 62,
+[; ;tcpip_types.h: 358: SAT_EXPAK_TCPIP = 64,
+[; ;tcpip_types.h: 359: KRYPTOLAN_TCPIP = 65,
+[; ;tcpip_types.h: 360: RVD_TCPIP = 66,
+[; ;tcpip_types.h: 361: IPPC_TCPIP = 67,
+[; ;tcpip_types.h: 362: SAT_MON_TCPIP = 69,
+[; ;tcpip_types.h: 363: VISA_TCPIP = 70,
+[; ;tcpip_types.h: 364: IPCV_TCPIP = 71,
+[; ;tcpip_types.h: 365: CPNX_TCPIP = 72,
+[; ;tcpip_types.h: 366: CPHB_TCPIP = 73,
+[; ;tcpip_types.h: 367: WSN_TCPIP = 74,
+[; ;tcpip_types.h: 368: PVP_TCPIP = 75,
+[; ;tcpip_types.h: 369: BR_SAT_MON_TCPIP = 76,
+[; ;tcpip_types.h: 370: SUN_ND_TCPIP = 77,
+[; ;tcpip_types.h: 371: WB_MON_TCPIP = 78,
+[; ;tcpip_types.h: 372: WB_EXPAK_TCPIP = 79,
+[; ;tcpip_types.h: 373: ISO_IP_TCPIP = 80,
+[; ;tcpip_types.h: 374: VMTP_TCPIP = 81,
+[; ;tcpip_types.h: 375: SECURE_VMTP_TCPIP = 82,
+[; ;tcpip_types.h: 376: VINES_TCPIP = 83,
+[; ;tcpip_types.h: 377: TTP_TCPIP = 84,
+[; ;tcpip_types.h: 378: IPTM_TCPIP = 84,
+[; ;tcpip_types.h: 379: NSFNET_IGP_TCPIP = 85,
+[; ;tcpip_types.h: 380: DGP_TCPIP = 86,
+[; ;tcpip_types.h: 381: TCF_TCPIP = 87,
+[; ;tcpip_types.h: 382: EIGRP_TCPIP = 88,
+[; ;tcpip_types.h: 383: OSPFIGP_TCPIP = 89,
+[; ;tcpip_types.h: 384: Sprite_RPC_TCPIP = 90,
+[; ;tcpip_types.h: 385: LARP_TCPIP = 91,
+[; ;tcpip_types.h: 386: MTP_TCPIP = 92,
+[; ;tcpip_types.h: 387: AX25_TCPIP = 93,
+[; ;tcpip_types.h: 388: IPIP_TCPIP = 94,
+[; ;tcpip_types.h: 389: MICP_TCPIP = 95,
+[; ;tcpip_types.h: 390: SCC_SP_TCPIP = 96,
+[; ;tcpip_types.h: 391: ETHERIP_TCPIP = 97,
+[; ;tcpip_types.h: 392: ENCAP_TCPIP = 98,
+[; ;tcpip_types.h: 393: GMTP_TCPIP = 100,
+[; ;tcpip_types.h: 394: IFMP_TCPIP = 101,
+[; ;tcpip_types.h: 395: PNNI_TCPIP = 102,
+[; ;tcpip_types.h: 396: PIM_TCPIP = 103,
+[; ;tcpip_types.h: 397: ARIS_TCPIP = 104,
+[; ;tcpip_types.h: 398: SCPS_TCPIP = 105,
+[; ;tcpip_types.h: 399: QNX_TCPIP = 106,
+[; ;tcpip_types.h: 400: A_N_TCPIP = 107,
+[; ;tcpip_types.h: 401: IPComp_TCPIP = 108,
+[; ;tcpip_types.h: 402: SNP_TCPIP = 109,
+[; ;tcpip_types.h: 403: Compaq_Peer_TCPIP = 110,
+[; ;tcpip_types.h: 404: IPX_in_IP_TCPIP = 111,
+[; ;tcpip_types.h: 405: VRRP_TCPIP = 112,
+[; ;tcpip_types.h: 406: PGM_TCPIP = 113,
+[; ;tcpip_types.h: 407: L2TP_TCPIP = 115,
+[; ;tcpip_types.h: 408: DDX_TCPIP = 116,
+[; ;tcpip_types.h: 409: IATP_TCPIP = 117,
+[; ;tcpip_types.h: 410: STP_TCPIP = 118,
+[; ;tcpip_types.h: 411: SRP_TCPIP = 119,
+[; ;tcpip_types.h: 412: UTI_TCPIP = 120,
+[; ;tcpip_types.h: 413: SMP_TCPIP = 121,
+[; ;tcpip_types.h: 414: SM_TCPIP = 122,
+[; ;tcpip_types.h: 415: PTP_TCPIP = 123,
+[; ;tcpip_types.h: 416: ISIS_TCPIP = 124,
+[; ;tcpip_types.h: 417: FIRE_TCPIP = 125,
+[; ;tcpip_types.h: 418: CRTP_TCPIP = 126,
+[; ;tcpip_types.h: 419: CRUDP_TCPIP = 127,
+[; ;tcpip_types.h: 420: SSCOPMCE_TCPIP = 128,
+[; ;tcpip_types.h: 421: IPLT_TCPIP = 129,
+[; ;tcpip_types.h: 422: SPS_TCPIP = 130,
+[; ;tcpip_types.h: 423: PIPE_TCPIP = 131,
+[; ;tcpip_types.h: 424: SCTP_TCPIP = 132,
+[; ;tcpip_types.h: 425: FC_TCPIP = 133
+[; ;tcpip_types.h: 426: } ipProtocolNumbers;
+[; ;tcpip_types.h: 428: typedef struct
+[; ;tcpip_types.h: 429: {
+[; ;tcpip_types.h: 430: union{
+[; ;tcpip_types.h: 431: uint32_t s_addr;
+[; ;tcpip_types.h: 432: uint8_t s_addr_byte[4];
+[; ;tcpip_types.h: 433: };
+[; ;tcpip_types.h: 434: }inAddr_t;
+[; ;tcpip_types.h: 436: typedef struct
+[; ;tcpip_types.h: 437: {
+[; ;tcpip_types.h: 438: union {
+[; ;tcpip_types.h: 439: uint8_t s6_u8[16];
+[; ;tcpip_types.h: 440: uint16_t s6_u16[8];
+[; ;tcpip_types.h: 441: uint32_t s6_u32[4];
+[; ;tcpip_types.h: 442: } s6;
+[; ;tcpip_types.h: 446: }in6Addr_t;
+[; ;tcpip_types.h: 448: typedef struct
+[; ;tcpip_types.h: 449: {
+[; ;tcpip_types.h: 450: uint16_t port;
+[; ;tcpip_types.h: 451: inAddr_t addr;
+[; ;tcpip_types.h: 452: }sockaddr_in_t;
+[; ;tcpip_types.h: 454: typedef struct {
+[; ;tcpip_types.h: 456: uint16_t in6_port;
+[; ;tcpip_types.h: 457: uint32_t in6_flowinfo;
+[; ;tcpip_types.h: 458: in6Addr_t in6_addr;
+[; ;tcpip_types.h: 459: uint32_t in6_scope_id;
+[; ;tcpip_types.h: 460: }sockaddr_in6_t;
+[; ;tcpip_types.h: 462: extern const char *network_errors[];
+[; ;tcpip_types.h: 464: typedef enum
+[; ;tcpip_types.h: 465: {
+[; ;tcpip_types.h: 466: ERROR =0,
+[; ;tcpip_types.h: 467: SUCCESS,
+[; ;tcpip_types.h: 468: LINK_NOT_FOUND,
+[; ;tcpip_types.h: 469: BUFFER_BUSY,
+[; ;tcpip_types.h: 470: TX_LOGIC_NOT_IDLE,
+[; ;tcpip_types.h: 471: MAC_NOT_FOUND,
+[; ;tcpip_types.h: 472: IP_WRONG_VERSION,
+[; ;tcpip_types.h: 473: IPV4_CHECKSUM_FAILS,
+[; ;tcpip_types.h: 474: DEST_IP_NOT_MATCHED,
+[; ;tcpip_types.h: 475: ICMP_CHECKSUM_FAILS,
+[; ;tcpip_types.h: 476: UDP_CHECKSUM_FAILS,
+[; ;tcpip_types.h: 477: TCP_CHECKSUM_FAILS,
+[; ;tcpip_types.h: 478: DMA_TIMEOUT,
+[; ;tcpip_types.h: 479: PORT_NOT_AVAILABLE,
+[; ;tcpip_types.h: 480: ARP_IP_NOT_MATCHED,
+[; ;tcpip_types.h: 481: EAPoL_PACKET_FAILURE,
+[; ;tcpip_types.h: 482: INCORRECT_IPV4_HLEN,
+[; ;tcpip_types.h: 483: IPV4_NO_OPTIONS,
+[; ;tcpip_types.h: 484: TX_QUEUED
+[; ;tcpip_types.h: 485: }error_msg;
+[; ;tcpip_types.h: 487: typedef struct
+[; ;tcpip_types.h: 488: {
+[; ;tcpip_types.h: 489: inAddr_t dest_addr;
+[; ;tcpip_types.h: 490: }destIP_t;
+[; ;tcpip_types.h: 493: typedef int8_t socklistsize_t;
+[; ;tcpip_types.h: 495: typedef void (*ip_receive_function_ptr)(int);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;mac_address.h: 51: typedef union
+[; ;mac_address.h: 52: {
+[; ;mac_address.h: 53: uint8_t mac_array[6];
+[; ;mac_address.h: 54: struct { uint8_t byte1,byte2,byte3,byte4,byte5,byte6; } s;
+[; ;mac_address.h: 55: } mac48Address_t;
+[; ;mac_address.h: 57: extern const mac48Address_t broadcastMAC;
+[; ;mac_address.h: 58: extern const mac48Address_t macAddress;
+[; ;mac_address.h: 59: extern mac48Address_t hostMacAddress;
+[; ;mac_address.h: 61: const mac48Address_t *MAC_getAddress(void);
+[; ;ethernet_driver.h: 49: typedef struct
+[; ;ethernet_driver.h: 50: {
+[; ;ethernet_driver.h: 51: uint16_t byteCount;
+[; ;ethernet_driver.h: 52: unsigned long_drop_event:1;
+[; ;ethernet_driver.h: 53: unsigned :1;
+[; ;ethernet_driver.h: 54: unsigned excessCarrierEvent:1;
+[; ;ethernet_driver.h: 55: unsigned :1;
+[; ;ethernet_driver.h: 56: unsigned crcError:1;
+[; ;ethernet_driver.h: 57: unsigned lengthCheckError:1;
+[; ;ethernet_driver.h: 58: unsigned lengthLongError:1;
+[; ;ethernet_driver.h: 59: unsigned rxOK:1;
+[; ;ethernet_driver.h: 60: unsigned rxMulticast:1;
+[; ;ethernet_driver.h: 61: unsigned rxBroadcast:1;
+[; ;ethernet_driver.h: 62: unsigned dribbleNibble:1;
+[; ;ethernet_driver.h: 63: unsigned controlFrame:1;
+[; ;ethernet_driver.h: 64: unsigned pauseControlFrame:1;
+[; ;ethernet_driver.h: 65: unsigned unknownContrlFrame:1;
+[; ;ethernet_driver.h: 66: unsigned vlanTagPresent:1;
+[; ;ethernet_driver.h: 67: unsigned zero:1;
+[; ;ethernet_driver.h: 68: }receiveStatusVector_t;
+[; ;ethernet_driver.h: 70: typedef struct
+[; ;ethernet_driver.h: 71: {
+[; ;ethernet_driver.h: 72: unsigned error:1;
+[; ;ethernet_driver.h: 73: unsigned pktReady:1;
+[; ;ethernet_driver.h: 74: unsigned up:1;
+[; ;ethernet_driver.h: 75: unsigned idle:1;
+[; ;ethernet_driver.h: 76: unsigned linkChange:1;
+[; ;ethernet_driver.h: 77: unsigned bufferBusy:1;
+[; ;ethernet_driver.h: 78: unsigned :3;
+[; ;ethernet_driver.h: 79: uint16_t saveRDPT;
+[; ;ethernet_driver.h: 80: uint16_t saveWRPT;
+[; ;ethernet_driver.h: 81: } ethernetDriver_t;
+[; ;ethernet_driver.h: 83: typedef struct
+[; ;ethernet_driver.h: 84: {
+[; ;ethernet_driver.h: 85: uint16_t flags;
+[; ;ethernet_driver.h: 86: uint16_t packetStart;
+[; ;ethernet_driver.h: 87: uint16_t packetEnd;
+[; ;ethernet_driver.h: 89: void *prevPacket;
+[; ;ethernet_driver.h: 90: void *nextPacket;
+[; ;ethernet_driver.h: 91: } txPacket_t;
+[; ;ethernet_driver.h: 93: extern volatile ethernetDriver_t ethData;
+[; ;ethernet_driver.h: 99: void ETH_Init(void);
+[; ;ethernet_driver.h: 100: void ETH_EventHandler(void);
+[; ;ethernet_driver.h: 101: void ETH_NextPacketUpdate();
+[; ;ethernet_driver.h: 102: void ETH_ResetReceiver(void);
+[; ;ethernet_driver.h: 103: void ETH_SendSystemReset(void);
+[; ;ethernet_driver.h: 106: uint16_t ETH_ReadBlock(void*, uint16_t);
+[; ;ethernet_driver.h: 107: uint8_t ETH_Read8(void);
+[; ;ethernet_driver.h: 108: uint16_t ETH_Read16(void);
+[; ;ethernet_driver.h: 109: uint32_t ETH_Read24(void);
+[; ;ethernet_driver.h: 110: uint32_t ETH_Read32(void);
+[; ;ethernet_driver.h: 111: void ETH_Dump(uint16_t);
+[; ;ethernet_driver.h: 112: void ETH_Flush(void);
+[; ;ethernet_driver.h: 114: uint16_t ETH_GetFreeTxBufferSize(void);
+[; ;ethernet_driver.h: 116: error_msg ETH_WriteStart(const mac48Address_t *dest_mac, uint16_t type);
+[; ;ethernet_driver.h: 117: uint16_t ETH_WriteString(const char *string);
+[; ;ethernet_driver.h: 118: uint16_t ETH_WriteBlock(const void *, uint16_t);
+[; ;ethernet_driver.h: 119: void ETH_Write8(uint8_t);
+[; ;ethernet_driver.h: 120: void ETH_Write16(uint16_t);
+[; ;ethernet_driver.h: 121: void ETH_Write24(uint32_t data);
+[; ;ethernet_driver.h: 122: void ETH_Write32(uint32_t);
+[; ;ethernet_driver.h: 123: void ETH_Insert(char *,uint16_t, uint16_t);
+[; ;ethernet_driver.h: 124: error_msg ETH_Copy(uint16_t);
+[; ;ethernet_driver.h: 125: error_msg ETH_Send(void);
+[; ;ethernet_driver.h: 127: uint16_t ETH_TxComputeChecksum(uint16_t position, uint16_t len, uint16_t seed);
+[; ;ethernet_driver.h: 128: uint16_t ETH_RxComputeChecksum(uint16_t len, uint16_t seed);
+[; ;ethernet_driver.h: 130: void ETH_GetMAC(uint8_t *);
+[; ;ethernet_driver.h: 131: void ETH_SetMAC(uint8_t *);
+[; ;ethernet_driver.h: 132: uint16_t ETH_GetWritePtr();
+[; ;ethernet_driver.h: 133: void ETH_SaveRDPT(void);
+[; ;ethernet_driver.h: 134: void ETH_ResetReadPtr();
+[; ;ethernet_driver.h: 135: uint16_t ETH_GetReadPtr(void);
+[; ;ethernet_driver.h: 136: void ETH_SetReadPtr(uint16_t);
+[; ;ethernet_driver.h: 137: uint16_t ETH_GetStatusVectorByteCount(void);
+[; ;ethernet_driver.h: 138: void ETH_SetStatusVectorByteCount(uint16_t);
+[; ;ethernet_driver.h: 140: void ETH_ResetByteCount(void);
+[; ;ethernet_driver.h: 141: uint16_t ETH_GetByteCount(void);
+[; ;ethernet_driver.h: 143: uint16_t ETH_ReadSavedWRPT(void);
+[; ;ethernet_driver.h: 144: void ETH_SaveWRPT(void);
+[; ;ethernet_driver.h: 145: void ETH_SetRxByteCount(uint16_t count);
+[; ;ethernet_driver.h: 146: uint16_t ETH_GetRxByteCount();
+[; ;ethernet_driver.h: 148: bool ETH_CheckLinkUp();
+[; ;ethernet_driver.h: 150: void ETH_TxReset(void);
+[; ;ethernet_driver.h: 151: void ETH_MoveBackReadPtr(uint16_t offset);
+[; ;udpv4.h: 59: extern uint16_t destPort;
+[; ;udpv4.h: 60: extern udpHeader_t udpHeader;
+[; ;udpv4.h: 61: extern ipv4Header_t ipv4Header;
+[; ;udpv4.h: 81: error_msg UDP_Start(uint32_t destIP, uint16_t srcPort, uint16_t dstPort);
+[; ;udpv4.h: 82: error_msg UDP_Send();
+[; ;udpv4.h: 83: error_msg UDP_Receive(uint16_t udpcksm);
+[; ;udpv4.h: 84: void udp_test(int len);
+[; ;ip_database.h: 40: typedef struct {
+[; ;ip_database.h: 41: uint32_t ipv4_myAddress;
+[; ;ip_database.h: 42: uint32_t ipv4_dns[2];
+[; ;ip_database.h: 43: uint32_t ipv4_subnetMask;
+[; ;ip_database.h: 44: uint32_t ipv4_router;
+[; ;ip_database.h: 45: uint32_t ipv4_gateway;
+[; ;ip_database.h: 46: uint32_t ipv4_ntpAddress[2];
+[; ;ip_database.h: 47: uint32_t ipv4_tftpAddress;
+[; ;ip_database.h: 48: } ip_db_info_t;
+[; ;ip_database.h: 51: extern ip_db_info_t ip_database_info;
+[; ;ip_database.h: 72: void ipdb_init(void);
+[; ;ip_database.h: 73: uint32_t makeStrToIpv4Address(char *str);
+[; ;ip_database.h: 74: char *makeIpv4AddresstoStr(uint32_t addr);
+[; ;dns_client.c: 49: typedef struct
+[; ;dns_client.c: 50: {
+[; ;dns_client.c: 51: const char *dnsName;
+[; ;dns_client.c: 52: uint32_t ipAddress;
+[; ;dns_client.c: 53: uint32_t ttl;
+[; ;dns_client.c: 54: bool isValid;
+[; ;dns_client.c: 55: time_t birthSecond;
+[; ;dns_client.c: 56: } dns_map_t;
+"58 mcc_generated_files/TCPIPLibrary/dns_client.c
+[v _dnsXidValue `Cui ~T0 @X0 1 e ]
+[i _dnsXidValue
+-> -> 4660 `i `ui
+]
+[; ;dns_client.c: 58: const uint16_t dnsXidValue = 0x1234;
+"69
+[v _dnsCache `S35 ~T0 @X0 -> 8 `i e ]
+[; ;dns_client.c: 69: dns_map_t dnsCache[8];
+"71
+[v _DNS_Init `(v ~T0 @X0 1 ef ]
+"72
+{
+[; ;dns_client.c: 71: void DNS_Init(void)
+[; ;dns_client.c: 72: {
+[e :U _DNS_Init ]
+[f ]
+[; ;dns_client.c: 73: memset(dnsCache,0,sizeof(dnsCache));
+"73
+[e ( _memset (3 , , -> &U _dnsCache `*v -> 0 `i -> # _dnsCache `ui ]
+[; ;dns_client.c: 74: }
+"74
+[e :UE 36 ]
+}
+"76
+[v _DNS_Query `(v ~T0 @X0 1 ef1`*Cuc ]
+"77
+{
+[; ;dns_client.c: 76: void DNS_Query(const char *str)
+[; ;dns_client.c: 77: {
+[e :U _DNS_Query ]
+"76
+[v _str `*Cuc ~T0 @X0 1 r1 ]
+"77
+[f ]
+"78
+[v _lock `uc ~T0 @X0 1 a ]
+[; ;dns_client.c: 78: uint8_t lock = 0 , i;
+[e = _lock -> -> 0 `i `uc ]
+[v _i `uc ~T0 @X0 1 a ]
+"79
+[v _len_str `uc ~T0 @X0 1 a ]
+[; ;dns_client.c: 79: uint8_t len_str;
+[; ;dns_client.c: 80: len_str = strlen((char*)str);
+"80
+[e = _len_str -> ( _strlen (1 -> -> _str `*uc `*Cuc `uc ]
+"81
+[v _started `E516 ~T0 @X0 1 a ]
+"82
+[v _entryPointer `*S35 ~T0 @X0 1 a ]
+"83
+[v _oldestEntry `*S35 ~T0 @X0 1 a ]
+"84
+[v _oldestAge `l ~T0 @X0 1 a ]
+[; ;dns_client.c: 81: error_msg started;
+[; ;dns_client.c: 82: dns_map_t *entryPointer;
+[; ;dns_client.c: 83: dns_map_t *oldestEntry;
+[; ;dns_client.c: 84: time_t oldestAge;
+[; ;dns_client.c: 87: entryPointer = dnsCache;
+"87
+[e = _entryPointer &U _dnsCache ]
+[; ;dns_client.c: 88: oldestEntry = entryPointer;
+"88
+[e = _oldestEntry _entryPointer ]
+[; ;dns_client.c: 89: oldestAge = entryPointer->birthSecond;
+"89
+[e = _oldestAge . *U _entryPointer 4 ]
+[; ;dns_client.c: 92: for(unsigned x=0;x<(sizeof(dnsCache) / sizeof(*(dnsCache)));x++)
+"92
+{
+[v _x `ui ~T0 @X0 1 a ]
+[e = _x -> -> 0 `i `ui ]
+[e $ < _x / -> # _dnsCache `ui -> # *U &U _dnsCache `ui 38  ]
+[e $U 39  ]
+"93
+[e :U 38 ]
+[; ;dns_client.c: 93: {
+{
+[; ;dns_client.c: 94: if(entryPointer->birthSecond > oldestAge )
+"94
+[e $ ! > . *U _entryPointer 4 _oldestAge 41  ]
+[; ;dns_client.c: 95: {
+"95
+{
+[; ;dns_client.c: 96: oldestAge = entryPointer->birthSecond;
+"96
+[e = _oldestAge . *U _entryPointer 4 ]
+[; ;dns_client.c: 97: oldestEntry = entryPointer;
+"97
+[e = _oldestEntry _entryPointer ]
+"98
+}
+[e :U 41 ]
+[; ;dns_client.c: 98: }
+[; ;dns_client.c: 99: entryPointer ++;
+"99
+[e ++ _entryPointer * -> -> 1 `i `x -> -> # *U _entryPointer `i `x ]
+"100
+}
+"92
+[e ++ _x -> -> 1 `i `ui ]
+[e $ < _x / -> # _dnsCache `ui -> # *U &U _dnsCache `ui 38  ]
+[e :U 39 ]
+"100
+}
+[; ;dns_client.c: 100: }
+[; ;dns_client.c: 101: entryPointer = oldestEntry;
+"101
+[e = _entryPointer _oldestEntry ]
+[; ;dns_client.c: 103: started = UDP_Start((ip_database_info.ipv4_dns[0]),53,53);
+"103
+[e = _started ( _UDP_Start (3 , , *U + &U . _ip_database_info 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _ip_database_info 1 `ui `ux -> -> 53 `i `ui -> -> 53 `i `ui ]
+[; ;dns_client.c: 104: if(started==SUCCESS)
+"104
+[e $ ! == -> _started `i -> . `E516 1 `i 42  ]
+[; ;dns_client.c: 105: {
+"105
+{
+[; ;dns_client.c: 107: ETH_Write16(dnsXidValue);
+"107
+[e ( _ETH_Write16 (1 _dnsXidValue ]
+[; ;dns_client.c: 108: ETH_Write16(0x0100);
+"108
+[e ( _ETH_Write16 (1 -> -> 256 `i `ui ]
+[; ;dns_client.c: 109: ETH_Write16(0x0001);
+"109
+[e ( _ETH_Write16 (1 -> -> 1 `i `ui ]
+[; ;dns_client.c: 110: ETH_Write16(0x0000);
+"110
+[e ( _ETH_Write16 (1 -> -> 0 `i `ui ]
+[; ;dns_client.c: 111: ETH_Write16(0x0000);
+"111
+[e ( _ETH_Write16 (1 -> -> 0 `i `ui ]
+[; ;dns_client.c: 112: ETH_Write16(0x0000);
+"112
+[e ( _ETH_Write16 (1 -> -> 0 `i `ui ]
+[; ;dns_client.c: 115: for(i = 0 ; i <= len_str ; i++)
+"115
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 46  ]
+"116
+[e :U 43 ]
+[; ;dns_client.c: 116: {
+{
+[; ;dns_client.c: 117: if(str[i]=='.' || str[i]=='\0')
+"117
+[e $ ! || == -> *U + _str * -> _i `ux -> -> # *U _str `ui `ux `ui -> 46 `ui == -> *U + _str * -> _i `ux -> -> # *U _str `ui `ux `ui -> 0 `ui 47  ]
+[; ;dns_client.c: 118: {
+"118
+{
+[; ;dns_client.c: 120: ETH_Write8(i-lock);
+"120
+[e ( _ETH_Write8 (1 -> - -> _i `i -> _lock `i `uc ]
+[; ;dns_client.c: 121: for(lock;lock<i;lock++)
+"121
+{
+[e _lock ]
+[e $U 51  ]
+"122
+[e :U 48 ]
+[; ;dns_client.c: 122: {
+{
+[; ;dns_client.c: 124: ETH_Write8(str[lock]);
+"124
+[e ( _ETH_Write8 (1 *U + _str * -> _lock `ux -> -> # *U _str `ui `ux ]
+"125
+}
+"121
+[e ++ _lock -> -> 1 `i `uc ]
+[e :U 51 ]
+[e $ < -> _lock `i -> _i `i 48  ]
+[e :U 49 ]
+"125
+}
+[; ;dns_client.c: 125: }
+[; ;dns_client.c: 127: lock=i+1;
+"127
+[e = _lock -> + -> _i `i -> 1 `i `uc ]
+"128
+}
+[e :U 47 ]
+"129
+}
+"115
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 46 ]
+[e $ <= -> _i `i -> _len_str `i 43  ]
+[e :U 44 ]
+"129
+}
+[; ;dns_client.c: 128: }
+[; ;dns_client.c: 129: }
+[; ;dns_client.c: 130: ETH_Write8(0x00);
+"130
+[e ( _ETH_Write8 (1 -> -> 0 `i `uc ]
+[; ;dns_client.c: 132: ETH_Write16(0x0001);
+"132
+[e ( _ETH_Write16 (1 -> -> 1 `i `ui ]
+[; ;dns_client.c: 133: ETH_Write16(0x0001);
+"133
+[e ( _ETH_Write16 (1 -> -> 1 `i `ui ]
+[; ;dns_client.c: 135: UDP_Send();
+"135
+[e ( _UDP_Send ..  ]
+[; ;dns_client.c: 136: entryPointer->dnsName = str;
+"136
+[e = . *U _entryPointer 0 _str ]
+[; ;dns_client.c: 137: entryPointer->isValid = 0;
+"137
+[e = . *U _entryPointer 3 -> -> 0 `i `uc ]
+"138
+}
+[e :U 42 ]
+[; ;dns_client.c: 138: }
+[; ;dns_client.c: 140: }
+"140
+[e :UE 37 ]
+}
+"142
+[v _DNS_Handler `(v ~T0 @X0 1 ef1`i ]
+"143
+{
+[; ;dns_client.c: 142: void DNS_Handler(int length)
+[; ;dns_client.c: 143: {
+[e :U _DNS_Handler ]
+"142
+[v _length `i ~T0 @X0 1 r1 ]
+"143
+[f ]
+"144
+[v _v `ui ~T0 @X0 1 a ]
+"145
+[v _dnsR `uc ~T0 @X0 -> 255 `i a ]
+"146
+[v _answer `ui ~T0 @X0 1 a ]
+[v _authorityRR `ui ~T0 @X0 1 a ]
+"147
+[v _ipAddress `ul ~T0 @X0 1 a ]
+"148
+[v _ttl `ul ~T0 @X0 1 a ]
+"149
+[v _type `ui ~T0 @X0 1 a ]
+[v _dataLength `ui ~T0 @X0 1 a ]
+"151
+[v _entryPointer `*S35 ~T0 @X0 1 a ]
+"152
+[v _i `uc ~T0 @X0 1 a ]
+[v _nameLen `uc ~T0 @X0 1 a ]
+[v _lock `uc ~T0 @X0 1 a ]
+[; ;dns_client.c: 144: uint16_t v;
+[; ;dns_client.c: 145: unsigned char dnsR[255];
+[; ;dns_client.c: 146: uint16_t answer, authorityRR;
+[; ;dns_client.c: 147: uint32_t ipAddress;
+[; ;dns_client.c: 148: uint32_t ttl;
+[; ;dns_client.c: 149: uint16_t type, dataLength;
+[; ;dns_client.c: 151: dns_map_t *entryPointer;
+[; ;dns_client.c: 152: uint8_t i, nameLen,lock =0;
+[e = _lock -> -> 0 `i `uc ]
+[; ;dns_client.c: 154: entryPointer = dnsCache;
+"154
+[e = _entryPointer &U _dnsCache ]
+[; ;dns_client.c: 156: if(length > 12)
+"156
+[e $ ! > _length -> 12 `i 53  ]
+[; ;dns_client.c: 157: {
+"157
+{
+[; ;dns_client.c: 158: v = ETH_Read16();
+"158
+[e = _v ( _ETH_Read16 ..  ]
+[; ;dns_client.c: 159: if(v == dnsXidValue)
+"159
+[e $ ! == _v _dnsXidValue 54  ]
+[; ;dns_client.c: 160: {
+"160
+{
+[; ;dns_client.c: 161: ETH_Read32();
+"161
+[e ( _ETH_Read32 ..  ]
+[; ;dns_client.c: 162: answer = ETH_Read16();
+"162
+[e = _answer ( _ETH_Read16 ..  ]
+[; ;dns_client.c: 163: authorityRR = ETH_Read16();
+"163
+[e = _authorityRR ( _ETH_Read16 ..  ]
+[; ;dns_client.c: 164: ETH_Read16();
+"164
+[e ( _ETH_Read16 ..  ]
+[; ;dns_client.c: 165: length -= 12;
+"165
+[e =- _length -> 12 `i ]
+[; ;dns_client.c: 167: if(length > 0)
+"167
+[e $ ! > _length -> 0 `i 55  ]
+[; ;dns_client.c: 168: {
+"168
+{
+[; ;dns_client.c: 169: while((nameLen=ETH_Read8())!= 0x00)
+"169
+[e $U 56  ]
+[e :U 57 ]
+[; ;dns_client.c: 170: {
+"170
+{
+[; ;dns_client.c: 171: while(nameLen--)
+"171
+[e $U 59  ]
+[e :U 60 ]
+[; ;dns_client.c: 172: {
+"172
+{
+[; ;dns_client.c: 173: dnsR[lock] = ETH_Read8();
+"173
+[e = *U + &U _dnsR * -> _lock `ux -> -> # *U &U _dnsR `ui `ux ( _ETH_Read8 ..  ]
+[; ;dns_client.c: 174: lock++;
+"174
+[e ++ _lock -> -> 1 `i `uc ]
+"175
+}
+[e :U 59 ]
+"171
+[e $ != -> -- _nameLen -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 60  ]
+[e :U 61 ]
+[; ;dns_client.c: 175: }
+[; ;dns_client.c: 176: dnsR[lock] = '.';
+"176
+[e = *U + &U _dnsR * -> _lock `ux -> -> # *U &U _dnsR `ui `ux -> -> 46 `ui `uc ]
+[; ;dns_client.c: 177: lock++;
+"177
+[e ++ _lock -> -> 1 `i `uc ]
+"178
+}
+[e :U 56 ]
+"169
+[e $ != -> = _nameLen ( _ETH_Read8 ..  `i -> 0 `i 57  ]
+[e :U 58 ]
+[; ;dns_client.c: 178: }
+[; ;dns_client.c: 179: dnsR[lock-1] ='\0';
+"179
+[e = *U + &U _dnsR * -> -> - -> _lock `i -> 1 `i `ui `ux -> -> # *U &U _dnsR `ui `ux -> -> 0 `ui `uc ]
+[; ;dns_client.c: 181: ETH_Read32();
+"181
+[e ( _ETH_Read32 ..  ]
+[; ;dns_client.c: 182: length -= lock + 5;
+"182
+[e =- _length + -> _lock `i -> 5 `i ]
+[; ;dns_client.c: 184: while(answer)
+"184
+[e $U 62  ]
+[e :U 63 ]
+[; ;dns_client.c: 185: {
+"185
+{
+[; ;dns_client.c: 186: ETH_Read16();
+"186
+[e ( _ETH_Read16 ..  ]
+[; ;dns_client.c: 187: type = ETH_Read16();
+"187
+[e = _type ( _ETH_Read16 ..  ]
+[; ;dns_client.c: 188: ETH_Read16();
+"188
+[e ( _ETH_Read16 ..  ]
+[; ;dns_client.c: 189: ttl = ETH_Read32();
+"189
+[e = _ttl ( _ETH_Read32 ..  ]
+[; ;dns_client.c: 190: dataLength = ETH_Read16();
+"190
+[e = _dataLength ( _ETH_Read16 ..  ]
+[; ;dns_client.c: 191: if(type == 0x0001)
+"191
+[e $ ! == _type -> -> 1 `i `ui 65  ]
+[; ;dns_client.c: 192: {
+"192
+{
+[; ;dns_client.c: 193: ipAddress = ETH_Read32();
+"193
+[e = _ipAddress ( _ETH_Read32 ..  ]
+"194
+}
+[; ;dns_client.c: 194: }
+[e $U 66  ]
+"195
+[e :U 65 ]
+[; ;dns_client.c: 195: else
+[; ;dns_client.c: 196: {
+"196
+{
+[; ;dns_client.c: 197: while(dataLength--) ETH_Read8();
+"197
+[e $U 67  ]
+[e :U 68 ]
+[e ( _ETH_Read8 ..  ]
+[e :U 67 ]
+[e $ != -- _dataLength -> -> 1 `i `ui -> -> 0 `i `ui 68  ]
+[e :U 69 ]
+[; ;dns_client.c: 198: length -=14+dataLength;
+"198
+[e =- _length -> + -> -> 14 `i `ui _dataLength `i ]
+"199
+}
+[e :U 66 ]
+[; ;dns_client.c: 199: }
+[; ;dns_client.c: 205: answer--;
+"205
+[e -- _answer -> -> 1 `i `ui ]
+"206
+}
+[e :U 62 ]
+"184
+[e $ != _answer -> -> 0 `i `ui 63  ]
+[e :U 64 ]
+"207
+}
+[e :U 55 ]
+"208
+}
+[e :U 54 ]
+"210
+[v _dnsPtr `*S35 ~T0 @X0 1 a ]
+[; ;dns_client.c: 206: }
+[; ;dns_client.c: 207: }
+[; ;dns_client.c: 208: }
+[; ;dns_client.c: 210: dns_map_t *dnsPtr = dnsCache;
+[e = _dnsPtr &U _dnsCache ]
+[; ;dns_client.c: 211: for(uint8_t x=8; x !=0; x--)
+"211
+{
+[v _x `uc ~T0 @X0 1 a ]
+[e = _x -> -> 8 `i `uc ]
+[e $ != -> _x `i -> 0 `i 70  ]
+[e $U 71  ]
+"212
+[e :U 70 ]
+[; ;dns_client.c: 212: {
+{
+[; ;dns_client.c: 213: if(entryPointer->birthSecond < dnsPtr->birthSecond)
+"213
+[e $ ! < . *U _entryPointer 4 . *U _dnsPtr 4 73  ]
+[; ;dns_client.c: 214: {
+"214
+{
+[; ;dns_client.c: 215: entryPointer = dnsPtr;
+"215
+[e = _entryPointer _dnsPtr ]
+"216
+}
+[e :U 73 ]
+[; ;dns_client.c: 216: }
+[; ;dns_client.c: 218: dnsPtr++;
+"218
+[e ++ _dnsPtr * -> -> 1 `i `x -> -> # *U _dnsPtr `i `x ]
+"219
+}
+"211
+[e -- _x -> -> 1 `i `uc ]
+[e $ != -> _x `i -> 0 `i 70  ]
+[e :U 71 ]
+"219
+}
+[; ;dns_client.c: 219: }
+[; ;dns_client.c: 220: for(i = 0; i < (sizeof(dnsCache) / sizeof(*(dnsCache)));i++)
+"220
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `ui / -> # _dnsCache `ui -> # *U &U _dnsCache `ui 74  ]
+[e $U 75  ]
+"221
+[e :U 74 ]
+[; ;dns_client.c: 221: {
+{
+[; ;dns_client.c: 222: if(strcmp(entryPointer->dnsName, dnsR) == 0)
+"222
+[e $ ! == ( _strcmp (2 , . *U _entryPointer 0 -> &U _dnsR `*Cuc -> 0 `i 77  ]
+[; ;dns_client.c: 223: {
+"223
+{
+[; ;dns_client.c: 226: entryPointer->birthSecond = time(0);
+"226
+[e = . *U _entryPointer 4 ( _time (1 -> -> 0 `i `*l ]
+[; ;dns_client.c: 227: entryPointer->ipAddress = ipAddress;
+"227
+[e = . *U _entryPointer 1 _ipAddress ]
+[; ;dns_client.c: 228: entryPointer->ttl = ttl;
+"228
+[e = . *U _entryPointer 2 _ttl ]
+[; ;dns_client.c: 229: entryPointer->isValid = 1;
+"229
+[e = . *U _entryPointer 3 -> -> 1 `i `uc ]
+[; ;dns_client.c: 230: break;
+"230
+[e $U 75  ]
+"231
+}
+[e :U 77 ]
+[; ;dns_client.c: 231: }
+[; ;dns_client.c: 232: entryPointer ++;
+"232
+[e ++ _entryPointer * -> -> 1 `i `x -> -> # *U _entryPointer `i `x ]
+"233
+}
+"220
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `ui / -> # _dnsCache `ui -> # *U &U _dnsCache `ui 74  ]
+[e :U 75 ]
+"233
+}
+"234
+}
+[e :U 53 ]
+[; ;dns_client.c: 233: }
+[; ;dns_client.c: 234: }
+[; ;dns_client.c: 235: }
+"235
+[e :UE 52 ]
+}
+"237
+[v _DNS_Update `(v ~T0 @X0 1 ef ]
+"238
+{
+[; ;dns_client.c: 237: void DNS_Update(void)
+[; ;dns_client.c: 238: {
+[e :U _DNS_Update ]
+[f ]
+[; ;dns_client.c: 239: }
+"239
+[e :UE 78 ]
+}
+"241
+[v _DNS_Lookup `(ul ~T0 @X0 1 ef1`*Cuc ]
+"242
+{
+[; ;dns_client.c: 241: uint32_t DNS_Lookup(const char *dnsName)
+[; ;dns_client.c: 242: {
+[e :U _DNS_Lookup ]
+"241
+[v _dnsName `*Cuc ~T0 @X0 1 r1 ]
+"242
+[f ]
+"243
+[v _entryPointer `*S35 ~T0 @X0 1 a ]
+[; ;dns_client.c: 243: dns_map_t *entryPointer = dnsCache;
+[e = _entryPointer &U _dnsCache ]
+"244
+[v _x `uc ~T0 @X0 1 a ]
+[; ;dns_client.c: 244: uint8_t x;
+[; ;dns_client.c: 247: for(x=0;x<8;x++)
+"247
+{
+[e = _x -> -> 0 `i `uc ]
+[e $ < -> _x `i -> 8 `i 80  ]
+[e $U 81  ]
+"248
+[e :U 80 ]
+[; ;dns_client.c: 248: {
+{
+[; ;dns_client.c: 249: if(entryPointer->isValid)
+"249
+[e $ ! != -> . *U _entryPointer 3 `i -> -> -> 0 `i `uc `i 83  ]
+[; ;dns_client.c: 250: {
+"250
+{
+[; ;dns_client.c: 251: if(strcmp(entryPointer->dnsName, dnsName)==0)
+"251
+[e $ ! == ( _strcmp (2 , . *U _entryPointer 0 _dnsName -> 0 `i 84  ]
+[; ;dns_client.c: 252: {
+"252
+{
+"253
+[v _str `uc ~T0 @X0 -> 80 `i a ]
+[; ;dns_client.c: 253: char str[80];
+[; ;dns_client.c: 254: sprintf(str,"DNS Found %s in cache %ul",dnsName, entryPointer->ipAddress);
+"254
+[e ( _sprintf (1 , , (. , &U _str :s 1C _dnsName . *U _entryPointer 1 ]
+[; ;dns_client.c: 255: return entryPointer->ipAddress;
+"255
+[e ) . *U _entryPointer 1 ]
+[e $UE 79  ]
+"256
+}
+[e :U 84 ]
+"257
+}
+[e :U 83 ]
+[; ;dns_client.c: 256: }
+[; ;dns_client.c: 257: }
+[; ;dns_client.c: 258: entryPointer ++;
+"258
+[e ++ _entryPointer * -> -> 1 `i `x -> -> # *U _entryPointer `i `x ]
+"259
+}
+"247
+[e ++ _x -> -> 1 `i `uc ]
+[e $ < -> _x `i -> 8 `i 80  ]
+[e :U 81 ]
+"259
+}
+[; ;dns_client.c: 259: }
+[; ;dns_client.c: 260: DNS_Query(dnsName);
+"260
+[e ( _DNS_Query (1 _dnsName ]
+[; ;dns_client.c: 261: return 0;
+"261
+[e ) -> -> -> 0 `i `l `ul ]
+[e $UE 79  ]
+[; ;dns_client.c: 262: }
+"262
+[e :UE 79 ]
+}
+[p f _sprintf 8651776 ]
+[a 1C 68 78 83 32 70 111 117 110 100 32 37 115 32 105 110 32 99 97 99 104 101 32 37 117 108 0 ]
+

@@ -45,7 +45,7 @@ MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE TER
 
 /******************************** MAC Address *********************************/
 
-#define MAC_ADDRESS {0x02,0x00,0x00,0x00,0x00,0x01}
+#define MAC_ADDRESS {0x00,0x55,0x58,0x00,0x10,0x22}
 
 
 typedef union
