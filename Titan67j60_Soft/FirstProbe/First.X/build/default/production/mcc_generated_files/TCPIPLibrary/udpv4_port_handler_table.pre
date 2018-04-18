@@ -618,6 +618,55 @@ void NTP_Request(void);
 # 69
 void NTP_Handler(int length);
 
+# 12 "C:\Program Files\Microchip\xc8\v1.44\include\stdbool.h"
+typedef unsigned char bool;
+
+# 45 "mcc_generated_files/TCPIPLibrary/tftp.h"
+typedef enum
+{
+tftp_read = 1,
+tftp_write,
+tftp_data,
+tftp_ack,
+tftp_error,
+tftp_optack
+}tftp_client_state;
+
+typedef enum
+{
+TFTP_READ_REQUEST=0x0001,
+TFTP_WRITE_REQUEST,
+TFTP_DATA,
+TFTP_ACK,
+TFTP_ERROR,
+TFTP_OPTACK
+}tftp_opcode;
+
+typedef struct
+{
+uint32_t tftp_server_address;
+char tftp_block_size[5];
+char tftp_filename[32];
+}tftp_t;
+extern tftp_t tftp_msg;
+extern uint32_t tftp_last_address;
+extern volatile bool last_block;
+
+# 85
+void TFTP_Ack(uint8_t opcode);
+
+# 97
+error_msg TFTP_Read_Write_Request(uint8_t opcode);
+
+# 109
+void TFTP_Handler(int length);
+
+# 127
+uint8_t Process_TFTP_Data(uint32_t address, char *data, uint16_t length);
+
+# 145
+void TFTP_Configure(uint32_t tftp_server_address, char *tftp_filename, char *tftp_block_size);
+
 # 46 "mcc_generated_files/TCPIPLibrary/udpv4_port_handler_table.h"
 typedef struct
 {
@@ -630,13 +679,14 @@ typedef udp_handler_t * udp_table_iterator_t;
 udp_table_iterator_t udp_table_getIterator(void);
 udp_table_iterator_t udp_table_nextEntry(udp_table_iterator_t i);
 
-# 50 "mcc_generated_files/TCPIPLibrary/udpv4_port_handler_table.c"
+# 51 "mcc_generated_files/TCPIPLibrary/udpv4_port_handler_table.c"
 const udp_handler_t UDP_CallBackTable[] = {
 
-# 52
+# 53
 {53, DNS_Handler},
 {68, DHCP_Handler},
 {123, NTP_Handler},
+{65531, TFTP_Handler},
 
 };
 

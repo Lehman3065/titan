@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>	Котёл Титан </title>
+	<link rel="shortcut icon" href="Titan.ico"/> 
+	</head>
+<body>
+<form action="http://example.com/app/profile.php" method="post">
+<p>
+	<label for="BoilerName"> Котёл: 
+	</label><input type="text" name="BoilerName" size="50" maxlength="50" value="Котел Титан в загородном доме в с. Заборье" />
+	<br /><br />
+	<label for="Admin"> Администратор котла: 
+	</label><input type="text" name="Admin" value="Dmitry2018" />
+	<br /><br />
+	<label for="Server"> Адрес сервера управления: 
+	<br />
+	</label><input type="text" name="Server" size="50" maxlength="50" value="http://www.partner.ryazan.ru/Titan" />
+	<br /><br />
+	<label for="TmpType"> Устанавливать температуру: 
+	<select name="TmpType" size="1">
+	<option selected="selected" value="TmpRoom">в комнате</option>
+	<option value="TmpWater">в накопителе горячей воды</option>
+	</select>
+	<br /><br />
+	<label for="Tempr"> Требуемая температура: 
+	</label>
+	<input type="text" name="Tempr" size="4" maxlength="4" value="23,5" /> С<sup>о</sup>
+	<br /><br />
+	<input type="submit" value="Сохранить">
+</p>
+</form>
+</body>
+</html>

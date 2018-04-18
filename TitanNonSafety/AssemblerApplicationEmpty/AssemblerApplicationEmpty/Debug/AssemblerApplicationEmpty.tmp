@@ -1,0 +1,29 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.57</VERSION>
+ <DEVICE>"ATtiny20"</DEVICE>
+ <WORKING_DIR>C:\Work\Titan\TitanNonSafety\AssemblerApplicationEmpty\AssemblerApplicationEmpty\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Work\Titan\TitanNonSafety\AssemblerApplicationEmpty\AssemblerApplicationEmpty\AssemblerApplicationEmpty.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include\tn20def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Work\Titan\TitanNonSafety\AssemblerApplicationEmpty\AssemblerApplicationEmpty\Debug/AssemblerApplicationEmpty.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplicationEmpty.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplicationEmpty.map</FILE>
+  <FILE>AssemblerApplicationEmpty.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <power_reset><FILE>C:\Work\Titan\TitanNonSafety\AssemblerApplicationEmpty\AssemblerApplicationEmpty\AssemblerApplicationEmpty.asm</FILE><LINE>43</LINE></power_reset>
+  <HOT_reset><FILE>C:\Work\Titan\TitanNonSafety\AssemblerApplicationEmpty\AssemblerApplicationEmpty\AssemblerApplicationEmpty.asm</FILE><LINE>65</LINE></HOT_reset>
+  <COOL_reset><FILE>C:\Work\Titan\TitanNonSafety\AssemblerApplicationEmpty\AssemblerApplicationEmpty\AssemblerApplicationEmpty.asm</FILE><LINE>61</LINE></COOL_reset>
+  <LOOOP><FILE>C:\Work\Titan\TitanNonSafety\AssemblerApplicationEmpty\AssemblerApplicationEmpty\AssemblerApplicationEmpty.asm</FILE><LINE>102</LINE></LOOOP>
+ </LABELS>
+</ASSEMBLER_INFO>

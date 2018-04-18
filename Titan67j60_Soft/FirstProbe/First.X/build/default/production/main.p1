@@ -4899,22 +4899,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 79: (INTCONbits.PEIE = 1);
 "79
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;main.c: 84: while (1)
-"84
-[e :U 462 ]
-[; ;main.c: 85: {
-"85
+[; ;main.c: 83: for (;;)
+"83
 {
-[; ;main.c: 86: Network_Manage();
-"86
-[e ( _Network_Manage ..  ]
-"88
-}
-[e :U 461 ]
 "84
-[e $U 462  ]
-[e :U 463 ]
-[; ;main.c: 88: }
+[e :U 461 ]
+[; ;main.c: 84: {
+{
+[; ;main.c: 85: Network_Manage();
+"85
+[e ( _Network_Manage ..  ]
+"87
+}
+[; ;main.c: 87: }
+[e $U 461  ]
+[e :U 462 ]
+}
 [; ;main.c: 89: }
 "89
 [e :UE 460 ]

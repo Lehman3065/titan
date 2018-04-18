@@ -6745,11 +6745,11 @@ SYSTEM_Initialize();
 
 
 
-
-while (1)
+for (;;)
 {
 Network_Manage();
 
 }
+
 }
 

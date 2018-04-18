@@ -1,0 +1,28 @@
+Here is a short guide to get cocoOS compiled with the XC8 compiler:
+
+Tested with Microchip MPLAB XC8 C Compiler (PRO Mode) V1.34( the MPLAP X IDE version2.35)
+
+1. Download the latest source from http://www.cocoos.net
+
+2. Create a project that includes all the .c and .h files.
+
+3. Add #include <xc.h> and #include "cocoos.h" in projects main.c file.
+
+4. In os_defines.h:
+- Add #include <stdint.h> (This will be fixed in cocoOS 4.1.0)
+- Define the number of tasks, queues, semaphores and events. Set to 0 if not used to reduce RAM usage.
+- Comment the define for ROUND_ROBIN if priority based scheduling is desired.
+- Define the size of memory pointers (for MID-RANGE family: typedef uint16_t Mem_t)
+
+5. In os_port.h:
+- add #include <xc.h>
+- #define os_enable_interrupts() GIE=1
+- #define os_disable_interrupts() GIE=0
+
+6. Create HW timer ISR that calls os_tick() function. you decide the tick interval...
+
+7. In os_event.h & os_appAPI.h replace "waitAll, args..." to "waitAll, args"
+
+8. Create test programs as shown in http://www.cocoos.net/started.html & http://www.cocoos.net/tasks.html
+
+9. Compile and run!

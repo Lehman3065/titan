@@ -59,6 +59,8 @@ const char dhcpName[] = "Titan Boiler";
 // unfortunately, you must defined the macro below as sizeof does not work in the preprocessor
 #define DHCP_NAME_SIZE 12
 
+/******************************** TFTP Protocol Defines ********************************/
+#define SOURCEPORT_TFTP     65531
 
 /******************************** IP Protocol Defines ********************************/
 #define IPv4_TTL            64u

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+~inc:header.inc~
+	<head>
+	<title>	Котёл Титан </title>
+	<link rel="shortcut icon" href="Titan.ico"/> 
+	</head>
+<body>
+<form action="http://example.com/app/profile.php" method="post">
+<p>
+	<label for="BoilerName"> Котёл: 
+	</label><input type="text" name="BoilerName" size="50" maxlength="50" value=~BlrName~ />
+	<br /><br />
+	<label for="Admin"> Администратор котла: 
+	</label><input type="text" name="Admin" value=~AdmName~ />
+	<br /><br />
+	<label for="Server"> Адрес сервера управления: 
+	<br />
+	</label><input type="text" name="Server" size="50" maxlength="50" value=~ServURL~ />
+	<br /><br />
+	<label for="TmpType"> Устанавливать температуру: 
+	<select name="TmpType" size="1">
+	<option ~TmpRoomS~ value="TmpRoom">в комнате</option>
+	<option ~TmpWaterS~ value="TmpWater">в накопителе горячей воды</option>
+	</select>
+	<br /><br />
+	<label for="Tempr"> Требуемая температура: 
+	</label>
+	<input type="text" name="Tempr" size="4" maxlength="4" value=~TagTmp~ /> С<sup>о</sup>
+	<br /><br />
+	<input type="submit" value="Сохранить">
+</p>
+</form>
+</body>
+</html>

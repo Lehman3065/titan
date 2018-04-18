@@ -4,6 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="HTTP_L" projectFiles="true">
+        <itemPath>HTTP_L/http_l.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
@@ -34,6 +37,8 @@
         <itemPath>mcc_generated_files/TCPIPLibrary/dns_client.h</itemPath>
         <itemPath>mcc_generated_files/TCPIPLibrary/tcpv4.h</itemPath>
         <itemPath>mcc_generated_files/TCPIPLibrary/ntp.h</itemPath>
+        <itemPath>mcc_generated_files/TCPIPLibrary/tftp.h</itemPath>
+        <itemPath>mcc_generated_files/TCPIPLibrary/tftp_handler_table.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -43,6 +48,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="HTTP_L" projectFiles="true">
+        <itemPath>HTTP_L/http_l.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
@@ -71,6 +79,7 @@
         <itemPath>mcc_generated_files/TCPIPLibrary/dns_client.c</itemPath>
         <itemPath>mcc_generated_files/TCPIPLibrary/tcpv4.c</itemPath>
         <itemPath>mcc_generated_files/TCPIPLibrary/ntp.c</itemPath>
+        <itemPath>mcc_generated_files/TCPIPLibrary/tftp.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -81,6 +90,11 @@
       <itemPath>MyConfig.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>CocoOs</Elem>
+    <Elem>UPnP</Elem>
+    <Elem>HTTP_L</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -122,7 +136,7 @@
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
         <property key="disable-optimizations" value="false"/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories" value="CocoOs"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>
@@ -193,7 +207,6 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

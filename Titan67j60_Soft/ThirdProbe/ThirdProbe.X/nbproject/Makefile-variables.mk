@@ -1,0 +1,13 @@
+#
+# Generated - do not edit!
+#
+# NOCDDL
+#
+CND_BASEDIR=`pwd`
+# C18_18F67J60 configuration
+CND_ARTIFACT_DIR_C18_18F67J60=dist/C18_18F67J60/production
+CND_ARTIFACT_NAME_C18_18F67J60=ThirdProbe.X.production.hex
+CND_ARTIFACT_PATH_C18_18F67J60=dist/C18_18F67J60/production/ThirdProbe.X.production.hex
+CND_PACKAGE_DIR_C18_18F67J60=${CND_DISTDIR}/C18_18F67J60/package
+CND_PACKAGE_NAME_C18_18F67J60=thirdprobe.x.tar
+CND_PACKAGE_PATH_C18_18F67J60=${CND_DISTDIR}/C18_18F67J60/package/thirdprobe.x.tar
