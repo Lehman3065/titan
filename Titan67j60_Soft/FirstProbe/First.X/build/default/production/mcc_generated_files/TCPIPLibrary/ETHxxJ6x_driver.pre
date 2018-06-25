@@ -6893,13 +6893,6 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 # 319
 void ADC_TemperatureAcquisitionDelay(void);
 
-# 58 "mcc_generated_files/TCPIPLibrary/../TCPIPLibrary/network.h"
-void Network_Init(void);
-void Network_Read(void);
-void Network_Manage(void);
-void Network_WaitForLink(void);
-void timersInit();
-
 # 75 "mcc_generated_files/TCPIPLibrary/../mcc.h"
 void SYSTEM_Initialize(void);
 

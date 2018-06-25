@@ -56,7 +56,7 @@
 #include "tmr0.h"
 #include "eccp1.h"
 #include "adc.h"
-#include "TCPIPLibrary/network.h"
+// #include "TCPIPLibrary/network.h"
 
 #define _XTAL_FREQ  41666666.6667
 

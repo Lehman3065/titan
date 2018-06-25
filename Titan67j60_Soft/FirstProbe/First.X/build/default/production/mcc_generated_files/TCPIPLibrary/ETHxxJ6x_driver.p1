@@ -99,18 +99,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 "636
 [v _ERXFCON `Vuc ~T0 @X0 0 e@3800 ]
 "230 mcc_generated_files/TCPIPLibrary/ETHxxJ6x_driver.c
-[c E5175 0 1 16 17 18 19 20 .. ]
-[n E5175 . PHCON1 PHSTAT1 PHCON2 PHSTAT2 PHIE PHIR PHLCON  ]
-[c E5184 -3 -2 -1 0 .. ]
-[n E5184 . READ_FAIL WRITE_FAIL BUSY_TIMEOUT NOERROR  ]
+[c E5166 0 1 16 17 18 19 20 .. ]
+[n E5166 . PHCON1 PHSTAT1 PHCON2 PHSTAT2 PHIE PHIR PHLCON  ]
+[c E5175 -3 -2 -1 0 .. ]
+[n E5175 . READ_FAIL WRITE_FAIL BUSY_TIMEOUT NOERROR  ]
 "126
-[v _PHY_Write `(E5184 ~T0 @X0 0 ef2`E5175`ui ]
+[v _PHY_Write `(E5175 ~T0 @X0 0 ef2`E5166`ui ]
 "148 mcc_generated_files/TCPIPLibrary/ethernet_driver.h
 [v _ETH_CheckLinkUp `(uc ~T0 @X0 0 ef ]
 "936 C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h
 [v _EIE `Vuc ~T0 @X0 0 e@3835 ]
 "127 mcc_generated_files/TCPIPLibrary/ETHxxJ6x_driver.c
-[v _PHY_Read `(l ~T0 @X0 0 ef1`E5175 ]
+[v _PHY_Read `(l ~T0 @X0 0 ef1`E5166 ]
 "5838 C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h
 [s S212 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S212 . CCP2IF TMR3IF . BCL1IF . ETHIF CMIF OSCFIF ]
@@ -5162,11 +5162,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 261: adc_result_t ADC_GetConversionResult(void);
 [; ;adc.h: 291: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;adc.h: 319: void ADC_TemperatureAcquisitionDelay(void);
-[; ;network.h: 58: void Network_Init(void);
-[; ;network.h: 59: void Network_Read(void);
-[; ;network.h: 60: void Network_Manage(void);
-[; ;network.h: 61: void Network_WaitForLink(void);
-[; ;network.h: 62: void timersInit();
 [; ;mcc.h: 75: void SYSTEM_Initialize(void);
 [; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
 "53 mcc_generated_files/TCPIPLibrary/ETHxxJ6x_driver.c
@@ -5192,9 +5187,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ETHxxJ6x_driver.c: 104: void ETH_PacketListReset(void);
 [; ;ETHxxJ6x_driver.c: 105: uint16_t ETH_NewPacket(void);
 [; ;ETHxxJ6x_driver.c: 106: void ETH_RemovePacket(uint16_t packetHandle);
-[v F5168 `(uc ~T0 @X0 1 tf ]
+[v F5159 `(uc ~T0 @X0 1 tf ]
 "108
-[v _ETH_EdataRead `TF5168 ~T0 @X0 1 e ]
+[v _ETH_EdataRead `TF5159 ~T0 @X0 1 e ]
 "109
 {
 [; ;ETHxxJ6x_driver.c: 108: inline uint8_t ETH_EdataRead()
@@ -5212,9 +5207,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "112
 [e :UE 466 ]
 }
-[v F5172 `(v ~T0 @X0 1 tf1`uc ]
+[v F5163 `(v ~T0 @X0 1 tf1`uc ]
 "114
-[v _ETH_EdataWrite `TF5172 ~T0 @X0 1 e ]
+[v _ETH_EdataWrite `TF5163 ~T0 @X0 1 e ]
 "115
 {
 [; ;ETHxxJ6x_driver.c: 114: inline void ETH_EdataWrite(uint8_t d)
@@ -5420,13 +5415,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ECON1 -> -> 4 `i `uc ]
 [; ;ETHxxJ6x_driver.c: 230: PHY_Write(PHCON1, phycon1_value);
 "230
-[e ( _PHY_Write (2 , . `E5175 0 _phycon1_value ]
+[e ( _PHY_Write (2 , . `E5166 0 _phycon1_value ]
 [; ;ETHxxJ6x_driver.c: 231: PHY_Write(PHCON2, 0x0110);
 "231
-[e ( _PHY_Write (2 , . `E5175 2 -> -> 272 `i `ui ]
+[e ( _PHY_Write (2 , . `E5166 2 -> -> 272 `i `ui ]
 [; ;ETHxxJ6x_driver.c: 232: PHY_Write(PHLCON, 0b01110101001010);
 "232
-[e ( _PHY_Write (2 , . `E5175 6 -> -> 7498 `i `ui ]
+[e ( _PHY_Write (2 , . `E5166 6 -> -> 7498 `i `ui ]
 [; ;ETHxxJ6x_driver.c: 235: ETH_CheckLinkUp();
 "235
 [e ( _ETH_CheckLinkUp ..  ]
@@ -5435,7 +5430,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _EIE -> -> 89 `i `uc ]
 [; ;ETHxxJ6x_driver.c: 239: PHY_Write(PHIE,0x0012);
 "239
-[e ( _PHY_Write (2 , . `E5175 4 -> -> 18 `i `ui ]
+[e ( _PHY_Write (2 , . `E5166 4 -> -> 18 `i `ui ]
 [; ;ETHxxJ6x_driver.c: 241: }
 "241
 [e :UE 468 ]
@@ -5453,7 +5448,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ETHxxJ6x_driver.c: 245: uint32_t value;
 [; ;ETHxxJ6x_driver.c: 247: value = PHY_Read(PHSTAT2);
 "247
-[e = _value -> ( _PHY_Read (1 . `E5175 3 `ul ]
+[e = _value -> ( _PHY_Read (1 . `E5166 3 `ul ]
 [; ;ETHxxJ6x_driver.c: 248: if(value & 0x0400)
 "248
 [e $ ! != & _value -> -> -> 1024 `i `l `ul -> -> 0 `i `ul 482  ]
@@ -5511,7 +5506,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ETHxxJ6x_driver.c: 270: PHY_Read(PHIR);
 "270
-[e ( _PHY_Read (1 . `E5175 5 ]
+[e ( _PHY_Read (1 . `E5166 5 ]
 [; ;ETHxxJ6x_driver.c: 272: ethData.linkChange = 1;
 "272
 [e = . _ethData 4 -> -> 1 `i `uc ]
@@ -5686,9 +5681,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "345
 [e :UE 495 ]
 }
-[v F5217 `(E5184 ~T0 @X0 1 tf ]
+[v F5208 `(E5175 ~T0 @X0 1 tf ]
 "351
-[v _PHY_WaitForBusy `TF5217 ~T0 @X0 1 e ]
+[v _PHY_WaitForBusy `TF5208 ~T0 @X0 1 e ]
 "352
 {
 [; ;ETHxxJ6x_driver.c: 351: inline phyError_t PHY_WaitForBusy(void)
@@ -5696,9 +5691,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _PHY_WaitForBusy ]
 [f ]
 "353
-[v _ret `E5184 ~T0 @X0 1 a ]
+[v _ret `E5175 ~T0 @X0 1 a ]
 [; ;ETHxxJ6x_driver.c: 353: phyError_t ret = NOERROR;
-[e = _ret . `E5184 3 ]
+[e = _ret . `E5175 3 ]
 "354
 [v _timeout `uc ~T0 @X0 1 a ]
 [; ;ETHxxJ6x_driver.c: 354: uint8_t timeout;
@@ -5728,7 +5723,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ETHxxJ6x_driver.c: 360: if(timeout == 0) ret = BUSY_TIMEOUT;
 "360
 [e $ ! == -> _timeout `i -> 0 `i 503  ]
-[e = _ret . `E5184 2 ]
+[e = _ret . `E5175 2 ]
 [e :U 503 ]
 [; ;ETHxxJ6x_driver.c: 361: return ret;
 "361
@@ -5739,14 +5734,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 496 ]
 }
 "370
-[v _PHY_Write `(E5184 ~T0 @X0 1 ef2`E5175`ui ]
+[v _PHY_Write `(E5175 ~T0 @X0 1 ef2`E5166`ui ]
 "371
 {
 [; ;ETHxxJ6x_driver.c: 370: phyError_t PHY_Write(phyRegister_t reg, uint16_t data)
 [; ;ETHxxJ6x_driver.c: 371: {
 [e :U _PHY_Write ]
 "370
-[v _reg `E5175 ~T0 @X0 1 r1 ]
+[v _reg `E5166 ~T0 @X0 1 r1 ]
 [v _data `ui ~T0 @X0 1 r2 ]
 "371
 [f ]
@@ -5780,23 +5775,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 504 ]
 }
 "403
-[v _PHY_Read `(l ~T0 @X0 1 ef1`E5175 ]
+[v _PHY_Read `(l ~T0 @X0 1 ef1`E5166 ]
 "404
 {
 [; ;ETHxxJ6x_driver.c: 403: int32_t PHY_Read(phyRegister_t reg)
 [; ;ETHxxJ6x_driver.c: 404: {
 [e :U _PHY_Read ]
 "403
-[v _reg `E5175 ~T0 @X0 1 r1 ]
+[v _reg `E5166 ~T0 @X0 1 r1 ]
 "404
 [f ]
 "405
 [v _ret `l ~T0 @X0 1 a ]
 [; ;ETHxxJ6x_driver.c: 405: int32_t ret = NOERROR;
-[e = _ret -> . `E5184 3 `l ]
+[e = _ret -> . `E5175 3 `l ]
 [; ;ETHxxJ6x_driver.c: 406: if(PHY_WaitForBusy() == NOERROR)
 "406
-[e $ ! == -> ( _PHY_WaitForBusy ..  `i -> . `E5184 3 `i 506  ]
+[e $ ! == -> ( _PHY_WaitForBusy ..  `i -> . `E5175 3 `i 506  ]
 [; ;ETHxxJ6x_driver.c: 407: {
 "407
 {
@@ -5815,13 +5810,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( ___nop ..  ]
 [; ;ETHxxJ6x_driver.c: 412: if(PHY_WaitForBusy() == BUSY_TIMEOUT)
 "412
-[e $ ! == -> ( _PHY_WaitForBusy ..  `i -> . `E5184 2 `i 507  ]
+[e $ ! == -> ( _PHY_WaitForBusy ..  `i -> . `E5175 2 `i 507  ]
 [; ;ETHxxJ6x_driver.c: 413: {
 "413
 {
 [; ;ETHxxJ6x_driver.c: 414: ret = READ_FAIL;
 "414
-[e = _ret -> . `E5184 0 `l ]
+[e = _ret -> . `E5175 0 `l ]
 "415
 }
 [; ;ETHxxJ6x_driver.c: 415: }
@@ -5854,7 +5849,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ETHxxJ6x_driver.c: 424: ret = BUSY_TIMEOUT;
 "424
-[e = _ret -> . `E5184 2 `l ]
+[e = _ret -> . `E5175 2 `l ]
 "425
 }
 [e :U 509 ]

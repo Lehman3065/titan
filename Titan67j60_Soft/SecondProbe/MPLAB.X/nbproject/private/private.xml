@@ -7,8 +7,6 @@
             <file>file:/C:/Work/Titan/Titan67j60_Soft/SecondProbe/Configs/HWP%20Titan_ETH67.h</file>
             <file>file:/C:/Work/Titan/Titan67j60_Soft/SecondProbe/Configs/TCPIP%20Titan_ETH67.h</file>
             <file>file:/C:/Work/Titan/Titan67j60_Soft/SecondProbe/CustomHTTPApp.c</file>
-            <file>file:/C:/Work/Titan/Microchip/Include/TCPIP%20Stack/StackTsk.h</file>
-            <file>file:/C:/Work/Titan/Microchip/Include/TCPIP%20Stack/MPFS2.h</file>
             <file>file:/C:/Work/Titan/Microchip/TCPIP%20Stack/MPFS2.c</file>
             <file>file:/C:/Work/Titan/Titan67j60_Soft/SecondProbe/LehTick.c</file>
             <file>file:/C:/Work/Titan/Titan67j60_Soft/SecondProbe/LehTick.h</file>
@@ -16,7 +14,6 @@
             <file>file:/C:/Work/Titan/Microchip/TCPIP%20Stack/StackTsk.c</file>
             <file>file:/C:/Work/Titan/Microchip/TCPIP%20Stack/Tick.c</file>
             <file>file:/C:/Work/Titan/Titan67j60_Soft/SecondProbe/MainTitan.h</file>
-            <file>file:/C:/Work/Titan/Microchip/Include/GenericTypeDefs.h</file>
             <file>file:/C:/Work/Titan/Microchip/TCPIP%20Stack/Delay.c</file>
         </group>
     </open-files>

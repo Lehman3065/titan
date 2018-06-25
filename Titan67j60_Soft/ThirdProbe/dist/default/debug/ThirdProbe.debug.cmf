@@ -1,0 +1,787 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/debug\startup.obj
+init CODE 0 BC BC 4 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 0 1FFF8 1FFF8 6 1
+$dist/default/debug\ThirdProbe.debug.obj
+cinit CODE 0 1494 1494 12 1
+text0 CODE 0 1472 1472 22 1
+text1 CODE 0 13A0 13A0 3A 1
+text2 CODE 0 12F2 12F2 66 1
+text3 CODE 0 1410 1410 34 1
+text4 CODE 0 14A6 14A6 A 1
+text5 CODE 0 14B0 14B0 8 1
+text7 CODE 0 1358 1358 48 1
+text8 CODE 0 13DA 13DA 36 1
+text9 CODE 0 14B8 14B8 8 1
+nvCOMRAM COMRAM 1 53 53 1 1
+text10 CODE 0 100A 100A 11C 1
+text11 CODE 0 1286 1286 6C 1
+text12 CODE 0 11EE 11EE 98 1
+text13 CODE 0 1444 1444 2E 1
+text14 CODE 0 1126 1126 C8 1
+text15 CODE 0 14C0 14C0 8 1
+cstackCOMRAM COMRAM 1 31 31 22 1
+cstackBANK0 BANK0 1 A4 A4 2 1
+temp COMRAM 1 54 54 1 1
+bssBANK0 BANK0 1 60 60 44 1
+intcode CODE 0 8 8 B4 1
+smallconst SMALLCONST 0 1000 1000 A 1
+bssCOMRAM COMRAM 1 1 1 30 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM A6-E7F 1
+RAM F00-F5F 1
+SFR E80-EFF 1
+SFR F60-FFF 1
+BANK0 A6-FF 1
+BANK1 100-1FF 1
+BANK2 200-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+BANK6 600-6FF 1
+BANK7 700-7FF 1
+BANK8 800-8FF 1
+BANK9 900-9FF 1
+CONST 4-7 1
+CONST C0-FFF 1
+CONST 14C8-1FFF7 1
+STACK A6-E7F 1
+SMALLCONST 14C8-1FFF7 1
+CODE 4-7 1
+CODE C0-FFF 1
+CODE 14C8-1FFF7 1
+BANK10 A00-AFF 1
+BANK11 B00-BFF 1
+BANK12 C00-CFF 1
+BANK13 D00-DFF 1
+BANK14 E00-E7F 1
+BANK15 F00-F5F 1
+BIGRAM 55-5F 1
+BIGRAM A6-E7F 1
+BIGRAM F00-F5F 1
+COMRAM 55-5F 1
+MEDIUMCONST 14C8-FFFF 1
+MEDIUMCONST 11000-1FFF7 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/debug\startup.obj
+0 text CODE >68:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\startup.as
+0 text CODE >69:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\startup.as
+0 text CODE >70:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\startup.as
+0 text CODE >72:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\startup.as
+BC init CODE >137:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\startup.as
+BC init CODE >139:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\startup.as
+0 reset_vec CODE >113:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\startup.as
+0 reset_vec CODE >118:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\startup.as
+$dist/default/debug\ThirdProbe.debug.obj
+8 intcode CODE >90:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+8 intcode CODE >99:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+52 intcode CODE >101:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+56 intcode CODE >102:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+5A intcode CODE >103:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+5E intcode CODE >104:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+60 intcode CODE >105:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+64 intcode CODE >106:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+68 intcode CODE >107:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+6A intcode CODE >108:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+6C intcode CODE >109:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+70 intcode CODE >111:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+70 intcode CODE >115:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14C0 text15 CODE >148:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+14C0 text15 CODE >149:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+14C2 text15 CODE >150:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+14C6 text15 CODE >151:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1126 text14 CODE >36:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1126 text14 CODE >41:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1128 text14 CODE >43:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+112A text14 CODE >44:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+112E text14 CODE >46:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1136 text14 CODE >49:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1138 text14 CODE >50:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+113A text14 CODE >51:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+113C text14 CODE >52:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+113E text14 CODE >53:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1140 text14 CODE >54:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1142 text14 CODE >55:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1144 text14 CODE >56:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1146 text14 CODE >57:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1148 text14 CODE >58:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+114A text14 CODE >59:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+114C text14 CODE >60:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+114E text14 CODE >63:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+115E text14 CODE >68:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1170 text14 CODE >69:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1174 text14 CODE >70:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1176 text14 CODE >71:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1176 text14 CODE >73:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1178 text14 CODE >74:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+117A text14 CODE >75:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+117C text14 CODE >76:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+117E text14 CODE >78:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1184 text14 CODE >80:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1186 text14 CODE >81:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1188 text14 CODE >82:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+118A text14 CODE >83:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+118C text14 CODE >84:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+118E text14 CODE >85:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1190 text14 CODE >87:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1194 text14 CODE >88:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1198 text14 CODE >89:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11A0 text14 CODE >90:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11A8 text14 CODE >91:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11AA text14 CODE >92:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11B4 text14 CODE >93:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11B6 text14 CODE >94:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11B8 text14 CODE >95:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11C0 text14 CODE >96:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11C4 text14 CODE >97:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11C6 text14 CODE >98:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11CC text14 CODE >99:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11CC text14 CODE >100:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11CE text14 CODE >101:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11D0 text14 CODE >102:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11D6 text14 CODE >103:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11DA text14 CODE >104:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11DE text14 CODE >105:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11E2 text14 CODE >106:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11E6 text14 CODE >107:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11EA text14 CODE >108:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+11EC text14 CODE >110:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1444 text13 CODE >211:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1444 text13 CODE >213:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+144E text13 CODE >214:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1458 text13 CODE >215:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1470 text13 CODE >217:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+11EE text12 CODE >194:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+11EE text12 CODE >198:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1202 text12 CODE >199:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1208 text12 CODE >200:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1218 text12 CODE >201:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+121A text12 CODE >202:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+121A text12 CODE >203:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+122A text12 CODE >204:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1246 text12 CODE >205:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1256 text12 CODE >206:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+125E text12 CODE >207:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1286 text11 CODE >219:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1286 text11 CODE >224:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+128A text11 CODE >225:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1296 text11 CODE >226:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1298 text11 CODE >227:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+129C text11 CODE >228:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+129E text11 CODE >229:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12A0 text11 CODE >230:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12A0 text11 CODE >231:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12A2 text11 CODE >232:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12A2 text11 CODE >233:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12A8 text11 CODE >234:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12AA text11 CODE >225:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12AE text11 CODE >238:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12B6 text11 CODE >239:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12BA text11 CODE >240:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12C4 text11 CODE >244:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12C8 text11 CODE >245:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12CE text11 CODE >246:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12D0 text11 CODE >247:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12D4 text11 CODE >248:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12D6 text11 CODE >249:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12D8 text11 CODE >250:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12D8 text11 CODE >251:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12DA text11 CODE >252:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12DA text11 CODE >253:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12E0 text11 CODE >254:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12E2 text11 CODE >245:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12EA text11 CODE >257:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12EC text11 CODE >259:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12EE text11 CODE >261:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12F0 text11 CODE >262:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+100A text10 CODE >123:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+100A text10 CODE >128:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+100E text10 CODE >129:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1014 text10 CODE >130:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+101A text10 CODE >132:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1020 text10 CODE >135:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1026 text10 CODE >136:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+103E text10 CODE >138:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1048 text10 CODE >139:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+104E text10 CODE >147:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1050 text10 CODE >148:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1052 text10 CODE >151:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+106A text10 CODE >152:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+106E text10 CODE >153:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1082 text10 CODE >154:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1082 text10 CODE >158:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1088 text10 CODE >159:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1098 text10 CODE >160:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+109A text10 CODE >161:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10A0 text10 CODE >162:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10B0 text10 CODE >163:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10B0 text10 CODE >165:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10B2 text10 CODE >166:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10BC text10 CODE >167:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10C2 text10 CODE >169:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10C8 text10 CODE >170:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10CA text10 CODE >171:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10CC text10 CODE >172:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10CC text10 CODE >173:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10CE text10 CODE >174:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10CE text10 CODE >176:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10D8 text10 CODE >177:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10E2 text10 CODE >178:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10EC text10 CODE >179:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+10F0 text10 CODE >181:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1112 text10 CODE >183:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+111A text10 CODE >184:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+111C text10 CODE >185:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+111E text10 CODE >186:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+111E text10 CODE >187:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1120 text10 CODE >188:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1120 text10 CODE >189:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14B8 text9 CODE >117:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14B8 text9 CODE >118:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14BC text9 CODE >119:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14BE text9 CODE >120:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13DA text8 CODE >264:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13DA text8 CODE >266:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13E6 text8 CODE >267:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13EA text8 CODE >268:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13EC text8 CODE >269:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13F6 text8 CODE >270:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13FA text8 CODE >271:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13FC text8 CODE >272:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13FE text8 CODE >273:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1408 text8 CODE >277:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+140C text8 CODE >278:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+140E text8 CODE >279:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1358 text7 CODE >125:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1358 text7 CODE >127:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+135A text7 CODE >129:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+135E text7 CODE >130:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1362 text7 CODE >131:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1370 text7 CODE >132:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1378 text7 CODE >133:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+137A text7 CODE >134:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+137A text7 CODE >135:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1386 text7 CODE >136:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1386 text7 CODE >137:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+138E text7 CODE >138:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1392 text7 CODE >139:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1394 text7 CODE >140:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1394 text7 CODE >141:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1398 text7 CODE >142:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1398 text7 CODE >144:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+139A text7 CODE >145:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+139E text7 CODE >146:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+14B0 text5 CODE >85:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14B0 text5 CODE >87:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14B2 text5 CODE >88:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14B4 text5 CODE >89:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14B6 text5 CODE >90:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14A6 text4 CODE >92:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14A6 text4 CODE >94:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14AA text4 CODE >96:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+14AE text4 CODE >97:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1410 text3 CODE >9:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1410 text3 CODE >12:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1414 text3 CODE >15:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1416 text3 CODE >18:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+141A text3 CODE >19:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+141C text3 CODE >20:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+141E text3 CODE >21:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1420 text3 CODE >22:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1424 text3 CODE >25:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1428 text3 CODE >27:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+142A text3 CODE >28:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+142C text3 CODE >29:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1430 text3 CODE >30:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1434 text3 CODE >31:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1440 text3 CODE >32:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+1442 text3 CODE >34:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\timers.c
+12F2 text2 CODE >33:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12F2 text2 CODE >34:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12F4 text2 CODE >35:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12F8 text2 CODE >36:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12FC text2 CODE >38:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+12FE text2 CODE >42:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1302 text2 CODE >43:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1306 text2 CODE >44:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+130A text2 CODE >45:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+130E text2 CODE >46:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1312 text2 CODE >47:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1316 text2 CODE >48:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+131A text2 CODE >49:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+131C text2 CODE >50:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1320 text2 CODE >51:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1324 text2 CODE >53:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1326 text2 CODE >57:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+132A text2 CODE >58:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+132E text2 CODE >59:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1332 text2 CODE >60:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13A0 text1 CODE >63:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13A0 text1 CODE >64:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13A4 text1 CODE >65:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13A8 text1 CODE >66:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13AC text1 CODE >67:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13B0 text1 CODE >68:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13B4 text1 CODE >69:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13B8 text1 CODE >70:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13BC text1 CODE >72:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13C0 text1 CODE >76:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13C4 text1 CODE >78:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13C8 text1 CODE >79:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13D0 text1 CODE >81:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13D4 text1 CODE >82:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+13D8 text1 CODE >83:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\titan.c
+1472 text0 CODE >12:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+1472 text0 CODE >14:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+1476 text0 CODE >15:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+1484 text0 CODE >16:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+1488 text0 CODE >17:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+148A text0 CODE >18:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+148C text0 CODE >19:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+148C text0 CODE >20:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+1490 text0 CODE >21:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+1490 text0 CODE >22:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+1492 text0 CODE >21:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\main.c
+1494 cinit CODE >1829:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+1494 cinit CODE >1831:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+1494 cinit CODE >1834:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+1494 cinit CODE >1914:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+1494 cinit CODE >1916:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+1496 cinit CODE >1917:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+1498 cinit CODE >1919:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+149A cinit CODE >1920:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+149C cinit CODE >1921:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+149E cinit CODE >1922:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+14A0 cinit CODE >1923:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+14A2 cinit CODE >1924:C:\Work\Titan\Titan67j60_Soft\ThirdProbe\dist/default/debug\ThirdProbe.debug.as
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/debug\ThirdProbe.debug.obj
+__Hspace_0 1FFFE 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hspace_1 A6 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hspace_2 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__end_of_ADC_Input 1009 0 SMALLCONST 0 smallconst dist/default/debug\ThirdProbe.debug.obj
+__end_of_WriteRelayRegister 12F2 0 CODE 0 text11 dist/default/debug\ThirdProbe.debug.obj
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/debug\ThirdProbe.debug.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/debug\startup.obj
+_ResetSource 53 0 COMRAM 1 nvCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__end_of_INTERRUPT_Initialize 14B8 0 CODE 0 text5 dist/default/debug\ThirdProbe.debug.obj
+LowPassFilterADC@pFiltrValue 31 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Lsmallconst 1000 0 SMALLCONST 0 smallconst dist/default/debug\ThirdProbe.debug.obj
+_LATA F89 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_LATB F8A 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_LATC F8B 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_LATD F8C 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_LATE F8D 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_LATF F8E 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_LATG F8F 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_RCON FD0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+___sp 0 0 STACK 2 stack dist/default/debug\startup.obj
+_main 1472 0 CODE 0 text0 dist/default/debug\ThirdProbe.debug.obj
+btemp 54 0 COMRAM 1 temp dist/default/debug\ThirdProbe.debug.obj
+start BC 0 CODE 0 init dist/default/debug\startup.obj
+_ADC_500uA 84 0 BANK0 1 bssBANK0 dist/default/debug\ThirdProbe.debug.obj
+__size_of_main 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_ADC_Input 1001 0 SMALLCONST 0 smallconst dist/default/debug\ThirdProbe.debug.obj
+__CFG_ETHLED$ON 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hpowerup BC 0 CODE 0 powerup dist/default/debug\ThirdProbe.debug.obj
+_WriteRelayRegister 1286 0 CODE 0 text11 dist/default/debug\ThirdProbe.debug.obj
+_Count_1_ms 30 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__accesstop 60 0 ABS 0 - dist/default/debug\startup.obj
+intlevel0 0 0 CODE 0 text dist/default/debug\startup.obj
+intlevel1 0 0 CODE 0 text dist/default/debug\startup.obj
+intlevel2 0 0 CODE 0 text dist/default/debug\startup.obj
+intlevel3 0 0 CODE 0 text dist/default/debug\startup.obj
+CCP4_ISR@ByteToShift 25 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_TitanSwitchPrev 22 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug\ThirdProbe.debug.obj
+wtemp6 55 0 COMRAM 1 temp dist/default/debug\ThirdProbe.debug.obj
+__Hifardata 0 0 CODE 0 ifardata dist/default/debug\ThirdProbe.debug.obj
+__Hclrtext 0 0 ABS 0 clrtext dist/default/debug\ThirdProbe.debug.obj
+titan@TitanHwFlags 23 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_ADCON0 FC2 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_ADCON1 FC1 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_ADCON2 FC0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__size_of_BoilerLogic 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__size_of_Timers_Initialize 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+___inthi_sp 0 0 STACK 2 stack dist/default/debug\startup.obj
+___intlo_sp 0 0 STACK 2 stack dist/default/debug\startup.obj
+_CCPR5H F72 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__end_of_INTERRUPT_InterruptManager BC 0 CODE 0 intcode dist/default/debug\ThirdProbe.debug.obj
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/debug\ThirdProbe.debug.obj
+WriteRelayRegister@MakeIgnitionCounter 1F 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__size_of_TitanApp 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug\ThirdProbe.debug.obj
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/debug\ThirdProbe.debug.obj
+_ADC_10uA 94 0 BANK0 1 bssBANK0 dist/default/debug\ThirdProbe.debug.obj
+__CFG_DEBUG$ON 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hintcodelo BC 0 CODE 0 intcodelo dist/default/debug\ThirdProbe.debug.obj
+__CFG_FOSC2$ON 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+LowPassFilterADC@p 39 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__CFG_FOSC$HSPLL 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_VariablesInit 13A0 0 CODE 0 text1 dist/default/debug\ThirdProbe.debug.obj
+__HnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Lintcodelo BC 0 CODE 0 intcodelo dist/default/debug\ThirdProbe.debug.obj
+_LowPassFilterADC 11EE 0 CODE 0 text12 dist/default/debug\ThirdProbe.debug.obj
+LowPassFilterADC@Val 37 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+start_initialization 1494 0 CODE 0 cinit dist/default/debug\ThirdProbe.debug.obj
+_OSCCON FD3 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_ReceiveQuantity 2F 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug\ThirdProbe.debug.obj
+_Precizion1msCounter 27 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+___rparam_used 1 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TitanApp 13DA 0 CODE 0 text8 dist/default/debug\ThirdProbe.debug.obj
+__pcstackBANK0 A4 0 BANK0 1 cstackBANK0 dist/default/debug\ThirdProbe.debug.obj
+titan@TitanSwitch 24 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__end_of_TitanApp 1410 0 CODE 0 text8 dist/default/debug\ThirdProbe.debug.obj
+__Hbank0 0 0 ABS 0 bank0 dist/default/debug\ThirdProbe.debug.obj
+__Hbank1 0 0 ABS 0 bank1 dist/default/debug\ThirdProbe.debug.obj
+__Hbank2 0 0 ABS 0 bank2 dist/default/debug\ThirdProbe.debug.obj
+__Hbank3 0 0 ABS 0 bank3 dist/default/debug\ThirdProbe.debug.obj
+__Hbank4 0 0 ABS 0 bank4 dist/default/debug\ThirdProbe.debug.obj
+__Hbank5 0 0 ABS 0 bank5 dist/default/debug\ThirdProbe.debug.obj
+__Hbank6 0 0 ABS 0 bank6 dist/default/debug\ThirdProbe.debug.obj
+__Hbank7 0 0 ABS 0 bank7 dist/default/debug\ThirdProbe.debug.obj
+__Hbank8 0 0 ABS 0 bank8 dist/default/debug\ThirdProbe.debug.obj
+__Hbank9 0 0 ABS 0 bank9 dist/default/debug\ThirdProbe.debug.obj
+__Hcinit 0 0 ABS 0 cinit dist/default/debug\ThirdProbe.debug.obj
+__Hconst 0 0 CONST 0 const dist/default/debug\ThirdProbe.debug.obj
+__Hidata 0 0 CODE 0 idata dist/default/debug\ThirdProbe.debug.obj
+__Hidloc 0 0 IDLOC 0 idloc dist/default/debug\ThirdProbe.debug.obj
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/debug\ThirdProbe.debug.obj
+_GetAllSensor 100A 0 CODE 0 text10 dist/default/debug\ThirdProbe.debug.obj
+__Hparam 0 0 COMRAM 1 rparam dist/default/debug\ThirdProbe.debug.obj
+__size_of_OSCILLATOR_Initialize 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hrdata 0 0 COMRAM 1 rdata dist/default/debug\ThirdProbe.debug.obj
+__Hstack 0 0 STACK 2 stack dist/default/debug\ThirdProbe.debug.obj
+__Htext0 0 0 ABS 0 text0 dist/default/debug\ThirdProbe.debug.obj
+__Htext1 0 0 ABS 0 text1 dist/default/debug\ThirdProbe.debug.obj
+__Htext2 0 0 ABS 0 text2 dist/default/debug\ThirdProbe.debug.obj
+__Htext3 0 0 ABS 0 text3 dist/default/debug\ThirdProbe.debug.obj
+__Htext4 0 0 ABS 0 text4 dist/default/debug\ThirdProbe.debug.obj
+__Htext5 0 0 ABS 0 text5 dist/default/debug\ThirdProbe.debug.obj
+__Htext7 0 0 ABS 0 text7 dist/default/debug\ThirdProbe.debug.obj
+__Htext8 0 0 ABS 0 text8 dist/default/debug\ThirdProbe.debug.obj
+__Htext9 0 0 ABS 0 text9 dist/default/debug\ThirdProbe.debug.obj
+__Ljflash_buffer 1F800 0 CODE 0 jflash_buffer dist/default/debug\ThirdProbe.debug.obj
+__Hbank10 0 0 ABS 0 bank10 dist/default/debug\ThirdProbe.debug.obj
+__Hbank11 0 0 ABS 0 bank11 dist/default/debug\ThirdProbe.debug.obj
+__Hbank12 0 0 ABS 0 bank12 dist/default/debug\ThirdProbe.debug.obj
+__Hbank13 0 0 ABS 0 bank13 dist/default/debug\ThirdProbe.debug.obj
+__Hbank14 0 0 ABS 0 bank14 dist/default/debug\ThirdProbe.debug.obj
+__Hbank15 0 0 ABS 0 bank15 dist/default/debug\ThirdProbe.debug.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/debug\ThirdProbe.debug.obj
+__Hbigram 0 0 ABS 0 bigram dist/default/debug\ThirdProbe.debug.obj
+__smallconst 1000 0 SMALLCONST 0 smallconst dist/default/debug\startup.obj
+__end_of_Timers_Initialize 1444 0 CODE 0 text3 dist/default/debug\ThirdProbe.debug.obj
+__Hcomram 0 0 ABS 0 comram dist/default/debug\ThirdProbe.debug.obj
+__Hconfig 1FFFE 0 CONFIG 0 config dist/default/debug\ThirdProbe.debug.obj
+__Lbank0 0 0 ABS 0 bank0 dist/default/debug\ThirdProbe.debug.obj
+__Lbank1 0 0 ABS 0 bank1 dist/default/debug\ThirdProbe.debug.obj
+__Lbank2 0 0 ABS 0 bank2 dist/default/debug\ThirdProbe.debug.obj
+__Lbank3 0 0 ABS 0 bank3 dist/default/debug\ThirdProbe.debug.obj
+__Lbank4 0 0 ABS 0 bank4 dist/default/debug\ThirdProbe.debug.obj
+__Lbank5 0 0 ABS 0 bank5 dist/default/debug\ThirdProbe.debug.obj
+__Lbank6 0 0 ABS 0 bank6 dist/default/debug\ThirdProbe.debug.obj
+__Lbank7 0 0 ABS 0 bank7 dist/default/debug\ThirdProbe.debug.obj
+__Lbank8 0 0 ABS 0 bank8 dist/default/debug\ThirdProbe.debug.obj
+__Lbank9 0 0 ABS 0 bank9 dist/default/debug\ThirdProbe.debug.obj
+__Lcinit 0 0 ABS 0 cinit dist/default/debug\ThirdProbe.debug.obj
+__Lconst 0 0 CONST 0 const dist/default/debug\ThirdProbe.debug.obj
+__Lidata 0 0 CODE 0 idata dist/default/debug\ThirdProbe.debug.obj
+__Lidloc 0 0 IDLOC 0 idloc dist/default/debug\ThirdProbe.debug.obj
+__size_of_StartADC 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/debug\ThirdProbe.debug.obj
+__Lparam 0 0 COMRAM 1 rparam dist/default/debug\ThirdProbe.debug.obj
+__Lrdata 0 0 COMRAM 1 rdata dist/default/debug\ThirdProbe.debug.obj
+__Lstack 0 0 STACK 2 stack dist/default/debug\ThirdProbe.debug.obj
+__Ltext0 0 0 ABS 0 text0 dist/default/debug\ThirdProbe.debug.obj
+__Ltext1 0 0 ABS 0 text1 dist/default/debug\ThirdProbe.debug.obj
+__Ltext2 0 0 ABS 0 text2 dist/default/debug\ThirdProbe.debug.obj
+__Ltext3 0 0 ABS 0 text3 dist/default/debug\ThirdProbe.debug.obj
+__Ltext4 0 0 ABS 0 text4 dist/default/debug\ThirdProbe.debug.obj
+__Ltext5 0 0 ABS 0 text5 dist/default/debug\ThirdProbe.debug.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/debug\ThirdProbe.debug.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/debug\ThirdProbe.debug.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/debug\ThirdProbe.debug.obj
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/debug\ThirdProbe.debug.obj
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/debug\ThirdProbe.debug.obj
+CCP4_ISR@ReceiverBitCounter 26 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_PORTEbits F84 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_PORTGbits F86 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_INTCONbits FF2 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_INTERRUPT_Initialize 14B0 0 CODE 0 text5 dist/default/debug\ThirdProbe.debug.obj
+__Habs1 0 0 ABS 0 abs1 dist/default/debug\ThirdProbe.debug.obj
+__Hdata 0 0 ABS 0 data dist/default/debug\ThirdProbe.debug.obj
+__Hinit C0 0 CODE 0 init dist/default/debug\ThirdProbe.debug.obj
+__Hrbit 0 0 COMRAM 1 rbit dist/default/debug\ThirdProbe.debug.obj
+__Hrbss 0 0 COMRAM 1 rbss dist/default/debug\ThirdProbe.debug.obj
+__Htemp 55 0 COMRAM 1 temp dist/default/debug\ThirdProbe.debug.obj
+__Htext 0 0 ABS 0 text dist/default/debug\ThirdProbe.debug.obj
+__Labs1 0 0 ABS 0 abs1 dist/default/debug\ThirdProbe.debug.obj
+__Ldata 0 0 ABS 0 data dist/default/debug\ThirdProbe.debug.obj
+__Linit BC 0 CODE 0 init dist/default/debug\ThirdProbe.debug.obj
+__Lrbit 0 0 COMRAM 1 rbit dist/default/debug\ThirdProbe.debug.obj
+__Lrbss 0 0 COMRAM 1 rbss dist/default/debug\ThirdProbe.debug.obj
+__Ltemp 54 0 COMRAM 1 temp dist/default/debug\ThirdProbe.debug.obj
+__Ltext 0 0 ABS 0 text dist/default/debug\ThirdProbe.debug.obj
+__CFG_XINST$OFF 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__size_of_WriteRelayRegister 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+GetAllSensor@ChMask 3D 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/debug\ThirdProbe.debug.obj
+int$flags 54 0 COMRAM 1 temp dist/default/debug\ThirdProbe.debug.obj
+_PrevExtendedCCP4 9 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__size_of_INTERRUPT_InterruptManager 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hintret 0 0 ABS 0 intret dist/default/debug\ThirdProbe.debug.obj
+__Hirdata 0 0 CODE 0 irdata dist/default/debug\ThirdProbe.debug.obj
+__S0 1FFFE 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__S1 A6 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__S2 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__size_of_TMR3_ISR 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hjflash_buffer 1F800 0 CODE 0 jflash_buffer dist/default/debug\ThirdProbe.debug.obj
+__end_of_LowPassFilterADC 1286 0 CODE 0 text12 dist/default/debug\ThirdProbe.debug.obj
+__size_of_VariablesInit 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__pnvCOMRAM 53 0 COMRAM 1 nvCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__size_of_GetAllSensor 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__size_of_LowPassFilterADC 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+GetAllSensor@NumChannel 3E 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_BoilerLogic 1444 0 CODE 0 text13 dist/default/debug\ThirdProbe.debug.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/debug\ThirdProbe.debug.obj
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/debug\ThirdProbe.debug.obj
+_HardwareInit 12F2 0 CODE 0 text2 dist/default/debug\ThirdProbe.debug.obj
+__Lintentry 0 0 ABS 0 intentry dist/default/debug\ThirdProbe.debug.obj
+_TimersCCP 2D 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Hramtop 1000 0 RAM 0 ramtop dist/default/debug\ThirdProbe.debug.obj
+__Hrparam 0 0 COMRAM 1 rparam dist/default/debug\ThirdProbe.debug.obj
+_StartADC 14B8 0 CODE 0 text9 dist/default/debug\ThirdProbe.debug.obj
+__end_of_GetAllSensor 1126 0 CODE 0 text10 dist/default/debug\ThirdProbe.debug.obj
+__activetblptr 1 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__end_of_VariablesInit 13DA 0 CODE 0 text1 dist/default/debug\ThirdProbe.debug.obj
+__Hstruct 0 0 COMRAM 1 struct dist/default/debug\ThirdProbe.debug.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/debug\ThirdProbe.debug.obj
+__Htext10 0 0 ABS 0 text10 dist/default/debug\ThirdProbe.debug.obj
+__Htext11 0 0 ABS 0 text11 dist/default/debug\ThirdProbe.debug.obj
+__Htext12 0 0 ABS 0 text12 dist/default/debug\ThirdProbe.debug.obj
+__Htext13 0 0 ABS 0 text13 dist/default/debug\ThirdProbe.debug.obj
+__Htext14 0 0 ABS 0 text14 dist/default/debug\ThirdProbe.debug.obj
+__Htext15 0 0 ABS 0 text15 dist/default/debug\ThirdProbe.debug.obj
+__CFG_FCMEN$ON 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_INTERRUPT_InterruptManager 8 0 CODE 0 intcode dist/default/debug\ThirdProbe.debug.obj
+__end_of_StartADC 14C0 0 CODE 0 text9 dist/default/debug\ThirdProbe.debug.obj
+_PIE2bits FA0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_PIE3bits FA3 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_PorogInterval 2A 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_Timers_Initialize 1410 0 CODE 0 text3 dist/default/debug\ThirdProbe.debug.obj
+__ptext10 100A 0 CODE 0 text10 dist/default/debug\ThirdProbe.debug.obj
+__ptext11 1286 0 CODE 0 text11 dist/default/debug\ThirdProbe.debug.obj
+__ptext12 11EE 0 CODE 0 text12 dist/default/debug\ThirdProbe.debug.obj
+__ptext13 1444 0 CODE 0 text13 dist/default/debug\ThirdProbe.debug.obj
+__ptext14 1126 0 CODE 0 text14 dist/default/debug\ThirdProbe.debug.obj
+__ptext15 14C0 0 CODE 0 text15 dist/default/debug\ThirdProbe.debug.obj
+_TMR3_ISR 14C0 0 CODE 0 text15 dist/default/debug\ThirdProbe.debug.obj
+__Lbank10 0 0 ABS 0 bank10 dist/default/debug\ThirdProbe.debug.obj
+__Lbank11 0 0 ABS 0 bank11 dist/default/debug\ThirdProbe.debug.obj
+__Lbank12 0 0 ABS 0 bank12 dist/default/debug\ThirdProbe.debug.obj
+__Lbank13 0 0 ABS 0 bank13 dist/default/debug\ThirdProbe.debug.obj
+__Lbank14 0 0 ABS 0 bank14 dist/default/debug\ThirdProbe.debug.obj
+__Lbank15 0 0 ABS 0 bank15 dist/default/debug\ThirdProbe.debug.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/debug\ThirdProbe.debug.obj
+__Lbigram 0 0 ABS 0 bigram dist/default/debug\ThirdProbe.debug.obj
+_ReceiveBuffer 11 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Lcomram 0 0 ABS 0 comram dist/default/debug\ThirdProbe.debug.obj
+__Lconfig 1FFF8 0 CONFIG 0 config dist/default/debug\ThirdProbe.debug.obj
+__size_of_HardwareInit 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__CFG_IESO$ON 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__end_of_TMR3_ISR 14C8 0 CODE 0 text15 dist/default/debug\ThirdProbe.debug.obj
+__CFG_WDTPS$64 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_BoilerLogic$1187 31 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_LATEbits F8D 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_LATFbits F8E 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_Interval_Hi 29 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_Interval_Lo 28 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/debug\ThirdProbe.debug.obj
+_ReceiverStatus 2E 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Lfardata 0 0 FARRAM 0 fardata dist/default/debug\ThirdProbe.debug.obj
+stackhi E7F 0 ABS 0 - dist/default/debug\startup.obj
+stacklo A6 0 ABS 0 - dist/default/debug\startup.obj
+__Lintcode 8 0 CODE 0 intcode dist/default/debug\ThirdProbe.debug.obj
+_OSCTUNE F9B 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Lintret 0 0 ABS 0 intret dist/default/debug\ThirdProbe.debug.obj
+__Lirdata 0 0 CODE 0 irdata dist/default/debug\ThirdProbe.debug.obj
+_ADCON0bits FC2 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__end_of_HardwareInit 1358 0 CODE 0 text2 dist/default/debug\ThirdProbe.debug.obj
+__Lspace_0 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Lspace_1 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Lspace_2 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/debug\ThirdProbe.debug.obj
+_PIR2bits FA1 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_PIR3bits FA4 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_ADC_Channel 20 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+end_of_initialization 1494 0 CODE 0 cinit dist/default/debug\ThirdProbe.debug.obj
+titan@RelayRegister 19 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/debug\ThirdProbe.debug.obj
+__Hintentry 0 0 ABS 0 intentry dist/default/debug\ThirdProbe.debug.obj
+_RCONbits FD0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/debug\ThirdProbe.debug.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/debug\ThirdProbe.debug.obj
+_DebounceCounter 1 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Lramtop 1000 0 RAM 0 ramtop dist/default/debug\ThirdProbe.debug.obj
+__Lrparam 0 0 COMRAM 1 rparam dist/default/debug\ThirdProbe.debug.obj
+__pcinit 1494 0 CODE 0 cinit dist/default/debug\ThirdProbe.debug.obj
+__size_of_CCP4_ISR 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__size_of_CCP5_ISR 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__ptext0 1472 0 CODE 0 text0 dist/default/debug\ThirdProbe.debug.obj
+__ptext1 13A0 0 CODE 0 text1 dist/default/debug\ThirdProbe.debug.obj
+__ptext2 12F2 0 CODE 0 text2 dist/default/debug\ThirdProbe.debug.obj
+__ptext3 1410 0 CODE 0 text3 dist/default/debug\ThirdProbe.debug.obj
+__ptext4 14A6 0 CODE 0 text4 dist/default/debug\ThirdProbe.debug.obj
+__ptext5 14B0 0 CODE 0 text5 dist/default/debug\ThirdProbe.debug.obj
+__ptext7 1358 0 CODE 0 text7 dist/default/debug\ThirdProbe.debug.obj
+__ptext8 13DA 0 CODE 0 text8 dist/default/debug\ThirdProbe.debug.obj
+__ptext9 14B8 0 CODE 0 text9 dist/default/debug\ThirdProbe.debug.obj
+__Lstruct 0 0 COMRAM 1 struct dist/default/debug\ThirdProbe.debug.obj
+__CFG_STVR$ON 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/debug\ThirdProbe.debug.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/debug\ThirdProbe.debug.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/debug\ThirdProbe.debug.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/debug\ThirdProbe.debug.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/debug\ThirdProbe.debug.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/debug\ThirdProbe.debug.obj
+__ramtop 1000 0 RAM 0 ramtop dist/default/debug\startup.obj
+__Lpowerup BC 0 CODE 0 powerup dist/default/debug\ThirdProbe.debug.obj
+_T3compare 1B 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__psmallconst 1000 0 SMALLCONST 0 smallconst dist/default/debug\ThirdProbe.debug.obj
+__CFG_WDT$ON 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/debug\ThirdProbe.debug.obj
+LowPassFilterADC@Ch 33 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+___param_bank 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/debug\ThirdProbe.debug.obj
+__end_of__initialization 1494 0 CODE 0 cinit dist/default/debug\ThirdProbe.debug.obj
+__Libigdata 0 0 CODE 0 ibigdata dist/default/debug\ThirdProbe.debug.obj
+WriteRelayRegister@ByteToShift 31 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Lclrtext 0 0 ABS 0 clrtext dist/default/debug\ThirdProbe.debug.obj
+_AfterPOResetTimer 21 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__pcstackCOMRAM 31 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_CCP4_ISR 1126 0 CODE 0 text14 dist/default/debug\ThirdProbe.debug.obj
+_CCP5_ISR 1358 0 CODE 0 text7 dist/default/debug\ThirdProbe.debug.obj
+__end_of_main 1494 0 CODE 0 text0 dist/default/debug\ThirdProbe.debug.obj
+__pintcode 8 0 CODE 0 intcode dist/default/debug\ThirdProbe.debug.obj
+_ExtendedCCP4 15 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_ADRES FC3 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_DataInterval D 0 COMRAM 1 bssCOMRAM dist/default/debug\ThirdProbe.debug.obj
+_CCPR4 F74 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_CCPR5 F71 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_T3CON FB1 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TMR3H FB3 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TMR3L FB2 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TRISA F92 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TRISB F93 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TRISC F94 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TRISD F95 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TRISE F96 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TRISF F97 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_TRISG F98 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__CFG_CP0$OFF 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__HRAM 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Hbss 0 0 RAM 1 bss dist/default/debug\ThirdProbe.debug.obj
+__Hram 0 0 ABS 0 ram dist/default/debug\ThirdProbe.debug.obj
+__Hsfr 0 0 ABS 0 sfr dist/default/debug\ThirdProbe.debug.obj
+__LRAM 1 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__Lbss 0 0 RAM 1 bss dist/default/debug\ThirdProbe.debug.obj
+__Lram 0 0 ABS 0 ram dist/default/debug\ThirdProbe.debug.obj
+__Lsfr 0 0 ABS 0 sfr dist/default/debug\ThirdProbe.debug.obj
+__end_of_BoilerLogic 1472 0 CODE 0 text13 dist/default/debug\ThirdProbe.debug.obj
+__end_of_CCP4_ISR 11EE 0 CODE 0 text14 dist/default/debug\ThirdProbe.debug.obj
+__end_of_CCP5_ISR 13A0 0 CODE 0 text7 dist/default/debug\ThirdProbe.debug.obj
+___extmem_base 20000 0 ABS 0 - dist/default/debug\startup.obj
+_CCP4CON F73 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_CCP5CON F70 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+__end_of_OSCILLATOR_Initialize 14B0 0 CODE 0 text4 dist/default/debug\ThirdProbe.debug.obj
+__initialization 1494 0 CODE 0 cinit dist/default/debug\ThirdProbe.debug.obj
+__pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/debug\ThirdProbe.debug.obj
+HardwareInit@i A4 0 BANK0 1 cstackBANK0 dist/default/debug\ThirdProbe.debug.obj
+__Hfardata 0 0 FARRAM 0 fardata dist/default/debug\ThirdProbe.debug.obj
+__Hsmallconst 100A 0 SMALLCONST 0 smallconst dist/default/debug\ThirdProbe.debug.obj
+__Lifardata 0 0 CODE 0 ifardata dist/default/debug\ThirdProbe.debug.obj
+WriteRelayRegister@BitCounter 32 0 COMRAM 1 cstackCOMRAM dist/default/debug\ThirdProbe.debug.obj
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug\ThirdProbe.debug.obj
+__Hintcode BC 0 CODE 0 intcode dist/default/debug\ThirdProbe.debug.obj
+__size_of_INTERRUPT_Initialize 0 0 ABS 0 - dist/default/debug\ThirdProbe.debug.obj
+_OSCILLATOR_Initialize 14A6 0 CODE 0 text4 dist/default/debug\ThirdProbe.debug.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+text10 0 100A 100A 4BE 1
+reset_vec 0 0 0 4 1
+bssBANK0 1 60 60 46 1
+intcode 0 8 8 B8 1
+smallconst 0 1000 1000 A 1
+bssCOMRAM 1 1 1 54 1
+config 0 1FFF8 1FFF8 6 1

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNonSafety\AssemblerNonSafety.asm Tue Apr 17 16:14:25 2018
+AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNonSafety\AssemblerNonSafety.asm Mon May 28 16:27:27 2018
 
 [builtin](2): Including file 'C:\Program Files\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include\tn20def.inc'
                  
@@ -755,6 +755,7 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
                  .EQU	EndOfFrame = (Fclk * 3) ; за 3 мс до конца кадра начинаем ждать переход фазы через 0 (Fclk кГц - частора процессора)
                  .EQU	UFirePorog = 128	; порог срабатывания датчика пламени
                  .EQU	CInputTimeout = ((50 * Fclk) / 256)	; 50 мс отсытствуют импульсы от оптрона - поджиг не нужен : IgnitionStatus = 0
+                 .EQU	CInputTimeoutMin = ((20 * Fclk) / 256)	; менее 20 мс между импульсами от оптрона - поджиг не нужен : IgnitionStatus = 0
                  .EQU	CMinPeriodLength = ((12 * Fclk) / 256)	; 12 мс минимальный период сетевого напряжения
                  .EQU	CMaxPeriodLength = ((25 * Fclk) / 256)	; 25 мс максимальный период сетевого напряжения
                  .EQU	CInputDebounce = 3	; сколько должно совпасть периодов импульсов, чтобы IgnitionStatus стал 1
@@ -1230,10 +1231,10 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
                  
 0000a6 a128
 0000a7 a139      	Load16 r18, r19, TStartPeriod	; начальное значение периода
-0000a8 d133      	rcall Get_2_UFireSample_UREF
+0000a8 d135      	rcall Get_2_UFireSample_UREF
 0000a9 e003      	ldi r16, MachSerialOut	; MachSerialOut - следующий состояние машины
 0000aa d059      	rcall WaitPhaseTrueAndSetMachineState	; ждать (+) полуволну фазы и установить состояние машины
-0000ab d13c      	rcall GetFireStatus			; при положительной полуволне считаем статус Fire
+0000ab d13e      	rcall GetFireStatus			; при положительной полуволне считаем статус Fire
 0000ac dfa1      	rcall SetSendBuf			; и формируем буфер для передачи
 0000ad c003      	rjmp MainLoop
                  
@@ -1297,7 +1298,7 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
                  
 0000cd a128
 0000ce a139      	Load16 r18, r19, TStartPeriod	; начальное значение периода
-0000cf d10c      	rcall Get_2_UFireSample_UREF
+0000cf d10e      	rcall Get_2_UFireSample_UREF
                  
 0000d0 e30c      	ldi r16, 60					; на столько задержка после отсчета UFire
                  IgnLoop:
@@ -1308,7 +1309,7 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
 0000d4 e10e      	ldi r16, 30					; длительность импульса поджига
 0000d5 dfc6      	rcall IgnitionImpuls
                  
-0000d6 d111      	rcall GetFireStatus			; при положительной полуволне считаем статус Fire
+0000d6 d113      	rcall GetFireStatus			; при положительной полуволне считаем статус Fire
 0000d7 df8f      	rcall SendFire				; формируем буфер для передачи и передаем 6 служебных байт (2 флага и 4 бит контрольной суммы)
                  
 0000d8 d035      	rcall WaitPhaseTrue_WaitStopIgnition	; ждать (+) полуволну фазы и ждать окончание поджига
@@ -1328,12 +1329,12 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
                  
 0000df e0f0
 0000e0 e5ea      	Load_Z_Ptr UPhase2Sum	; здесь сумма квадратов UPhase
-0000e1 d0a1      	rcall ClearPZ_24_r16	; сначала обнуляем её
+0000e1 d0a3      	rcall ClearPZ_24_r16	; сначала обнуляем её
 0000e2 e013      	ldi r17, InUPhase		; с этого входа ADC
                  
 0000e3 a128
 0000e4 a139      	Load16 r18, r19, TStartPeriod	; начальное значение периода
-0000e5 d0c2      	rcall Add_3_Sample		; добавляем 3 суммы квадратов отсчетов и 
+0000e5 d0c4      	rcall Add_3_Sample		; добавляем 3 суммы квадратов отсчетов и 
 0000e6 e007      	ldi r16, MachInUPhase1	; MachInUPhase1 - следующий состояние машины
 0000e7 d01c      	rcall WaitPhaseTrueAndSetMachineState	; ждать (+) полуволну фазы и установить состояние машины
 0000e8 cfc8      	rjmp MainLoop
@@ -1342,10 +1343,10 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
 0000e9 d02c      	rcall WaitPhaseFalse	; ждать (-) полуволну фазы ( T1Value = НОВОЕ состояние Т1) и установить все времена
 0000ea a128
 0000eb a139      	Load16 r18, r19, TStartPeriod	; начальное значение периода
-0000ec d0bb      	rcall Add_3_Sample		; добавляем 3 суммы квадратов отсчетов и 
+0000ec d0bd      	rcall Add_3_Sample		; добавляем 3 суммы квадратов отсчетов и 
 0000ed e006      	ldi r16, MachInUGND0	; MachInUGND0 - следующий состояние машины
 0000ee d015      	rcall WaitPhaseTrueAndSetMachineState	; ждать (+) полуволну фазы и установить состояние машины
-0000ef d104      	rcall SQRT_Z			; 179 при положительной полуволне считаем средний квадратный корень
+0000ef d106      	rcall SQRT_Z			; 179 при положительной полуволне считаем средний квадратный корень
 0000f0 cfc0      	rjmp MainLoop
                  
                  L_MachInUGND0:  ; ********** начинаем накапливать квадраты отсчетов UGND
@@ -1353,12 +1354,12 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
                  
 0000f2 e0f0
 0000f3 e5ed      	Load_Z_Ptr UGND2Sum ; здесь сумма квадратов UGND
-0000f4 d08e      	rcall ClearPZ_24_r16	; сначала обнуляем её
+0000f4 d090      	rcall ClearPZ_24_r16	; сначала обнуляем её
 0000f5 e012      	ldi r17, InUGND			; с этого входа ADC
                  
 0000f6 a128
 0000f7 a139      	Load16 r18, r19, TStartPeriod	; начальное значение периода
-0000f8 d0af      	rcall Add_3_Sample		; добавляем 3 суммы квадратов отсчетов и 
+0000f8 d0b1      	rcall Add_3_Sample		; добавляем 3 суммы квадратов отсчетов и 
 0000f9 e005      	ldi r16, MachInUGND1	; MachInUGND1 - следующий состояние машины
 0000fa d009      	rcall WaitPhaseTrueAndSetMachineState	; ждать (+) полуволну фазы и установить состояние машины
 0000fb cfb5      	rjmp MainLoop
@@ -1367,10 +1368,10 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
 0000fc d019      	rcall WaitPhaseFalse	; ждать (-) полуволну фазы ( T1Value = НОВОЕ состояние Т1) и установить все времена
 0000fd a128
 0000fe a139      	Load16 r18, r19, TStartPeriod	; начальное значение периода
-0000ff d0a8      	rcall Add_3_Sample		; добавляем 3 суммы квадратов отсчетов и 
+0000ff d0aa      	rcall Add_3_Sample		; добавляем 3 суммы квадратов отсчетов и 
 000100 e004      	ldi r16, MachInUFire	; MachInUFire - следующий состояние машины
 000101 d002      	rcall WaitPhaseTrueAndSetMachineState	; ждать (+) полуволну фазы и установить состояние машины
-000102 d0f1      	rcall SQRT_Z			; 179 при положительной полуволне считаем средний квадратный корень
+000102 d0f3      	rcall SQRT_Z			; 179 при положительной полуволне считаем средний квадратный корень
 000103 cfad      	rjmp MainLoop
                  
                  WaitPhaseTrueAndSetMachineState:
@@ -1545,8 +1546,9 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
 000164 b500      	in r16, TCNT1L
 000165 b501      	in r16, TCNT1H
 000166 1b0c      	sub r16, r28
-000167 3300      	cpi r16, CInputTimeout
-000168 f0c8      	brlo Receive_Exit
+000167 3300      	cpi r16, CInputTimeout // здесь сравнение на максимальное значение паузы !!!
+000168 f0d8      	brlo Receive_Exit
+                 BadReceive:
 000169 27bb      	clr r27				; InputDebounce = 0
 00016a adb5      	sts IgnitionStatus, r27
 00016b 9508      	ret
@@ -1559,177 +1561,179 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
 000171 2fc0      	mov	r28, r16
 000172 1b0d      	sub r16, r29
 000173 2fd0      	mov r29, r16		; ActualPause
-000174 1b0a      	sub r16, r26		; InputPrevPause
-000175 2fad      	mov r26, r29
-000176 f040      	brcs DeltaMinus
-000177 3003      	cpi r16, (CInputMaxJitter + 1)
-000178 f440      	brcc ClearInputDebounce
+000174 3103      	cpi r16, CInputTimeoutMin // здесь сравнение на минимальное значение паузы !!!
+000175 f398      	brlo BadReceive
+000176 1b0a      	sub r16, r26		; InputPrevPause
+000177 2fad      	mov r26, r29
+000178 f040      	brcs DeltaMinus
+000179 3003      	cpi r16, (CInputMaxJitter + 1)
+00017a f440      	brcc ClearInputDebounce
                  IncInputDebounce:
-000179 95b3      	inc	r27
-00017a 30b3      	cpi	r27, CInputDebounce
-00017b f030      	brcs Receive_Exit
+00017b 95b3      	inc	r27
+00017c 30b3      	cpi	r27, CInputDebounce
+00017d f030      	brcs Receive_Exit
                  SetIgnitionStatusTrue_r16:
-00017c e001      	ldi r16, 1
-00017d ad05      	sts IgnitionStatus, r16
-00017e 9508      	ret
+00017e e001      	ldi r16, 1
+00017f ad05      	sts IgnitionStatus, r16
+000180 9508      	ret
                  DeltaMinus:
-00017f 3f0e      	cpi r16, (0 - CInputMaxJitter)
-000180 f7c0      	brcc IncInputDebounce
+000181 3f0e      	cpi r16, (0 - CInputMaxJitter)
+000182 f7c0      	brcc IncInputDebounce
                  ClearInputDebounce:
-000181 27bb      	clr r27
+000183 27bb      	clr r27
                  Receive_Exit:
-000182 9508      	ret
+000184 9508      	ret
                  
                  ClearPZ_24_r16:		; обнуление 24 бит значения по указателю Z используя r16
-000183 2700      	clr r16
-000184 9301      	st Z+,r16
-000185 9301      	st Z+,r16
+000185 2700      	clr r16
 000186 9301      	st Z+,r16
-000187 50e3      	subi r30, 3		; возвращаем Z на исходное значение
-000188 40f0      	sbci r31, 0
-000189 9508      	ret
+000187 9301      	st Z+,r16
+000188 9301      	st Z+,r16
+000189 50e3      	subi r30, 3		; возвращаем Z на исходное значение
+00018a 40f0      	sbci r31, 0
+00018b 9508      	ret
                  
                  AddSample:
-00018a bb10      	out ADMUX, r17	; канал ADC
-00018b bb5f      	out OCR1AH, r21	; устанавливаем момент запуска ADC
-00018c bb4e      	out OCR1AL, r20
-00018d e008      	ldi r16, (1<<ADLAR) ; выравнивание влево (младшие 2 бита отбрасываем)
-00018e bb01      	out ADCSRB, r16
-00018f 9a94      	sbi ADCSRA, ADIF	; сброс флага прерывания
-000190 e100      	ldi r16, (1<<OCIE1A); разрешить прерывание TIM1_COMPA_ISR
-000191 bd06      	out TIMSK, r16
-000192 9b94
-000193 cffe      	WaitTrue ADCSRA, ADIF	; ждать ADC
-000194 b16f      	in r22, ADCH	; result
-000195 e100      	ldi r16, (1<<ADIF) ; сброс флага и выключение ADC
-000196 bb02      	out ADCSRA, r16
-000197 2700      	clr r16			; запрет прерывания TIM1_COMPA_ISR
-000198 bd06      	out TIMSK, r16 
-000199 2f86      	mov r24, r22
-00019a d067      	rcall mpy8u
-00019b 8160      	ld r22, Z
-00019c 0f68      	add r22, r24
-00019d 9361      	st Z+, r22
-00019e 8160      	ld r22, Z
-00019f 1f69      	adc r22, r25
-0001a0 9361      	st Z+, r22
-0001a1 2700      	clr r16
-0001a2 8160      	ld r22, Z
-0001a3 1f60      	adc r22, r16
-0001a4 9361      	st Z+, r22
-0001a5 50e3      	subi r30, 3		; возвращаем Z на исходное значение
-0001a6 40f0      	sbci r31, 0
-0001a7 9508      	ret
+00018c bb10      	out ADMUX, r17	; канал ADC
+00018d bb5f      	out OCR1AH, r21	; устанавливаем момент запуска ADC
+00018e bb4e      	out OCR1AL, r20
+00018f e008      	ldi r16, (1<<ADLAR) ; выравнивание влево (младшие 2 бита отбрасываем)
+000190 bb01      	out ADCSRB, r16
+000191 9a94      	sbi ADCSRA, ADIF	; сброс флага прерывания
+000192 e100      	ldi r16, (1<<OCIE1A); разрешить прерывание TIM1_COMPA_ISR
+000193 bd06      	out TIMSK, r16
+000194 9b94
+000195 cffe      	WaitTrue ADCSRA, ADIF	; ждать ADC
+000196 b16f      	in r22, ADCH	; result
+000197 e100      	ldi r16, (1<<ADIF) ; сброс флага и выключение ADC
+000198 bb02      	out ADCSRA, r16
+000199 2700      	clr r16			; запрет прерывания TIM1_COMPA_ISR
+00019a bd06      	out TIMSK, r16 
+00019b 2f86      	mov r24, r22
+00019c d067      	rcall mpy8u
+00019d 8160      	ld r22, Z
+00019e 0f68      	add r22, r24
+00019f 9361      	st Z+, r22
+0001a0 8160      	ld r22, Z
+0001a1 1f69      	adc r22, r25
+0001a2 9361      	st Z+, r22
+0001a3 2700      	clr r16
+0001a4 8160      	ld r22, Z
+0001a5 1f60      	adc r22, r16
+0001a6 9361      	st Z+, r22
+0001a7 50e3      	subi r30, 3		; возвращаем Z на исходное значение
+0001a8 40f0      	sbci r31, 0
+0001a9 9508      	ret
                  
                  Add_3_Sample:
-0001a8 a14e
-0001a9 a15f      	Load16 r20, r21, LengthDiv8
-0001aa 0f42
-0001ab 1f53      	add16u r20, r21, r18, r19	; Ждем первый отсчет в момент r20:r21
-0001ac dfdd      	rcall AddSample
+0001aa a14e
+0001ab a15f      	Load16 r20, r21, LengthDiv8
+0001ac 0f42
+0001ad 1f53      	add16u r20, r21, r18, r19	; Ждем первый отсчет в момент r20:r21
+0001ae dfdd      	rcall AddSample
                  
-0001ad a14c
-0001ae a15d      	Load16 r20, r21, LengthDiv4
-0001af 0f42
-0001b0 1f53      	add16u r20, r21, r18, r19	; Ждем второй отсчет в момент r20:r21
-0001b1 dfd8      	rcall AddSample
+0001af a14c
+0001b0 a15d      	Load16 r20, r21, LengthDiv4
+0001b1 0f42
+0001b2 1f53      	add16u r20, r21, r18, r19	; Ждем второй отсчет в момент r20:r21
+0001b3 dfd8      	rcall AddSample
                  
-0001b2 a346
-0001b3 a357      	Load16 r20, r21, Length3Div8
-0001b4 0f42
-0001b5 1f53      	add16u r20, r21, r18, r19	; Ждем третий отсчет в момент r20:r21
-0001b6 dfd3      	rcall AddSample
-0001b7 9508      	ret
+0001b4 a346
+0001b5 a357      	Load16 r20, r21, Length3Div8
+0001b6 0f42
+0001b7 1f53      	add16u r20, r21, r18, r19	; Ждем третий отсчет в момент r20:r21
+0001b8 dfd3      	rcall AddSample
+0001b9 9508      	ret
                  
                  AddUFire:
-0001b8 bb10      	out ADMUX, r17	; канал ADC
-0001b9 bb5f      	out OCR1AH, r21	; устанавливаем момент запуска ADC
-0001ba bb4e      	out OCR1AL, r20
-0001bb 2700      	clr r16			; выравнивание вправо (10 бит)
-0001bc bb01      	out ADCSRB, r16
-0001bd 9a94      	sbi ADCSRA, ADIF	; сброс флага прерывания
-0001be e100      	ldi r16, (1<<OCIE1A); разрешить прерывание TIM1_COMPA_ISR
-0001bf bd06      	out TIMSK, r16 
-0001c0 9b94
-0001c1 cffe      	WaitTrue ADCSRA, ADIF	; ждать ADC
-0001c2 b18e      	in r24, ADCL	; result UFire
-0001c3 b19f      	in r25, ADCH
-0001c4 e100      	ldi r16, (1<<ADIF) ; сброс флага и выключение ADC
-0001c5 bb02      	out ADCSRA, r16
-0001c6 2700      	clr r16			; запрет прерывания TIM1_COMPA_ISR
-0001c7 bd06      	out TIMSK, r16 
+0001ba bb10      	out ADMUX, r17	; канал ADC
+0001bb bb5f      	out OCR1AH, r21	; устанавливаем момент запуска ADC
+0001bc bb4e      	out OCR1AL, r20
+0001bd 2700      	clr r16			; выравнивание вправо (10 бит)
+0001be bb01      	out ADCSRB, r16
+0001bf 9a94      	sbi ADCSRA, ADIF	; сброс флага прерывания
+0001c0 e100      	ldi r16, (1<<OCIE1A); разрешить прерывание TIM1_COMPA_ISR
+0001c1 bd06      	out TIMSK, r16 
+0001c2 9b94
+0001c3 cffe      	WaitTrue ADCSRA, ADIF	; ждать ADC
+0001c4 b18e      	in r24, ADCL	; result UFire
+0001c5 b19f      	in r25, ADCH
+0001c6 e100      	ldi r16, (1<<ADIF) ; сброс флага и выключение ADC
+0001c7 bb02      	out ADCSRA, r16
+0001c8 2700      	clr r16			; запрет прерывания TIM1_COMPA_ISR
+0001c9 bd06      	out TIMSK, r16 
                  
-0001c8 a500      	lds r16, UFireSum
-0001c9 0f08      	add	r16, r24
-0001ca ad00      	sts	UFireSum, r16
-0001cb a501      	lds r16, (UFireSum + 1)
-0001cc 0f09      	add	r16, r25
-0001cd ad01      	sts	(UFireSum + 1), r16
-0001ce 9508      	ret
+0001ca a500      	lds r16, UFireSum
+0001cb 0f08      	add	r16, r24
+0001cc ad00      	sts	UFireSum, r16
+0001cd a501      	lds r16, (UFireSum + 1)
+0001ce 0f09      	add	r16, r25
+0001cf ad01      	sts	(UFireSum + 1), r16
+0001d0 9508      	ret
                  
                  GetUREF:				; - must be MACRO ???
-0001cf 9a97      	sbi ADCSRA, ADEN	; ADC enable
-0001d0 e001      	ldi r16, InUREF
-0001d1 bb00      	out ADMUX, r16		; канал ADC
-0001d2 9a8b      	sbi ADCSRB, ADLAR	; выравнивание влево (младшие 2 бита отбрасываем)
-0001d3 9a94      	sbi ADCSRA, ADIF	; сброс флага прерывания
-0001d4 9a96      	sbi ADCSRA, ADSC	; Start ADC Conversion
-0001d5 9b94
-0001d6 cffe      	WaitTrue ADCSRA, ADIF	; ждать ADC
-0001d7 b10f      	in r16, ADCH		; result UREF
-0001d8 ad03      	sts UREFVal, r16
-0001d9 e100      	ldi r16, (1<<ADIF) ; сброс флага и выключение ADC
-0001da bb02      	out ADCSRA, r16
-0001db 9508      	ret
+0001d1 9a97      	sbi ADCSRA, ADEN	; ADC enable
+0001d2 e001      	ldi r16, InUREF
+0001d3 bb00      	out ADMUX, r16		; канал ADC
+0001d4 9a8b      	sbi ADCSRB, ADLAR	; выравнивание влево (младшие 2 бита отбрасываем)
+0001d5 9a94      	sbi ADCSRA, ADIF	; сброс флага прерывания
+0001d6 9a96      	sbi ADCSRA, ADSC	; Start ADC Conversion
+0001d7 9b94
+0001d8 cffe      	WaitTrue ADCSRA, ADIF	; ждать ADC
+0001d9 b10f      	in r16, ADCH		; result UREF
+0001da ad03      	sts UREFVal, r16
+0001db e100      	ldi r16, (1<<ADIF) ; сброс флага и выключение ADC
+0001dc bb02      	out ADCSRA, r16
+0001dd 9508      	ret
                  
                  Get_2_UFireSample_UREF:			; - must be MACRO ???
-0001dc a340
-0001dd a351      	Load16 r20, r21, LengthDiv32
-0001de 0f42
-0001df 1f53      	add16u r20, r21, r18, r19	; Ждем первый отсчет UFire в момент r20:r21
-0001e0 dfd7      	rcall AddUFire
-0001e1 dfed      	rcall GetUREF
-0001e2 a348
-0001e3 a359      	Load16 r20, r21, Length17Div32
-0001e4 0f42
-0001e5 1f53      	add16u r20, r21, r18, r19	; Ждем второй отсчет UFire в момент r20:r21
-0001e6 dfd1      	rcall AddUFire
-0001e7 9508      	ret
+0001de a340
+0001df a351      	Load16 r20, r21, LengthDiv32
+0001e0 0f42
+0001e1 1f53      	add16u r20, r21, r18, r19	; Ждем первый отсчет UFire в момент r20:r21
+0001e2 dfd7      	rcall AddUFire
+0001e3 dfed      	rcall GetUREF
+0001e4 a348
+0001e5 a359      	Load16 r20, r21, Length17Div32
+0001e6 0f42
+0001e7 1f53      	add16u r20, r21, r18, r19	; Ждем второй отсчет UFire в момент r20:r21
+0001e8 dfd1      	rcall AddUFire
+0001e9 9508      	ret
                  
                  GetFireStatus:  ; сдвиг UFireSum на три разряда вправо (сумму 2-х 10-бит значений приводим к 8 битам) - must be MACRO ???
                  				; и сравнение с UFirePorog. Результат - младший бит в FireStatus
-0001e8 e003      	ldi r16, 3
-0001e9 a571      	lds r23, (UFireSum + 1)
-0001ea a560      	lds r22, UFireSum
+0001ea e003      	ldi r16, 3
+0001eb a571      	lds r23, (UFireSum + 1)
+0001ec a560      	lds r22, UFireSum
                  GetFireStatus_L0:
-0001eb 9576      	lsr r23
-0001ec 9567      	ror	r22
-0001ed 950a      	dec	r16
-0001ee f7e1      	brne GetFireStatus_L0
+0001ed 9576      	lsr r23
+0001ee 9567      	ror	r22
+0001ef 950a      	dec	r16
+0001f0 f7e1      	brne GetFireStatus_L0
                  	; r22 - UFire
-0001ef 5860      	subi r22, UFirePorog
-0001f0 2766      	clr r22
-0001f1 1f66      	rol r22
-0001f2 ad62      	sts FireStatus, r22
-0001f3 9508      	ret
+0001f1 5860      	subi r22, UFirePorog
+0001f2 2766      	clr r22
+0001f3 1f66      	rol r22
+0001f4 ad62      	sts FireStatus, r22
+0001f5 9508      	ret
                  
                  SQRT_Z: ; квадратный корень из деленного на 8 того, на что указывает Z 
                  		; на самом деле суммировались 6 квадратов отсчетов, плюс 2 нулевых. Регистры используем ЛЮБЫЕ
-0001f4 e003      	ldi r16, 3
-0001f5 9161      	ld r22, Z+
-0001f6 9171      	ld r23, Z+
-0001f7 9181      	ld r24, Z+
+0001f6 e003      	ldi r16, 3
+0001f7 9161      	ld r22, Z+
+0001f8 9171      	ld r23, Z+
+0001f9 9181      	ld r24, Z+
                  SQRT_Z_L0:
-0001f8 9586      	lsr r24
-0001f9 9577      	ror	r23
-0001fa 9567      	ror	r22
-0001fb 950a      	dec	r16
-0001fc f7d9      	brne SQRT_Z_L0	; поделили на 8. Результат не более 16 бит.
-0001fd d00e      	rcall SQRT		; До 195 тактов; r22:r23. Value - входное значение; выходное r20:r21 - корень
-0001fe 50e3      	subi r30, 3		; возвращаем Z на исходное значение
-0001ff 40f0      	sbci r31, 0
-000200 8340      	st Z, r20
-000201 9508      	ret
+0001fa 9586      	lsr r24
+0001fb 9577      	ror	r23
+0001fc 9567      	ror	r22
+0001fd 950a      	dec	r16
+0001fe f7d9      	brne SQRT_Z_L0	; поделили на 8. Результат не более 16 бит.
+0001ff d00e      	rcall SQRT		; До 195 тактов; r22:r23. Value - входное значение; выходное r20:r21 - корень
+000200 50e3      	subi r30, 3		; возвращаем Z на исходное значение
+000201 40f0      	sbci r31, 0
+000202 8340      	st Z, r20
+000203 9508      	ret
                  
                  	
                  ;***************************************************************************
@@ -1758,18 +1762,18 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
                  
                  ;***** Code
                  mpy8u:	
-000202 2799      	clr	m8uH		;clear result High byte
-000203 e078      	ldi	mcnt8u,8	;init loop counter
-000204 9586      	lsr	mp8uL		;rotate right result L byte and multiplier
+000204 2799      	clr	m8uH		;clear result High byte
+000205 e078      	ldi	mcnt8u,8	;init loop counter
+000206 9586      	lsr	mp8uL		;rotate right result L byte and multiplier
                  m8u_1:
-000205 f408      	brcc m8u_2		;carry set 
-000206 0f96      	add m8uH,mc8u	;add multiplicand to result High byte
+000207 f408      	brcc m8u_2		;carry set 
+000208 0f96      	add m8uH,mc8u	;add multiplicand to result High byte
                  m8u_2:	
-000207 9597      	ror	m8uH		;rotate right result High byte
-000208 9587      	ror	mp8uL		;rotate right result L byte and multiplier
-000209 957a      	dec	mcnt8u		;decrement loop counter
-00020a f7d1      	brne m8u_1		;if not done, loop more
-00020b 9508      	ret
+000209 9597      	ror	m8uH		;rotate right result High byte
+00020a 9587      	ror	mp8uL		;rotate right result L byte and multiplier
+00020b 957a      	dec	mcnt8u		;decrement loop counter
+00020c f7d1      	brne m8u_1		;if not done, loop more
+00020d 9508      	ret
                  
                  ; ****** http://www.microchip.com/forums/m577584.aspx ******
                  SQRT: ; Вычисление квадратного корня беззнакового 16 бит числа. До 179 тактов
@@ -1777,34 +1781,34 @@ AVRASM ver. 2.1.57  C:\Work\Titan\TitanNonSafety\AssemblerNonSafety\AssemblerNon
                  	; r20:r21 - Root
                  	; r24:r25 - Bit
                  	; r18:r19 - Trial
-00020c 2744      	clr r20			; unsigned Root = 0
-00020d 2755      	clr r21
-00020e 2788      	clr r24			; unsigned Bit    for ( Bit = 0x4000; Bit > 0; Bit >>= 2 )
-00020f e490      	ldi r25, 0x40
+00020e 2744      	clr r20			; unsigned Root = 0
+00020f 2755      	clr r21
+000210 2788      	clr r24			; unsigned Bit    for ( Bit = 0x4000; Bit > 0; Bit >>= 2 )
+000211 e490      	ldi r25, 0x40
                  SQRT_L1:
-000210 2f24      	mov r18, r20	; unsigned Trial = Root + Bit;
-000211 2f35      	mov r19, r21
-000212 0f28      	add r18, r24
-000213 1f39      	adc r19, r25
-000214 9556      	lsr r21			; Root >>= 1;
-000215 9547      	ror r20
-000216 1762      	cp r22, r18		; if ( Trial <= Value )
-000217 0773      	cpc r23, r19
-000218 f020      	brcs SQRT_L2
-000219 0f48      	add r20, r24	; Root += Bit;
-00021a 1f59      	adc r21, r25
-00021b 1b62      	sub r22, r18	; Value -= Trial;
-00021c 0b73      	sbc r23, r19
+000212 2f24      	mov r18, r20	; unsigned Trial = Root + Bit;
+000213 2f35      	mov r19, r21
+000214 0f28      	add r18, r24
+000215 1f39      	adc r19, r25
+000216 9556      	lsr r21			; Root >>= 1;
+000217 9547      	ror r20
+000218 1762      	cp r22, r18		; if ( Trial <= Value )
+000219 0773      	cpc r23, r19
+00021a f020      	brcs SQRT_L2
+00021b 0f48      	add r20, r24	; Root += Bit;
+00021c 1f59      	adc r21, r25
+00021d 1b62      	sub r22, r18	; Value -= Trial;
+00021e 0b73      	sbc r23, r19
                  SQRT_L2:
-00021d 9596      	lsr r25			; Bit >>= 2
-00021e 9587      	ror r24
-00021f 9596      	lsr r25
+00021f 9596      	lsr r25			; Bit >>= 2
 000220 9587      	ror r24
-000221 2388      	tst r24			; Bit > 0 ?
-000222 f769      	brne SQRT_L1
-000223 2399      	tst r25
-000224 f759      	brne SQRT_L1
-000225 9508      	ret
+000221 9596      	lsr r25
+000222 9587      	ror r24
+000223 2388      	tst r24			; Bit > 0 ?
+000224 f769      	brne SQRT_L1
+000225 2399      	tst r25
+000226 f759      	brne SQRT_L1
+000227 9508      	ret
                  
                  ; Fill memory by NOP (code = 0x0000) in ST Visual Programmer
                  
@@ -1831,7 +1835,7 @@ counted separately from r26..r31 here.
 "ATtiny20" register use summary:
 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 r5 :   0 r6 :   0 r7 :   0 
 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 r13:   0 r14:   0 r15:   0 
-r16: 171 r17:   8 r18:  32 r19:  31 r20:  17 r21:  16 r22:  35 r23:  21 
+r16: 172 r17:   8 r18:  32 r19:  31 r20:  17 r21:  16 r22:  35 r23:  21 
 r24:  38 r25:  35 r26:   3 r27:   8 r28:   3 r29:   4 r30:   6 r31:   6 
 x  :   0 y  :   0 z  :  14 
 Registers used: 17 out of 35 (48.6%)
@@ -1840,11 +1844,11 @@ Registers used: 17 out of 35 (48.6%)
 .lds.l:   0 .sts.l:   0 adc   :  12 add   :  19 and   :   0 andi  :   3 
 asr   :   0 bclr  :   0 bld   :   7 brbc  :   0 brbs  :   0 brcc  :   3 
 brcs  :   4 breq  :   8 brge  :   0 brhc  :   0 brhs  :   0 brid  :   0 
-brie  :   0 brlo  :   6 brlt  :   0 brmi  :   0 brne  :  11 brpl  :   0 
+brie  :   0 brlo  :   7 brlt  :   0 brmi  :   0 brne  :  11 brpl  :   0 
 brsh  :   1 brtc  :   0 brts  :   0 brvc  :   0 brvs  :   0 bset  :   0 
 bst   :   3 cbi   :   3 cbr   :   0 clc   :   0 clh   :   0 cli   :   0 
 cln   :   0 clr   :  20 cls   :   0 clt   :   0 clv   :   0 clz   :   0 
-com   :   0 cp    :   1 cpc   :   1 cpi   :  14 cpse  :   0 dec   :   8 
+com   :   0 cp    :   1 cpc   :   1 cpi   :  15 cpse  :   0 dec   :   8 
 eor   :   1 icall :   0 ijmp  :   0 in    :  12 inc   :   1 ld    :   7 
 ldd   :   0 ldi   :  69 lds   :  92 lsl   :   2 lsr   :  11 mov   :  12 
 neg   :   0 nop   :   6 or    :   1 ori   :   0 out   :  36 pop   :   0 
@@ -1859,7 +1863,7 @@ Instructions used: 49 out of 99 (49.5%)
 "ATtiny20" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000800   1102      0   1102    2048  53.8%
+[.cseg] 0x000000 0x000800   1106      0   1106    2048  54.0%
 [.dseg] 0x000040 0x00006a      0     42     42     128  32.8%
 [.eseg] 0x000000 0x000000      0      0      0       0      -
 

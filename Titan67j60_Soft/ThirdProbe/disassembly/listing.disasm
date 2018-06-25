@@ -1,0 +1,1913 @@
+Disassembly Listing for ThirdProbe
+Generated From:
+C:/Work/Titan/Titan67j60_Soft/ThirdProbe/dist/default/debug/ThirdProbe.debug.elf
+22.05.2018 14:24:48
+
+---  C:/Work/Titan/Titan67j60_Soft/ThirdProbe/titan.c  --------------------------------------------------
+1:             #include "titan.h"
+2:             
+3:             void Initialize_All(void){
+4:                 
+5:             }
+1FFE0  0012     RETURN 0
+6:             
+7:             void INTERRUPT_InterruptsEnable(void){
+8:                 
+9:             }
+1FFDE  0012     RETURN 0
+10:            
+11:            void Do_All(void){
+12:                
+13:            }
+1FFDC  0012     RETURN 0
+14:            
+15:            
+---  C:/Work/Titan/Titan67j60_Soft/ThirdProbe/main.c  ---------------------------------------------------
+1:             /*
+2:              * File:   main.c
+3:              * Author: јлексей81
+4:              *
+5:              * Created on 24 апрел€ 2018 г., 17:17
+6:              */
+7:             
+8:             #include "titan.h"
+9:             
+10:            static unsigned char VariableA = 5;
+1FFE2  0100     MOVLB 0x0
+11:            
+12:            void main(void) {
+13:                Initialize_All();
+1FFE8  ECF0     CALL 0x1FFE0, 0
+1FFEA  F0FF     NOP
+14:                INTERRUPT_InterruptsEnable();
+1FFEC  ECEF     CALL 0x1FFDE, 0
+1FFEE  F0FF     NOP
+15:                while (1)
+16:                {
+17:                    Do_All();
+1FFF0  ECEE     CALL 0x1FFDC, 0
+1FFF2  F0FF     NOP
+18:                    VariableA++;
+1FFF4  2A01     INCF VariableA, F, ACCESS
+19:                }
+20:                return; // никогда не должны попасть сюда!!!
+21:            }
+---  C:/Work/Titan/Titan67j60_Soft/ThirdProbe/dist/default/debug/startup.as  ----------------------------
+1:             
+2:             	; Microchip MPLAB XC8 C Compiler V1.44
+3:             	; Copyright (C) 1984-2017 HI-TECH Software
+4:             
+5:             	; Auto-generated runtime startup code for final link stage.
+6:             
+7:             	;
+8:             	; Compiler options:
+9:             	;
+10:            	; --chip=18F67J60 -G -mdist/default/debug/ThirdProbe.debug.map \
+11:            	; -D__DEBUG=1 --debugger=none --double=24 --float=24 --emi=wordwrite \
+12:            	; --opt=+asm,+asmfile,-speed,+space,+debug,-local --addrqual=ignore \
+13:            	; --mode=pro -P -N255 --warn=-3 --asmlist -DXPRJ_default=default \
+14:            	; --summary=default,-psect,-class,+mem,-hex,-file \
+15:            	; --output=default,-inhx032 \
+16:            	; --runtime=default,-clear,-init,+keep,-no_startup,-download,+config,+clib,-plib \
+17:            	; --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \
+18:            	; --errformat=%f:%l: error: (%n) %s \
+19:            	; --warnformat=%f:%l: warning: (%n) %s \
+20:            	; --msgformat=%f:%l: advisory: (%n) %s --summary=+xml \
+21:            	; --summarydir=dist/default/debug/memoryfile.xml \
+22:            	; -odist/default/debug/ThirdProbe.debug.elf build/default/debug/main.p1 \
+23:            	; build/default/debug/titan.p1
+24:            	;
+25:            
+26:            
+27:            	processor	18F67J60
+28:            
+29:            GLOBAL ___extmem_base
+30:            ___extmem_base EQU 131072
+31:            
+32:            	GLOBAL	_main,start
+33:            	FNROOT	_main
+34:            
+35:            	pic18cxx	equ	1
+36:            
+37:            	psect	jflash_buffer,class=CODE,space=0,noexec
+38:            	psect	config,class=CONFIG,delta=1,noexec
+39:            	psect	idloc,class=IDLOC,delta=1,noexec
+40:            	psect	const,class=CONST,delta=1,reloc=2,noexec
+41:            	psect	smallconst,class=SMALLCONST,delta=1,reloc=2,noexec
+42:            	psect	mediumconst,class=MEDIUMCONST,delta=1,reloc=2,noexec
+43:            	psect	rbss,class=COMRAM,space=1,noexec
+44:            	psect	bss,class=RAM,space=1,noexec
+45:            	psect	rdata,class=COMRAM,space=1,noexec
+46:            	psect	irdata,class=CODE,space=0,reloc=2,noexec
+47:            	psect	bss,class=RAM,space=1,noexec
+48:            	psect	data,class=RAM,space=1,noexec
+49:            	psect	idata,class=CODE,space=0,reloc=2,noexec
+50:            	psect	nvrram,class=COMRAM,space=1,noexec
+51:            	psect	nvbit,class=COMRAM,bit,space=1,noexec
+52:            	psect	temp,ovrld,class=COMRAM,space=1,noexec
+53:            	psect	struct,ovrld,class=COMRAM,space=1,noexec
+54:            	psect	rbit,class=COMRAM,bit,space=1,noexec
+55:            	psect	bigbss,class=BIGRAM,space=1,noexec
+56:            	psect	bigdata,class=BIGRAM,space=1,noexec
+57:            	psect	ibigdata,class=CODE,space=0,reloc=2,noexec
+58:            	psect	farbss,class=FARRAM,space=0,reloc=2,delta=1,noexec
+59:            	psect	nvFARRAM,class=FARRAM,space=0,reloc=2,delta=1,noexec
+60:            	psect	fardata,class=FARRAM,space=0,reloc=2,delta=1,noexec
+61:            	psect	ifardata,class=CODE,space=0,reloc=2,delta=1,noexec
+62:            
+63:            	psect	reset_vec,class=CODE,delta=1,reloc=2
+64:            	psect	powerup,class=CODE,delta=1,reloc=2
+65:            	psect	init,class=CODE,delta=1,reloc=2
+66:            	psect	text,class=CODE,delta=1,reloc=2
+67:            GLOBAL	intlevel0,intlevel1,intlevel2
+68:            intlevel0:
+69:            intlevel1:
+70:            intlevel2:
+71:            GLOBAL	intlevel3
+72:            intlevel3:
+73:            	psect	clrtext,class=CODE,delta=1,reloc=2
+74:            
+75:            	psect	intcode,class=CODE,delta=1,reloc=2
+76:            	psect	intcode_body,class=CODE,delta=1,reloc=2
+77:            	psect	intcodelo,class=CODE,delta=1,reloc=2
+78:            	psect	intret,class=CODE,delta=1,reloc=2
+79:            	psect	intentry,class=CODE,delta=1,reloc=2
+80:            	psect	intsave_regs,class=BIGRAM,space=1
+81:            
+82:            	psect	smallconst
+83:            	GLOBAL	__smallconst
+84:            __smallconst:
+85:            	psect	mediumconst
+86:            	GLOBAL	__mediumconst
+87:            __mediumconst:
+88:            wreg	EQU	0FE8h
+89:            fsr0l	EQU	0FE9h
+90:            fsr0h	EQU	0FEAh
+91:            fsr1l	EQU	0FE1h
+92:            fsr1h	EQU	0FE2h
+93:            fsr2l	EQU	0FD9h
+94:            fsr2h	EQU	0FDAh
+95:            postinc0	EQU	0FEEh
+96:            postdec0	EQU	0FEDh
+97:            postinc1	EQU	0FE6h
+98:            postdec1	EQU	0FE5h
+99:            postinc2	EQU	0FDEh
+100:           postdec2	EQU	0FDDh
+101:           tblptrl	EQU	0FF6h
+102:           tblptrh	EQU	0FF7h
+103:           tblptru	EQU	0FF8h
+104:           tablat		EQU	0FF5h
+105:           
+106:           	PSECT	ramtop,class=RAM,noexec
+107:           	GLOBAL	__S1			; top of RAM usage
+108:           	GLOBAL	__ramtop
+109:           	GLOBAL	__LRAM,__HRAM
+110:           __ramtop:
+111:           
+112:           	psect	reset_vec
+113:           reset_vec:
+114:           	; No powerup routine
+115:           	; No interrupt routine
+116:           	GLOBAL __accesstop
+117:           __accesstop EQU 96
+118:           
+119:           ;Initialize the stack pointer (FSR1)
+120:           	global stacklo, stackhi
+121:           	stacklo	equ	060h
+122:           	stackhi	equ	0E7Fh
+123:           
+124:           
+125:           	psect	stack,class=STACK,space=2,noexec
+126:           	global ___sp,___inthi_sp,___intlo_sp
+127:           ___sp:
+128:           ___inthi_sp:
+129:           ___intlo_sp:
+130:           
+131:           
+132:           
+133:           	psect	init
+134:           start:
+135:           	global start_initialization
+136:           	goto start_initialization	;jump to C runtime clear & initialization
+0000  EFF1     GOTO 0x1FFE2
+137:           
+138:           ; Config register CONFIG1L @ 0x1FFF8
+139:           ;	Watchdog Timer Enable bit
+140:           ;	WDT = ON, WDT enabled
+141:           ;	Stack Overflow/Underflow Reset Enable bit
+142:           ;	STVR = ON, Reset on stack overflow/underflow enabled
+143:           ;	Extended Instruction Set Enable bit
+144:           ;	XINST = OFF, Instruction set extension and Indexed Addressing mode disabled (Legacy mode)
+145:           ;	Background Debugger Enable bit
+146:           ;	DEBUG = 0x1, unprogrammed default
+147:           
+148:           	psect	config,class=CONFIG,delta=1,noexec
+149:           		org 0x0
+150:           		db 0xA1
+151:           
+152:           ; Config register CONFIG1H @ 0x1FFF9
+153:           ;	Code Protection bit
+154:           ;	CP0 = OFF, Program memory is not code-protected
+155:           
+156:           	psect	config,class=CONFIG,delta=1,noexec
+157:           		org 0x1
+158:           		db 0xF4
+159:           
+160:           ; Config register CONFIG2L @ 0x1FFFA
+161:           ;	Oscillator Selection bits
+162:           ;	FOSC = ECPLL, EC oscillator, PLL enabled and under software control, CLKO function on OSC2
+163:           ;	Default/Reset System Clock Select bit
+164:           ;	FOSC2 = ON, Clock selected by FOSC1:FOSC0 as system clock is enabled when OSCCON<1:0> = 00
+165:           ;	Fail-Safe Clock Monitor Enable
+166:           ;	FCMEN = ON, Fail-Safe Clock Monitor enabled
+167:           ;	Two-Speed Start-up (Internal/External Oscillator Switchover) Control bit
+168:           ;	IESO = ON, Two-Speed Start-up enabled
+169:           
+170:           	psect	config,class=CONFIG,delta=1,noexec
+171:           		org 0x2
+172:           		db 0xC7
+173:           
+174:           ; Config register CONFIG2H @ 0x1FFFB
+175:           ;	Watchdog Timer Postscaler Select bits
+176:           ;	WDTPS = 32768, 1:32768
+177:           
+178:           	psect	config,class=CONFIG,delta=1,noexec
+179:           		org 0x3
+180:           		db 0xFF
+181:           
+182:           ; Config register CONFIG3L @ 0x1FFFC
+183:           ;	unspecified using default value
+184:           
+185:           	psect	config,class=CONFIG,delta=1,noexec
+186:           		org 0x4
+187:           		db 0xF8
+188:           
+189:           ; Config register CONFIG3H @ 0x1FFFD
+190:           ;	Ethernet LED Enable bit
+191:           ;	ETHLED = ON, RA0/RA1 are multiplexed with LEDA/LEDB when Ethernet module is enabled and function as I/O when Ethernet is disabled
+192:           
+193:           	psect	config,class=CONFIG,delta=1,noexec
+194:           		org 0x5
+195:           		db 0xF7
+196:           
+197:           
+198:           psect comram,class=COMRAM,space=1
+199:           psect abs1,class=ABS1,space=1
+200:           psect bigram,class=BIGRAM,space=1
+201:           psect ram,class=RAM,space=1
+202:           psect bank0,class=BANK0,space=1
+203:           psect bank1,class=BANK1,space=1
+204:           psect bank2,class=BANK2,space=1
+205:           psect bank3,class=BANK3,space=1
+206:           psect bank4,class=BANK4,space=1
+207:           psect bank5,class=BANK5,space=1
+208:           psect bank6,class=BANK6,space=1
+209:           psect bank7,class=BANK7,space=1
+210:           psect bank8,class=BANK8,space=1
+211:           psect bank9,class=BANK9,space=1
+212:           psect bank10,class=BANK10,space=1
+213:           psect bank11,class=BANK11,space=1
+214:           psect bank12,class=BANK12,space=1
+215:           psect bank13,class=BANK13,space=1
+216:           psect bank14,class=BANK14,space=1
+217:           psect bank15,class=BANK15,space=1
+218:           psect sfr,class=SFR,space=1
+219:           
+220:           
+221:           	end	start
+---  C:/Work/Titan/Titan67j60_Soft/ThirdProbe/dist/default/debug/ThirdProbe.debug.as  -------------------
+1:             opt subtitle "Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140600"
+2:             
+3:             opt pagewidth 120
+4:             
+5:             	opt lm
+6:             
+7:             	processor	18F67J60
+8:             opt include "C:\Program Files\Microchip\xc8\v1.44\include\18f67j60.cgen.inc"
+9:             clrc   macro
+10:            	bcf	status,0
+11:            endm
+12:            setc   macro
+13:            	bsf	status,0
+14:            endm
+15:            clrz   macro
+16:            	bcf	status,2
+17:            endm
+18:            setz   macro
+19:            	bsf	status,2
+20:            endm
+21:            skipnz macro
+22:            	btfsc	status,2
+23:            endm
+24:            skipz  macro
+25:            	btfss	status,2
+26:            endm
+27:            skipnc macro
+28:            	btfsc	status,0
+29:            endm
+30:            skipc  macro
+31:            	btfss	status,0
+32:            endm
+33:            pushw macro
+34:            	movwf postinc1
+35:            endm
+36:            pushf macro arg1
+37:            	movff arg1, postinc1
+38:            endm
+39:            popw macro
+40:            	movf postdec1,f
+41:            	movf indf1,w
+42:            endm
+43:            popf macro arg1
+44:            	movf postdec1,f
+45:            	movff indf1,arg1
+46:            endm
+47:            popfc macro arg1
+48:            	movff plusw1,arg1
+49:            	decfsz fsr1,f
+50:            endm
+51:            	global	__ramtop
+52:            	global	__accesstop
+53:            # 52 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+54:            MAADR5 equ 0E80h ;# 
+55:            # 59 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+56:            MAADR6 equ 0E81h ;# 
+57:            # 66 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+58:            MAADR3 equ 0E82h ;# 
+59:            # 73 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+60:            MAADR4 equ 0E83h ;# 
+61:            # 80 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+62:            MAADR1 equ 0E84h ;# 
+63:            # 87 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+64:            MAADR2 equ 0E85h ;# 
+65:            # 94 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+66:            MISTAT equ 0E8Ah ;# 
+67:            # 127 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+68:            EFLOCON equ 0E97h ;# 
+69:            # 159 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+70:            EPAUS equ 0E98h ;# 
+71:            # 166 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+72:            EPAUSL equ 0E98h ;# 
+73:            # 173 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+74:            EPAUSH equ 0E99h ;# 
+75:            # 180 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+76:            MACON1 equ 0EA0h ;# 
+77:            # 218 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+78:            MACON3 equ 0EA2h ;# 
+79:            # 289 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+80:            MACON4 equ 0EA3h ;# 
+81:            # 311 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+82:            MABBIPG equ 0EA4h ;# 
+83:            # 367 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+84:            MAIPG equ 0EA6h ;# 
+85:            # 374 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+86:            MAIPGL equ 0EA6h ;# 
+87:            # 381 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+88:            MAIPGH equ 0EA7h ;# 
+89:            # 388 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+90:            MAMXFL equ 0EAAh ;# 
+91:            # 395 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+92:            MAMXFLL equ 0EAAh ;# 
+93:            # 402 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+94:            MAMXFLH equ 0EABh ;# 
+95:            # 409 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+96:            MICMD equ 0EB2h ;# 
+97:            # 435 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+98:            MIREGADR equ 0EB4h ;# 
+99:            # 442 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+100:           MIWR equ 0EB6h ;# 
+101:           # 449 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+102:           MIWRL equ 0EB6h ;# 
+103:           # 456 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+104:           MIWRH equ 0EB7h ;# 
+105:           # 463 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+106:           MIRD equ 0EB8h ;# 
+107:           # 470 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+108:           MIRDL equ 0EB8h ;# 
+109:           # 477 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+110:           MIRDH equ 0EB9h ;# 
+111:           # 484 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+112:           EHT0 equ 0EC0h ;# 
+113:           # 491 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+114:           EHT1 equ 0EC1h ;# 
+115:           # 498 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+116:           EHT2 equ 0EC2h ;# 
+117:           # 505 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+118:           EHT3 equ 0EC3h ;# 
+119:           # 512 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+120:           EHT4 equ 0EC4h ;# 
+121:           # 519 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+122:           EHT5 equ 0EC5h ;# 
+123:           # 526 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+124:           EHT6 equ 0EC6h ;# 
+125:           # 533 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+126:           EHT7 equ 0EC7h ;# 
+127:           # 540 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+128:           EPMM0 equ 0EC8h ;# 
+129:           # 547 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+130:           EPMM1 equ 0EC9h ;# 
+131:           # 554 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+132:           EPMM2 equ 0ECAh ;# 
+133:           # 561 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+134:           EPMM3 equ 0ECBh ;# 
+135:           # 568 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+136:           EPMM4 equ 0ECCh ;# 
+137:           # 575 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+138:           EPMM5 equ 0ECDh ;# 
+139:           # 582 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+140:           EPMM6 equ 0ECEh ;# 
+141:           # 589 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+142:           EPMM7 equ 0ECFh ;# 
+143:           # 596 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+144:           EPMCS equ 0ED0h ;# 
+145:           # 603 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+146:           EPMCSL equ 0ED0h ;# 
+147:           # 610 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+148:           EPMCSH equ 0ED1h ;# 
+149:           # 617 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+150:           EPMO equ 0ED4h ;# 
+151:           # 624 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+152:           EPMOL equ 0ED4h ;# 
+153:           # 631 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+154:           EPMOH equ 0ED5h ;# 
+155:           # 638 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+156:           ERXFCON equ 0ED8h ;# 
+157:           # 700 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+158:           EPKTCNT equ 0ED9h ;# 
+159:           # 707 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+160:           EWRPT equ 0EE2h ;# 
+161:           # 714 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+162:           EWRPTL equ 0EE2h ;# 
+163:           # 721 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+164:           EWRPTH equ 0EE3h ;# 
+165:           # 728 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+166:           ETXST equ 0EE4h ;# 
+167:           # 735 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+168:           ETXSTL equ 0EE4h ;# 
+169:           # 742 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+170:           ETXSTH equ 0EE5h ;# 
+171:           # 749 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+172:           ETXND equ 0EE6h ;# 
+173:           # 756 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+174:           ETXNDL equ 0EE6h ;# 
+175:           # 763 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+176:           ETXNDH equ 0EE7h ;# 
+177:           # 770 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+178:           ERXST equ 0EE8h ;# 
+179:           # 777 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+180:           ERXSTL equ 0EE8h ;# 
+181:           # 784 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+182:           ERXSTH equ 0EE9h ;# 
+183:           # 791 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+184:           ERXND equ 0EEAh ;# 
+185:           # 798 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+186:           ERXNDL equ 0EEAh ;# 
+187:           # 805 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+188:           ERXNDH equ 0EEBh ;# 
+189:           # 812 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+190:           ERXRDPT equ 0EECh ;# 
+191:           # 819 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+192:           ERXRDPTL equ 0EECh ;# 
+193:           # 826 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+194:           ERXRDPTH equ 0EEDh ;# 
+195:           # 833 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+196:           ERXWRPT equ 0EEEh ;# 
+197:           # 840 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+198:           ERXWRPTL equ 0EEEh ;# 
+199:           # 847 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+200:           ERXWRPTH equ 0EEFh ;# 
+201:           # 854 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+202:           EDMAST equ 0EF0h ;# 
+203:           # 861 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+204:           EDMASTL equ 0EF0h ;# 
+205:           # 868 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+206:           EDMASTH equ 0EF1h ;# 
+207:           # 875 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+208:           EDMAND equ 0EF2h ;# 
+209:           # 882 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+210:           EDMANDL equ 0EF2h ;# 
+211:           # 889 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+212:           EDMANDH equ 0EF3h ;# 
+213:           # 896 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+214:           EDMADST equ 0EF4h ;# 
+215:           # 903 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+216:           EDMADSTL equ 0EF4h ;# 
+217:           # 910 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+218:           EDMADSTH equ 0EF5h ;# 
+219:           # 917 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+220:           EDMACS equ 0EF6h ;# 
+221:           # 924 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+222:           EDMACSL equ 0EF6h ;# 
+223:           # 931 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+224:           EDMACSH equ 0EF7h ;# 
+225:           # 938 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+226:           EIE equ 0EFBh ;# 
+227:           # 998 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+228:           ESTAT equ 0EFDh ;# 
+229:           # 1038 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+230:           ECON2 equ 0EFEh ;# 
+231:           # 1071 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+232:           EIR equ 0F60h ;# 
+233:           # 1131 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+234:           EDATA equ 0F61h ;# 
+235:           # 1193 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+236:           ECCP2DEL equ 0F67h ;# 
+237:           # 1313 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+238:           ECCP2AS equ 0F68h ;# 
+239:           # 1445 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+240:           ECCP3DEL equ 0F69h ;# 
+241:           # 1565 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+242:           ECCP3AS equ 0F6Ah ;# 
+243:           # 1697 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+244:           CCP5CON equ 0F70h ;# 
+245:           # 1776 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+246:           CCPR5 equ 0F71h ;# 
+247:           # 1783 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+248:           CCPR5L equ 0F71h ;# 
+249:           # 1790 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+250:           CCPR5H equ 0F72h ;# 
+251:           # 1797 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+252:           CCP4CON equ 0F73h ;# 
+253:           # 1876 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+254:           CCPR4 equ 0F74h ;# 
+255:           # 1883 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+256:           CCPR4L equ 0F74h ;# 
+257:           # 1890 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+258:           CCPR4H equ 0F75h ;# 
+259:           # 1897 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+260:           T4CON equ 0F76h ;# 
+261:           # 1968 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+262:           PR4 equ 0F77h ;# 
+263:           # 1975 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+264:           TMR4 equ 0F78h ;# 
+265:           # 1982 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+266:           ECCP1DEL equ 0F79h ;# 
+267:           # 2102 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+268:           ERDPT equ 0F7Ah ;# 
+269:           # 2109 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+270:           ERDPTL equ 0F7Ah ;# 
+271:           # 2116 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+272:           ERDPTH equ 0F7Bh ;# 
+273:           # 2123 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+274:           BAUDCON1 equ 0F7Eh ;# 
+275:           # 2128 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+276:           BAUDCON equ 0F7Eh ;# 
+277:           # 2132 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+278:           BAUDCTL equ 0F7Eh ;# 
+279:           # 2136 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+280:           BAUDCTL1 equ 0F7Eh ;# 
+281:           # 2801 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+282:           SPBRGH1 equ 0F7Fh ;# 
+283:           # 2806 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+284:           SPBRGH equ 0F7Fh ;# 
+285:           # 2813 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+286:           PORTA equ 0F80h ;# 
+287:           # 2942 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+288:           PORTB equ 0F81h ;# 
+289:           # 3084 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+290:           PORTC equ 0F82h ;# 
+291:           # 3324 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+292:           PORTD equ 0F83h ;# 
+293:           # 3380 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+294:           PORTE equ 0F84h ;# 
+295:           # 3515 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+296:           PORTF equ 0F85h ;# 
+297:           # 3684 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+298:           PORTG equ 0F86h ;# 
+299:           # 3714 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+300:           LATA equ 0F89h ;# 
+301:           # 3835 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+302:           LATB equ 0F8Ah ;# 
+303:           # 3947 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+304:           LATC equ 0F8Bh ;# 
+305:           # 4059 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+306:           LATD equ 0F8Ch ;# 
+307:           # 4111 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+308:           LATE equ 0F8Dh ;# 
+309:           # 4199 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+310:           LATF equ 0F8Eh ;# 
+311:           # 4301 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+312:           LATG equ 0F8Fh ;# 
+313:           # 4331 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+314:           TRISA equ 0F92h ;# 
+315:           # 4336 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+316:           DDRA equ 0F92h ;# 
+317:           # 4505 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+318:           TRISB equ 0F93h ;# 
+319:           # 4510 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+320:           DDRB equ 0F93h ;# 
+321:           # 4727 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+322:           TRISC equ 0F94h ;# 
+323:           # 4732 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+324:           DDRC equ 0F94h ;# 
+325:           # 4949 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+326:           TRISD equ 0F95h ;# 
+327:           # 4954 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+328:           DDRD equ 0F95h ;# 
+329:           # 5051 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+330:           TRISE equ 0F96h ;# 
+331:           # 5056 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+332:           DDRE equ 0F96h ;# 
+333:           # 5225 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+334:           TRISF equ 0F97h ;# 
+335:           # 5230 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+336:           DDRF equ 0F97h ;# 
+337:           # 5427 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+338:           TRISG equ 0F98h ;# 
+339:           # 5432 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+340:           DDRG equ 0F98h ;# 
+341:           # 5485 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+342:           OSCTUNE equ 0F9Bh ;# 
+343:           # 5539 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+344:           PIE1 equ 0F9Dh ;# 
+345:           # 5616 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+346:           PIR1 equ 0F9Eh ;# 
+347:           # 5696 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+348:           IPR1 equ 0F9Fh ;# 
+349:           # 5773 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+350:           PIE2 equ 0FA0h ;# 
+351:           # 5834 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+352:           PIR2 equ 0FA1h ;# 
+353:           # 5895 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+354:           IPR2 equ 0FA2h ;# 
+355:           # 5956 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+356:           PIE3 equ 0FA3h ;# 
+357:           # 6029 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+358:           PIR3 equ 0FA4h ;# 
+359:           # 6076 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+360:           IPR3 equ 0FA5h ;# 
+361:           # 6123 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+362:           EECON1 equ 0FA6h ;# 
+363:           # 6162 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+364:           EECON2 equ 0FA7h ;# 
+365:           # 6169 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+366:           RCSTA1 equ 0FABh ;# 
+367:           # 6174 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+368:           RCSTA equ 0FABh ;# 
+369:           # 6493 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+370:           TXSTA1 equ 0FACh ;# 
+371:           # 6498 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+372:           TXSTA equ 0FACh ;# 
+373:           # 6781 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+374:           TXREG1 equ 0FADh ;# 
+375:           # 6786 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+376:           TXREG equ 0FADh ;# 
+377:           # 6793 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+378:           RCREG1 equ 0FAEh ;# 
+379:           # 6798 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+380:           RCREG equ 0FAEh ;# 
+381:           # 6805 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+382:           SPBRG1 equ 0FAFh ;# 
+383:           # 6810 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+384:           SPBRG equ 0FAFh ;# 
+385:           # 6817 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+386:           T3CON equ 0FB1h ;# 
+387:           # 6938 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+388:           TMR3 equ 0FB2h ;# 
+389:           # 6945 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+390:           TMR3L equ 0FB2h ;# 
+391:           # 6952 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+392:           TMR3H equ 0FB3h ;# 
+393:           # 6959 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+394:           CMCON equ 0FB4h ;# 
+395:           # 7049 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+396:           CVRCON equ 0FB5h ;# 
+397:           # 7128 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+398:           ECCP1AS equ 0FB6h ;# 
+399:           # 7260 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+400:           CCP3CON equ 0FB7h ;# 
+401:           # 7265 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+402:           ECCP3CON equ 0FB7h ;# 
+403:           # 7452 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+404:           CCPR3 equ 0FB8h ;# 
+405:           # 7459 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+406:           CCPR3L equ 0FB8h ;# 
+407:           # 7466 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+408:           CCPR3H equ 0FB9h ;# 
+409:           # 7473 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+410:           CCP2CON equ 0FBAh ;# 
+411:           # 7478 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+412:           ECCP2CON equ 0FBAh ;# 
+413:           # 7665 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+414:           CCPR2 equ 0FBBh ;# 
+415:           # 7672 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+416:           CCPR2L equ 0FBBh ;# 
+417:           # 7679 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+418:           CCPR2H equ 0FBCh ;# 
+419:           # 7686 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+420:           CCP1CON equ 0FBDh ;# 
+421:           # 7691 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+422:           ECCP1CON equ 0FBDh ;# 
+423:           # 7878 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+424:           CCPR1 equ 0FBEh ;# 
+425:           # 7885 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+426:           CCPR1L equ 0FBEh ;# 
+427:           # 7892 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+428:           CCPR1H equ 0FBFh ;# 
+429:           # 7899 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+430:           ADCON2 equ 0FC0h ;# 
+431:           # 7970 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+432:           ADCON1 equ 0FC1h ;# 
+433:           # 8055 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+434:           ADCON0 equ 0FC2h ;# 
+435:           # 8181 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+436:           ADRES equ 0FC3h ;# 
+437:           # 8188 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+438:           ADRESL equ 0FC3h ;# 
+439:           # 8195 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+440:           ADRESH equ 0FC4h ;# 
+441:           # 8202 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+442:           SSP1CON2 equ 0FC5h ;# 
+443:           # 8207 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+444:           SSPCON2 equ 0FC5h ;# 
+445:           # 8574 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+446:           SSP1CON1 equ 0FC6h ;# 
+447:           # 8579 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+448:           SSPCON1 equ 0FC6h ;# 
+449:           # 8812 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+450:           SSP1STAT equ 0FC7h ;# 
+451:           # 8817 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+452:           SSPSTAT equ 0FC7h ;# 
+453:           # 9410 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+454:           SSP1ADD equ 0FC8h ;# 
+455:           # 9415 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+456:           SSPADD equ 0FC8h ;# 
+457:           # 9632 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+458:           SSP1BUF equ 0FC9h ;# 
+459:           # 9637 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+460:           SSPBUF equ 0FC9h ;# 
+461:           # 9644 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+462:           T2CON equ 0FCAh ;# 
+463:           # 9715 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+464:           PR2 equ 0FCBh ;# 
+465:           # 9720 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+466:           MEMCON equ 0FCBh ;# 
+467:           # 9825 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+468:           TMR2 equ 0FCCh ;# 
+469:           # 9832 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+470:           T1CON equ 0FCDh ;# 
+471:           # 9944 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+472:           TMR1 equ 0FCEh ;# 
+473:           # 9951 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+474:           TMR1L equ 0FCEh ;# 
+475:           # 9958 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+476:           TMR1H equ 0FCFh ;# 
+477:           # 9965 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+478:           RCON equ 0FD0h ;# 
+479:           # 10113 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+480:           WDTCON equ 0FD1h ;# 
+481:           # 10141 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+482:           ECON1 equ 0FD2h ;# 
+483:           # 10192 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+484:           OSCCON equ 0FD3h ;# 
+485:           # 10240 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+486:           T0CON equ 0FD5h ;# 
+487:           # 10310 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+488:           TMR0 equ 0FD6h ;# 
+489:           # 10317 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+490:           TMR0L equ 0FD6h ;# 
+491:           # 10324 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+492:           TMR0H equ 0FD7h ;# 
+493:           # 10331 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+494:           STATUS equ 0FD8h ;# 
+495:           # 10402 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+496:           FSR2 equ 0FD9h ;# 
+497:           # 10409 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+498:           FSR2L equ 0FD9h ;# 
+499:           # 10416 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+500:           FSR2H equ 0FDAh ;# 
+501:           # 10423 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+502:           PLUSW2 equ 0FDBh ;# 
+503:           # 10430 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+504:           PREINC2 equ 0FDCh ;# 
+505:           # 10437 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+506:           POSTDEC2 equ 0FDDh ;# 
+507:           # 10444 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+508:           POSTINC2 equ 0FDEh ;# 
+509:           # 10451 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+510:           INDF2 equ 0FDFh ;# 
+511:           # 10458 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+512:           BSR equ 0FE0h ;# 
+513:           # 10465 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+514:           FSR1 equ 0FE1h ;# 
+515:           # 10472 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+516:           FSR1L equ 0FE1h ;# 
+517:           # 10479 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+518:           FSR1H equ 0FE2h ;# 
+519:           # 10486 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+520:           PLUSW1 equ 0FE3h ;# 
+521:           # 10493 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+522:           PREINC1 equ 0FE4h ;# 
+523:           # 10500 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+524:           POSTDEC1 equ 0FE5h ;# 
+525:           # 10507 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+526:           POSTINC1 equ 0FE6h ;# 
+527:           # 10514 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+528:           INDF1 equ 0FE7h ;# 
+529:           # 10521 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+530:           WREG equ 0FE8h ;# 
+531:           # 10528 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+532:           FSR0 equ 0FE9h ;# 
+533:           # 10535 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+534:           FSR0L equ 0FE9h ;# 
+535:           # 10542 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+536:           FSR0H equ 0FEAh ;# 
+537:           # 10549 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+538:           PLUSW0 equ 0FEBh ;# 
+539:           # 10556 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+540:           PREINC0 equ 0FECh ;# 
+541:           # 10563 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+542:           POSTDEC0 equ 0FEDh ;# 
+543:           # 10570 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+544:           POSTINC0 equ 0FEEh ;# 
+545:           # 10577 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+546:           INDF0 equ 0FEFh ;# 
+547:           # 10584 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+548:           INTCON3 equ 0FF0h ;# 
+549:           # 10696 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+550:           INTCON2 equ 0FF1h ;# 
+551:           # 10783 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+552:           INTCON equ 0FF2h ;# 
+553:           # 10900 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+554:           PROD equ 0FF3h ;# 
+555:           # 10907 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+556:           PRODL equ 0FF3h ;# 
+557:           # 10914 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+558:           PRODH equ 0FF4h ;# 
+559:           # 10921 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+560:           TABLAT equ 0FF5h ;# 
+561:           # 10930 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+562:           TBLPTR equ 0FF6h ;# 
+563:           # 10937 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+564:           TBLPTRL equ 0FF6h ;# 
+565:           # 10944 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+566:           TBLPTRH equ 0FF7h ;# 
+567:           # 10951 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+568:           TBLPTRU equ 0FF8h ;# 
+569:           # 10960 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+570:           PCLAT equ 0FF9h ;# 
+571:           # 10967 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+572:           PC equ 0FF9h ;# 
+573:           # 10974 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+574:           PCL equ 0FF9h ;# 
+575:           # 10981 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+576:           PCLATH equ 0FFAh ;# 
+577:           # 10988 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+578:           PCLATU equ 0FFBh ;# 
+579:           # 10995 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+580:           STKPTR equ 0FFCh ;# 
+581:           # 11101 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+582:           TOS equ 0FFDh ;# 
+583:           # 11108 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+584:           TOSL equ 0FFDh ;# 
+585:           # 11115 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+586:           TOSH equ 0FFEh ;# 
+587:           # 11122 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+588:           TOSU equ 0FFFh ;# 
+589:           # 52 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+590:           MAADR5 equ 0E80h ;# 
+591:           # 59 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+592:           MAADR6 equ 0E81h ;# 
+593:           # 66 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+594:           MAADR3 equ 0E82h ;# 
+595:           # 73 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+596:           MAADR4 equ 0E83h ;# 
+597:           # 80 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+598:           MAADR1 equ 0E84h ;# 
+599:           # 87 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+600:           MAADR2 equ 0E85h ;# 
+601:           # 94 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+602:           MISTAT equ 0E8Ah ;# 
+603:           # 127 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+604:           EFLOCON equ 0E97h ;# 
+605:           # 159 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+606:           EPAUS equ 0E98h ;# 
+607:           # 166 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+608:           EPAUSL equ 0E98h ;# 
+609:           # 173 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+610:           EPAUSH equ 0E99h ;# 
+611:           # 180 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+612:           MACON1 equ 0EA0h ;# 
+613:           # 218 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+614:           MACON3 equ 0EA2h ;# 
+615:           # 289 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+616:           MACON4 equ 0EA3h ;# 
+617:           # 311 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+618:           MABBIPG equ 0EA4h ;# 
+619:           # 367 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+620:           MAIPG equ 0EA6h ;# 
+621:           # 374 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+622:           MAIPGL equ 0EA6h ;# 
+623:           # 381 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+624:           MAIPGH equ 0EA7h ;# 
+625:           # 388 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+626:           MAMXFL equ 0EAAh ;# 
+627:           # 395 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+628:           MAMXFLL equ 0EAAh ;# 
+629:           # 402 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+630:           MAMXFLH equ 0EABh ;# 
+631:           # 409 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+632:           MICMD equ 0EB2h ;# 
+633:           # 435 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+634:           MIREGADR equ 0EB4h ;# 
+635:           # 442 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+636:           MIWR equ 0EB6h ;# 
+637:           # 449 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+638:           MIWRL equ 0EB6h ;# 
+639:           # 456 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+640:           MIWRH equ 0EB7h ;# 
+641:           # 463 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+642:           MIRD equ 0EB8h ;# 
+643:           # 470 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+644:           MIRDL equ 0EB8h ;# 
+645:           # 477 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+646:           MIRDH equ 0EB9h ;# 
+647:           # 484 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+648:           EHT0 equ 0EC0h ;# 
+649:           # 491 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+650:           EHT1 equ 0EC1h ;# 
+651:           # 498 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+652:           EHT2 equ 0EC2h ;# 
+653:           # 505 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+654:           EHT3 equ 0EC3h ;# 
+655:           # 512 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+656:           EHT4 equ 0EC4h ;# 
+657:           # 519 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+658:           EHT5 equ 0EC5h ;# 
+659:           # 526 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+660:           EHT6 equ 0EC6h ;# 
+661:           # 533 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+662:           EHT7 equ 0EC7h ;# 
+663:           # 540 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+664:           EPMM0 equ 0EC8h ;# 
+665:           # 547 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+666:           EPMM1 equ 0EC9h ;# 
+667:           # 554 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+668:           EPMM2 equ 0ECAh ;# 
+669:           # 561 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+670:           EPMM3 equ 0ECBh ;# 
+671:           # 568 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+672:           EPMM4 equ 0ECCh ;# 
+673:           # 575 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+674:           EPMM5 equ 0ECDh ;# 
+675:           # 582 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+676:           EPMM6 equ 0ECEh ;# 
+677:           # 589 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+678:           EPMM7 equ 0ECFh ;# 
+679:           # 596 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+680:           EPMCS equ 0ED0h ;# 
+681:           # 603 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+682:           EPMCSL equ 0ED0h ;# 
+683:           # 610 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+684:           EPMCSH equ 0ED1h ;# 
+685:           # 617 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+686:           EPMO equ 0ED4h ;# 
+687:           # 624 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+688:           EPMOL equ 0ED4h ;# 
+689:           # 631 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+690:           EPMOH equ 0ED5h ;# 
+691:           # 638 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+692:           ERXFCON equ 0ED8h ;# 
+693:           # 700 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+694:           EPKTCNT equ 0ED9h ;# 
+695:           # 707 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+696:           EWRPT equ 0EE2h ;# 
+697:           # 714 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+698:           EWRPTL equ 0EE2h ;# 
+699:           # 721 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+700:           EWRPTH equ 0EE3h ;# 
+701:           # 728 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+702:           ETXST equ 0EE4h ;# 
+703:           # 735 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+704:           ETXSTL equ 0EE4h ;# 
+705:           # 742 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+706:           ETXSTH equ 0EE5h ;# 
+707:           # 749 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+708:           ETXND equ 0EE6h ;# 
+709:           # 756 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+710:           ETXNDL equ 0EE6h ;# 
+711:           # 763 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+712:           ETXNDH equ 0EE7h ;# 
+713:           # 770 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+714:           ERXST equ 0EE8h ;# 
+715:           # 777 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+716:           ERXSTL equ 0EE8h ;# 
+717:           # 784 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+718:           ERXSTH equ 0EE9h ;# 
+719:           # 791 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+720:           ERXND equ 0EEAh ;# 
+721:           # 798 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+722:           ERXNDL equ 0EEAh ;# 
+723:           # 805 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+724:           ERXNDH equ 0EEBh ;# 
+725:           # 812 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+726:           ERXRDPT equ 0EECh ;# 
+727:           # 819 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+728:           ERXRDPTL equ 0EECh ;# 
+729:           # 826 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+730:           ERXRDPTH equ 0EEDh ;# 
+731:           # 833 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+732:           ERXWRPT equ 0EEEh ;# 
+733:           # 840 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+734:           ERXWRPTL equ 0EEEh ;# 
+735:           # 847 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+736:           ERXWRPTH equ 0EEFh ;# 
+737:           # 854 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+738:           EDMAST equ 0EF0h ;# 
+739:           # 861 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+740:           EDMASTL equ 0EF0h ;# 
+741:           # 868 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+742:           EDMASTH equ 0EF1h ;# 
+743:           # 875 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+744:           EDMAND equ 0EF2h ;# 
+745:           # 882 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+746:           EDMANDL equ 0EF2h ;# 
+747:           # 889 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+748:           EDMANDH equ 0EF3h ;# 
+749:           # 896 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+750:           EDMADST equ 0EF4h ;# 
+751:           # 903 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+752:           EDMADSTL equ 0EF4h ;# 
+753:           # 910 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+754:           EDMADSTH equ 0EF5h ;# 
+755:           # 917 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+756:           EDMACS equ 0EF6h ;# 
+757:           # 924 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+758:           EDMACSL equ 0EF6h ;# 
+759:           # 931 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+760:           EDMACSH equ 0EF7h ;# 
+761:           # 938 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+762:           EIE equ 0EFBh ;# 
+763:           # 998 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+764:           ESTAT equ 0EFDh ;# 
+765:           # 1038 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+766:           ECON2 equ 0EFEh ;# 
+767:           # 1071 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+768:           EIR equ 0F60h ;# 
+769:           # 1131 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+770:           EDATA equ 0F61h ;# 
+771:           # 1193 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+772:           ECCP2DEL equ 0F67h ;# 
+773:           # 1313 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+774:           ECCP2AS equ 0F68h ;# 
+775:           # 1445 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+776:           ECCP3DEL equ 0F69h ;# 
+777:           # 1565 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+778:           ECCP3AS equ 0F6Ah ;# 
+779:           # 1697 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+780:           CCP5CON equ 0F70h ;# 
+781:           # 1776 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+782:           CCPR5 equ 0F71h ;# 
+783:           # 1783 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+784:           CCPR5L equ 0F71h ;# 
+785:           # 1790 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+786:           CCPR5H equ 0F72h ;# 
+787:           # 1797 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+788:           CCP4CON equ 0F73h ;# 
+789:           # 1876 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+790:           CCPR4 equ 0F74h ;# 
+791:           # 1883 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+792:           CCPR4L equ 0F74h ;# 
+793:           # 1890 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+794:           CCPR4H equ 0F75h ;# 
+795:           # 1897 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+796:           T4CON equ 0F76h ;# 
+797:           # 1968 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+798:           PR4 equ 0F77h ;# 
+799:           # 1975 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+800:           TMR4 equ 0F78h ;# 
+801:           # 1982 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+802:           ECCP1DEL equ 0F79h ;# 
+803:           # 2102 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+804:           ERDPT equ 0F7Ah ;# 
+805:           # 2109 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+806:           ERDPTL equ 0F7Ah ;# 
+807:           # 2116 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+808:           ERDPTH equ 0F7Bh ;# 
+809:           # 2123 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+810:           BAUDCON1 equ 0F7Eh ;# 
+811:           # 2128 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+812:           BAUDCON equ 0F7Eh ;# 
+813:           # 2132 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+814:           BAUDCTL equ 0F7Eh ;# 
+815:           # 2136 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+816:           BAUDCTL1 equ 0F7Eh ;# 
+817:           # 2801 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+818:           SPBRGH1 equ 0F7Fh ;# 
+819:           # 2806 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+820:           SPBRGH equ 0F7Fh ;# 
+821:           # 2813 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+822:           PORTA equ 0F80h ;# 
+823:           # 2942 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+824:           PORTB equ 0F81h ;# 
+825:           # 3084 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+826:           PORTC equ 0F82h ;# 
+827:           # 3324 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+828:           PORTD equ 0F83h ;# 
+829:           # 3380 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+830:           PORTE equ 0F84h ;# 
+831:           # 3515 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+832:           PORTF equ 0F85h ;# 
+833:           # 3684 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+834:           PORTG equ 0F86h ;# 
+835:           # 3714 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+836:           LATA equ 0F89h ;# 
+837:           # 3835 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+838:           LATB equ 0F8Ah ;# 
+839:           # 3947 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+840:           LATC equ 0F8Bh ;# 
+841:           # 4059 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+842:           LATD equ 0F8Ch ;# 
+843:           # 4111 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+844:           LATE equ 0F8Dh ;# 
+845:           # 4199 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+846:           LATF equ 0F8Eh ;# 
+847:           # 4301 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+848:           LATG equ 0F8Fh ;# 
+849:           # 4331 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+850:           TRISA equ 0F92h ;# 
+851:           # 4336 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+852:           DDRA equ 0F92h ;# 
+853:           # 4505 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+854:           TRISB equ 0F93h ;# 
+855:           # 4510 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+856:           DDRB equ 0F93h ;# 
+857:           # 4727 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+858:           TRISC equ 0F94h ;# 
+859:           # 4732 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+860:           DDRC equ 0F94h ;# 
+861:           # 4949 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+862:           TRISD equ 0F95h ;# 
+863:           # 4954 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+864:           DDRD equ 0F95h ;# 
+865:           # 5051 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+866:           TRISE equ 0F96h ;# 
+867:           # 5056 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+868:           DDRE equ 0F96h ;# 
+869:           # 5225 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+870:           TRISF equ 0F97h ;# 
+871:           # 5230 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+872:           DDRF equ 0F97h ;# 
+873:           # 5427 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+874:           TRISG equ 0F98h ;# 
+875:           # 5432 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+876:           DDRG equ 0F98h ;# 
+877:           # 5485 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+878:           OSCTUNE equ 0F9Bh ;# 
+879:           # 5539 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+880:           PIE1 equ 0F9Dh ;# 
+881:           # 5616 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+882:           PIR1 equ 0F9Eh ;# 
+883:           # 5696 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+884:           IPR1 equ 0F9Fh ;# 
+885:           # 5773 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+886:           PIE2 equ 0FA0h ;# 
+887:           # 5834 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+888:           PIR2 equ 0FA1h ;# 
+889:           # 5895 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+890:           IPR2 equ 0FA2h ;# 
+891:           # 5956 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+892:           PIE3 equ 0FA3h ;# 
+893:           # 6029 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+894:           PIR3 equ 0FA4h ;# 
+895:           # 6076 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+896:           IPR3 equ 0FA5h ;# 
+897:           # 6123 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+898:           EECON1 equ 0FA6h ;# 
+899:           # 6162 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+900:           EECON2 equ 0FA7h ;# 
+901:           # 6169 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+902:           RCSTA1 equ 0FABh ;# 
+903:           # 6174 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+904:           RCSTA equ 0FABh ;# 
+905:           # 6493 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+906:           TXSTA1 equ 0FACh ;# 
+907:           # 6498 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+908:           TXSTA equ 0FACh ;# 
+909:           # 6781 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+910:           TXREG1 equ 0FADh ;# 
+911:           # 6786 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+912:           TXREG equ 0FADh ;# 
+913:           # 6793 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+914:           RCREG1 equ 0FAEh ;# 
+915:           # 6798 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+916:           RCREG equ 0FAEh ;# 
+917:           # 6805 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+918:           SPBRG1 equ 0FAFh ;# 
+919:           # 6810 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+920:           SPBRG equ 0FAFh ;# 
+921:           # 6817 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+922:           T3CON equ 0FB1h ;# 
+923:           # 6938 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+924:           TMR3 equ 0FB2h ;# 
+925:           # 6945 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+926:           TMR3L equ 0FB2h ;# 
+927:           # 6952 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+928:           TMR3H equ 0FB3h ;# 
+929:           # 6959 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+930:           CMCON equ 0FB4h ;# 
+931:           # 7049 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+932:           CVRCON equ 0FB5h ;# 
+933:           # 7128 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+934:           ECCP1AS equ 0FB6h ;# 
+935:           # 7260 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+936:           CCP3CON equ 0FB7h ;# 
+937:           # 7265 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+938:           ECCP3CON equ 0FB7h ;# 
+939:           # 7452 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+940:           CCPR3 equ 0FB8h ;# 
+941:           # 7459 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+942:           CCPR3L equ 0FB8h ;# 
+943:           # 7466 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+944:           CCPR3H equ 0FB9h ;# 
+945:           # 7473 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+946:           CCP2CON equ 0FBAh ;# 
+947:           # 7478 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+948:           ECCP2CON equ 0FBAh ;# 
+949:           # 7665 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+950:           CCPR2 equ 0FBBh ;# 
+951:           # 7672 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+952:           CCPR2L equ 0FBBh ;# 
+953:           # 7679 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+954:           CCPR2H equ 0FBCh ;# 
+955:           # 7686 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+956:           CCP1CON equ 0FBDh ;# 
+957:           # 7691 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+958:           ECCP1CON equ 0FBDh ;# 
+959:           # 7878 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+960:           CCPR1 equ 0FBEh ;# 
+961:           # 7885 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+962:           CCPR1L equ 0FBEh ;# 
+963:           # 7892 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+964:           CCPR1H equ 0FBFh ;# 
+965:           # 7899 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+966:           ADCON2 equ 0FC0h ;# 
+967:           # 7970 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+968:           ADCON1 equ 0FC1h ;# 
+969:           # 8055 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+970:           ADCON0 equ 0FC2h ;# 
+971:           # 8181 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+972:           ADRES equ 0FC3h ;# 
+973:           # 8188 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+974:           ADRESL equ 0FC3h ;# 
+975:           # 8195 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+976:           ADRESH equ 0FC4h ;# 
+977:           # 8202 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+978:           SSP1CON2 equ 0FC5h ;# 
+979:           # 8207 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+980:           SSPCON2 equ 0FC5h ;# 
+981:           # 8574 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+982:           SSP1CON1 equ 0FC6h ;# 
+983:           # 8579 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+984:           SSPCON1 equ 0FC6h ;# 
+985:           # 8812 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+986:           SSP1STAT equ 0FC7h ;# 
+987:           # 8817 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+988:           SSPSTAT equ 0FC7h ;# 
+989:           # 9410 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+990:           SSP1ADD equ 0FC8h ;# 
+991:           # 9415 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+992:           SSPADD equ 0FC8h ;# 
+993:           # 9632 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+994:           SSP1BUF equ 0FC9h ;# 
+995:           # 9637 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+996:           SSPBUF equ 0FC9h ;# 
+997:           # 9644 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+998:           T2CON equ 0FCAh ;# 
+999:           # 9715 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1000:          PR2 equ 0FCBh ;# 
+1001:          # 9720 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1002:          MEMCON equ 0FCBh ;# 
+1003:          # 9825 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1004:          TMR2 equ 0FCCh ;# 
+1005:          # 9832 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1006:          T1CON equ 0FCDh ;# 
+1007:          # 9944 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1008:          TMR1 equ 0FCEh ;# 
+1009:          # 9951 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1010:          TMR1L equ 0FCEh ;# 
+1011:          # 9958 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1012:          TMR1H equ 0FCFh ;# 
+1013:          # 9965 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1014:          RCON equ 0FD0h ;# 
+1015:          # 10113 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1016:          WDTCON equ 0FD1h ;# 
+1017:          # 10141 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1018:          ECON1 equ 0FD2h ;# 
+1019:          # 10192 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1020:          OSCCON equ 0FD3h ;# 
+1021:          # 10240 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1022:          T0CON equ 0FD5h ;# 
+1023:          # 10310 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1024:          TMR0 equ 0FD6h ;# 
+1025:          # 10317 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1026:          TMR0L equ 0FD6h ;# 
+1027:          # 10324 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1028:          TMR0H equ 0FD7h ;# 
+1029:          # 10331 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1030:          STATUS equ 0FD8h ;# 
+1031:          # 10402 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1032:          FSR2 equ 0FD9h ;# 
+1033:          # 10409 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1034:          FSR2L equ 0FD9h ;# 
+1035:          # 10416 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1036:          FSR2H equ 0FDAh ;# 
+1037:          # 10423 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1038:          PLUSW2 equ 0FDBh ;# 
+1039:          # 10430 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1040:          PREINC2 equ 0FDCh ;# 
+1041:          # 10437 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1042:          POSTDEC2 equ 0FDDh ;# 
+1043:          # 10444 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1044:          POSTINC2 equ 0FDEh ;# 
+1045:          # 10451 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1046:          INDF2 equ 0FDFh ;# 
+1047:          # 10458 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1048:          BSR equ 0FE0h ;# 
+1049:          # 10465 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1050:          FSR1 equ 0FE1h ;# 
+1051:          # 10472 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1052:          FSR1L equ 0FE1h ;# 
+1053:          # 10479 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1054:          FSR1H equ 0FE2h ;# 
+1055:          # 10486 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1056:          PLUSW1 equ 0FE3h ;# 
+1057:          # 10493 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1058:          PREINC1 equ 0FE4h ;# 
+1059:          # 10500 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1060:          POSTDEC1 equ 0FE5h ;# 
+1061:          # 10507 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1062:          POSTINC1 equ 0FE6h ;# 
+1063:          # 10514 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1064:          INDF1 equ 0FE7h ;# 
+1065:          # 10521 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1066:          WREG equ 0FE8h ;# 
+1067:          # 10528 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1068:          FSR0 equ 0FE9h ;# 
+1069:          # 10535 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1070:          FSR0L equ 0FE9h ;# 
+1071:          # 10542 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1072:          FSR0H equ 0FEAh ;# 
+1073:          # 10549 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1074:          PLUSW0 equ 0FEBh ;# 
+1075:          # 10556 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1076:          PREINC0 equ 0FECh ;# 
+1077:          # 10563 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1078:          POSTDEC0 equ 0FEDh ;# 
+1079:          # 10570 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1080:          POSTINC0 equ 0FEEh ;# 
+1081:          # 10577 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1082:          INDF0 equ 0FEFh ;# 
+1083:          # 10584 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1084:          INTCON3 equ 0FF0h ;# 
+1085:          # 10696 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1086:          INTCON2 equ 0FF1h ;# 
+1087:          # 10783 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1088:          INTCON equ 0FF2h ;# 
+1089:          # 10900 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1090:          PROD equ 0FF3h ;# 
+1091:          # 10907 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1092:          PRODL equ 0FF3h ;# 
+1093:          # 10914 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1094:          PRODH equ 0FF4h ;# 
+1095:          # 10921 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1096:          TABLAT equ 0FF5h ;# 
+1097:          # 10930 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1098:          TBLPTR equ 0FF6h ;# 
+1099:          # 10937 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1100:          TBLPTRL equ 0FF6h ;# 
+1101:          # 10944 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1102:          TBLPTRH equ 0FF7h ;# 
+1103:          # 10951 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1104:          TBLPTRU equ 0FF8h ;# 
+1105:          # 10960 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1106:          PCLAT equ 0FF9h ;# 
+1107:          # 10967 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1108:          PC equ 0FF9h ;# 
+1109:          # 10974 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1110:          PCL equ 0FF9h ;# 
+1111:          # 10981 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1112:          PCLATH equ 0FFAh ;# 
+1113:          # 10988 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1114:          PCLATU equ 0FFBh ;# 
+1115:          # 10995 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1116:          STKPTR equ 0FFCh ;# 
+1117:          # 11101 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1118:          TOS equ 0FFDh ;# 
+1119:          # 11108 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1120:          TOSL equ 0FFDh ;# 
+1121:          # 11115 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1122:          TOSH equ 0FFEh ;# 
+1123:          # 11122 "C:\Program Files\Microchip\xc8\v1.44\include\pic18f67j60.h"
+1124:          TOSU equ 0FFFh ;# 
+1125:          	FNCALL	_main,_Do_All
+1126:          	FNCALL	_main,_INTERRUPT_InterruptsEnable
+1127:          	FNCALL	_main,_Initialize_All
+1128:          	FNROOT	_main
+1129:          	global	_VariableA
+1130:          psect	idataCOMRAM,class=CODE,space=0,delta=1,noexec
+1131:          global __pidataCOMRAM
+1132:          __pidataCOMRAM:
+1133:          	file	"main.c"
+1134:          	line	10
+1135:          
+1136:          ;initializer for _VariableA
+1137:          	db	low(05h)
+1138:          ; #config settings
+1139:          global __CFG_WDT$ON
+1140:          __CFG_WDT$ON equ 0x0
+1141:          global __CFG_STVR$ON
+1142:          __CFG_STVR$ON equ 0x0
+1143:          global __CFG_XINST$OFF
+1144:          __CFG_XINST$OFF equ 0x0
+1145:          global __CFG_CP0$OFF
+1146:          __CFG_CP0$OFF equ 0x0
+1147:          global __CFG_FOSC$ECPLL
+1148:          __CFG_FOSC$ECPLL equ 0x0
+1149:          global __CFG_FOSC2$ON
+1150:          __CFG_FOSC2$ON equ 0x0
+1151:          global __CFG_FCMEN$ON
+1152:          __CFG_FCMEN$ON equ 0x0
+1153:          global __CFG_IESO$ON
+1154:          __CFG_IESO$ON equ 0x0
+1155:          global __CFG_WDTPS$32768
+1156:          __CFG_WDTPS$32768 equ 0x0
+1157:          global __CFG_ETHLED$ON
+1158:          __CFG_ETHLED$ON equ 0x0
+1159:          	file	"dist/default/debug\ThirdProbe.debug.as"
+1160:          	line	#
+1FFE2  0100     MOVLB 0x0
+1161:          psect	cinit,class=CODE,delta=1,reloc=2
+1162:          global __pcinit
+1163:          __pcinit:
+1164:          global start_initialization
+1165:          start_initialization:
+1166:          
+1167:          global __initialization
+1168:          __initialization:
+1169:          psect	dataCOMRAM,class=COMRAM,space=1,noexec
+1170:          global __pdataCOMRAM
+1171:          __pdataCOMRAM:
+1172:          	file	"main.c"
+1173:          	line	10
+1174:          _VariableA:
+1175:                 ds      1
+1176:          psect cinit,class=CODE,delta=1
+1177:          global end_of_initialization,__end_of__initialization
+1178:          
+1179:          ;End of C runtime variable initialization code
+1180:          
+1181:          end_of_initialization:
+1182:          __end_of__initialization:
+1183:          movlb 0
+1184:          goto _main	;jump to C main() function
+1185:          psect	cstackCOMRAM,class=COMRAM,space=1,noexec
+1186:          global __pcstackCOMRAM
+1187:          __pcstackCOMRAM:
+1188:          ?_Initialize_All:	; 1 bytes @ 0x0
+1189:          ??_Initialize_All:	; 1 bytes @ 0x0
+1190:          ?_INTERRUPT_InterruptsEnable:	; 1 bytes @ 0x0
+1191:          ??_INTERRUPT_InterruptsEnable:	; 1 bytes @ 0x0
+1192:          ?_Do_All:	; 1 bytes @ 0x0
+1193:          ??_Do_All:	; 1 bytes @ 0x0
+1194:          ?_main:	; 1 bytes @ 0x0
+1195:          ??_main:	; 1 bytes @ 0x0
+1196:          ;!
+1197:          ;!Data Sizes:
+1198:          ;!    Strings     0
+1199:          ;!    Constant    0
+1200:          ;!    Data        1
+1201:          ;!    BSS         0
+1202:          ;!    Persistent  0
+1203:          ;!    Stack       0
+1204:          ;!
+1205:          ;!Auto Spaces:
+1206:          ;!    Space          Size  Autos    Used
+1207:          ;!    COMRAM           95      0       1
+1208:          ;!    BANK0           160      0       0
+1209:          ;!    BANK1           256      0       0
+1210:          ;!    BANK2           256      0       0
+1211:          ;!    BANK3           256      0       0
+1212:          ;!    BANK4           256      0       0
+1213:          ;!    BANK5           256      0       0
+1214:          ;!    BANK6           256      0       0
+1215:          ;!    BANK7           256      0       0
+1216:          ;!    BANK8           256      0       0
+1217:          ;!    BANK9           256      0       0
+1218:          ;!    BANK10          256      0       0
+1219:          ;!    BANK11          256      0       0
+1220:          ;!    BANK12          256      0       0
+1221:          ;!    BANK13          256      0       0
+1222:          ;!    BANK14          128      0       0
+1223:          ;!    BANK15           96      0       0
+1224:          
+1225:          ;!
+1226:          ;!Pointer List with Targets:
+1227:          ;!
+1228:          ;!    None.
+1229:          
+1230:          
+1231:          ;!
+1232:          ;!Critical Paths under _main in COMRAM
+1233:          ;!
+1234:          ;!    None.
+1235:          ;!
+1236:          ;!Critical Paths under _main in BANK0
+1237:          ;!
+1238:          ;!    None.
+1239:          ;!
+1240:          ;!Critical Paths under _main in BANK1
+1241:          ;!
+1242:          ;!    None.
+1243:          ;!
+1244:          ;!Critical Paths under _main in BANK2
+1245:          ;!
+1246:          ;!    None.
+1247:          ;!
+1248:          ;!Critical Paths under _main in BANK3
+1249:          ;!
+1250:          ;!    None.
+1251:          ;!
+1252:          ;!Critical Paths under _main in BANK4
+1253:          ;!
+1254:          ;!    None.
+1255:          ;!
+1256:          ;!Critical Paths under _main in BANK5
+1257:          ;!
+1258:          ;!    None.
+1259:          ;!
+1260:          ;!Critical Paths under _main in BANK6
+1261:          ;!
+1262:          ;!    None.
+1263:          ;!
+1264:          ;!Critical Paths under _main in BANK7
+1265:          ;!
+1266:          ;!    None.
+1267:          ;!
+1268:          ;!Critical Paths under _main in BANK8
+1269:          ;!
+1270:          ;!    None.
+1271:          ;!
+1272:          ;!Critical Paths under _main in BANK9
+1273:          ;!
+1274:          ;!    None.
+1275:          ;!
+1276:          ;!Critical Paths under _main in BANK10
+1277:          ;!
+1278:          ;!    None.
+1279:          ;!
+1280:          ;!Critical Paths under _main in BANK11
+1281:          ;!
+1282:          ;!    None.
+1283:          ;!
+1284:          ;!Critical Paths under _main in BANK12
+1285:          ;!
+1286:          ;!    None.
+1287:          ;!
+1288:          ;!Critical Paths under _main in BANK13
+1289:          ;!
+1290:          ;!    None.
+1291:          ;!
+1292:          ;!Critical Paths under _main in BANK14
+1293:          ;!
+1294:          ;!    None.
+1295:          ;!
+1296:          ;!Critical Paths under _main in BANK15
+1297:          ;!
+1298:          ;!    None.
+1299:          
+1300:          ;;
+1301:          ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+1302:          ;;
+1303:          
+1304:          ;!
+1305:          ;!Call Graph Tables:
+1306:          ;!
+1307:          ;! ---------------------------------------------------------------------------------
+1308:          ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+1309:          ;! ---------------------------------------------------------------------------------
+1310:          ;! (0) _main                                                 0     0      0       0
+1311:          ;!                             _Do_All
+1312:          ;!         _INTERRUPT_InterruptsEnable
+1313:          ;!                     _Initialize_All
+1314:          ;! ---------------------------------------------------------------------------------
+1315:          ;! (1) _Initialize_All                                       0     0      0       0
+1316:          ;! ---------------------------------------------------------------------------------
+1317:          ;! (1) _INTERRUPT_InterruptsEnable                           0     0      0       0
+1318:          ;! ---------------------------------------------------------------------------------
+1319:          ;! (1) _Do_All                                               0     0      0       0
+1320:          ;! ---------------------------------------------------------------------------------
+1321:          ;! Estimated maximum stack depth 1
+1322:          ;! ---------------------------------------------------------------------------------
+1323:          ;!
+1324:          ;! Call Graph Graphs:
+1325:          ;!
+1326:          ;! _main (ROOT)
+1327:          ;!   _Do_All
+1328:          ;!   _INTERRUPT_InterruptsEnable
+1329:          ;!   _Initialize_All
+1330:          ;!
+1331:          
+1332:          ;! Address spaces:
+1333:          
+1334:          ;!Name               Size   Autos  Total    Cost      Usage
+1335:          ;!BITCOMRAM           5F      0       0       0        0.0%
+1336:          ;!NULL                 0      0       0       0        0.0%
+1337:          ;!CODE                 0      0       0       0        0.0%
+1338:          ;!COMRAM              5F      0       1       1        1.1%
+1339:          ;!STACK                0      0       0       2        0.0%
+1340:          ;!DATA                 0      0       1       3        0.0%
+1341:          ;!BITBANK0            A0      0       0       4        0.0%
+1342:          ;!BANK0               A0      0       0       5        0.0%
+1343:          ;!BITBANK1           100      0       0       6        0.0%
+1344:          ;!BANK1              100      0       0       7        0.0%
+1345:          ;!BITBANK2           100      0       0       8        0.0%
+1346:          ;!BANK2              100      0       0       9        0.0%
+1347:          ;!BITBANK3           100      0       0      10        0.0%
+1348:          ;!BANK3              100      0       0      11        0.0%
+1349:          ;!BITBANK4           100      0       0      12        0.0%
+1350:          ;!BANK4              100      0       0      13        0.0%
+1351:          ;!BITBANK5           100      0       0      14        0.0%
+1352:          ;!BANK5              100      0       0      15        0.0%
+1353:          ;!BITBANK6           100      0       0      16        0.0%
+1354:          ;!BANK6              100      0       0      17        0.0%
+1355:          ;!BITBANK7           100      0       0      18        0.0%
+1356:          ;!BANK7              100      0       0      19        0.0%
+1357:          ;!BITBANK8           100      0       0      20        0.0%
+1358:          ;!BANK8              100      0       0      21        0.0%
+1359:          ;!BITBANK9           100      0       0      22        0.0%
+1360:          ;!BANK9              100      0       0      23        0.0%
+1361:          ;!BITBANK10          100      0       0      24        0.0%
+1362:          ;!BANK10             100      0       0      25        0.0%
+1363:          ;!BITBANK11          100      0       0      26        0.0%
+1364:          ;!BANK11             100      0       0      27        0.0%
+1365:          ;!BANK12             100      0       0      28        0.0%
+1366:          ;!ABS                  0      0       1      29        0.0%
+1367:          ;!BITBANK12          100      0       0      30        0.0%
+1368:          ;!BITBANK13          100      0       0      31        0.0%
+1369:          ;!BANK13             100      0       0      32        0.0%
+1370:          ;!BITBANK14           80      0       0      33        0.0%
+1371:          ;!BANK14              80      0       0      34        0.0%
+1372:          ;!BITBANK15           60      0       0      35        0.0%
+1373:          ;!BANK15              60      0       0      36        0.0%
+1374:          ;!BIGRAM_1            60      0       0      37        0.0%
+1375:          ;!BIGRAM             E7F      0       0      38        0.0%
+1376:          ;!BITSFR_1             0      0       0     200        0.0%
+1377:          ;!SFR_1                0      0       0     200        0.0%
+1378:          ;!BITSFR               0      0       0     200        0.0%
+1379:          ;!SFR                  0      0       0     200        0.0%
+1380:          
+1381:          	global	_main
+1382:          
+1383:          ;; *************** function _main *****************
+1384:          ;; Defined at:
+1385:          ;;		line 12 in file "main.c"
+1386:          ;; Parameters:    Size  Location     Type
+1387:          ;;		None
+1388:          ;; Auto vars:     Size  Location     Type
+1389:          ;;		None
+1390:          ;; Return value:  Size  Location     Type
+1391:          ;;                  1    wreg      void 
+1392:          ;; Registers used:
+1393:          ;;		status,2, status,0, cstack
+1394:          ;; Tracked objects:
+1395:          ;;		On entry : 0/0
+1396:          ;;		On exit  : 0/0
+1397:          ;;		Unchanged: 0/0
+1398:          ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+1399:          ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1400:          ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1401:          ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1402:          ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1403:          ;;Total ram usage:        0 bytes
+1404:          ;; Hardware stack levels required when called:    1
+1405:          ;; This function calls:
+1406:          ;;		_Do_All
+1407:          ;;		_INTERRUPT_InterruptsEnable
+1408:          ;;		_Initialize_All
+1409:          ;; This function is called by:
+1410:          ;;		Startup code after reset
+1411:          ;; This function uses a non-reentrant model
+1412:          ;;
+1413:          psect	text0,class=CODE,space=0,reloc=2,group=0
+1414:          	line	12
+1415:          global __ptext0
+1416:          __ptext0:
+1417:          psect	text0
+1418:          	file	"main.c"
+1419:          	line	12
+1420:          	global	__size_of_main
+1421:          	__size_of_main	equ	__end_of_main-_main
+1422:          	
+1423:          _main:
+1424:          ;incstack = 0
+1425:          	opt	stack 30
+1426:          	line	13
+1427:          	
+1428:          l647:
+1429:          ;main.c: 13: Initialize_All();
+1430:          	call	_Initialize_All	;wreg free
+1431:          	line	14
+1432:          ;main.c: 14: INTERRUPT_InterruptsEnable();
+1433:          	call	_INTERRUPT_InterruptsEnable	;wreg free
+1434:          	line	15
+1435:          ;main.c: 15: while (1)
+1436:          	
+1437:          l13:
+1438:          	line	17
+1439:          ;main.c: 16: {
+1440:          ;main.c: 17: Do_All();
+1441:          	call	_Do_All	;wreg free
+1442:          	line	18
+1443:          	
+1444:          l649:
+1445:          ;main.c: 18: VariableA++;
+1446:          	incf	((c:_VariableA)),c
+1447:          	goto	l13
+1448:          	line	19
+1449:          	
+1450:          l14:
+1451:          	line	15
+1452:          	goto	l13
+1453:          	
+1454:          l15:
+1455:          	line	21
+1456:          ;main.c: 19: }
+1457:          ;main.c: 20: return;
+1458:          	
+1459:          l16:
+1460:          	global	start
+1461:          	goto	start
+1462:          	opt stack 0
+1463:          GLOBAL	__end_of_main
+1464:          	__end_of_main:
+1465:          	signat	_main,89
+1466:          	global	_Initialize_All
+1467:          
+1468:          ;; *************** function _Initialize_All *****************
+1469:          ;; Defined at:
+1470:          ;;		line 3 in file "titan.c"
+1471:          ;; Parameters:    Size  Location     Type
+1472:          ;;		None
+1473:          ;; Auto vars:     Size  Location     Type
+1474:          ;;		None
+1475:          ;; Return value:  Size  Location     Type
+1476:          ;;                  1    wreg      void 
+1477:          ;; Registers used:
+1478:          ;;		None
+1479:          ;; Tracked objects:
+1480:          ;;		On entry : 0/0
+1481:          ;;		On exit  : 0/0
+1482:          ;;		Unchanged: 0/0
+1483:          ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+1484:          ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1485:          ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1486:          ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1487:          ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1488:          ;;Total ram usage:        0 bytes
+1489:          ;; Hardware stack levels used:    1
+1490:          ;; This function calls:
+1491:          ;;		Nothing
+1492:          ;; This function is called by:
+1493:          ;;		_main
+1494:          ;; This function uses a non-reentrant model
+1495:          ;;
+1496:          psect	text1,class=CODE,space=0,reloc=2,group=0
+1497:          	file	"titan.c"
+1498:          	line	3
+1499:          global __ptext1
+1500:          __ptext1:
+1501:          psect	text1
+1502:          	file	"titan.c"
+1503:          	line	3
+1504:          	global	__size_of_Initialize_All
+1505:          	__size_of_Initialize_All	equ	__end_of_Initialize_All-_Initialize_All
+1506:          	
+1507:          _Initialize_All:
+1508:          ;incstack = 0
+1509:          	opt	stack 30
+1510:          	line	5
+1511:          	
+1512:          l19:
+1513:          	return	;funcret
+1514:          	opt stack 0
+1515:          GLOBAL	__end_of_Initialize_All
+1516:          	__end_of_Initialize_All:
+1517:          	signat	_Initialize_All,89
+1518:          	global	_INTERRUPT_InterruptsEnable
+1519:          
+1520:          ;; *************** function _INTERRUPT_InterruptsEnable *****************
+1521:          ;; Defined at:
+1522:          ;;		line 7 in file "titan.c"
+1523:          ;; Parameters:    Size  Location     Type
+1524:          ;;		None
+1525:          ;; Auto vars:     Size  Location     Type
+1526:          ;;		None
+1527:          ;; Return value:  Size  Location     Type
+1528:          ;;                  1    wreg      void 
+1529:          ;; Registers used:
+1530:          ;;		None
+1531:          ;; Tracked objects:
+1532:          ;;		On entry : 0/0
+1533:          ;;		On exit  : 0/0
+1534:          ;;		Unchanged: 0/0
+1535:          ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+1536:          ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1537:          ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1538:          ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1539:          ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1540:          ;;Total ram usage:        0 bytes
+1541:          ;; Hardware stack levels used:    1
+1542:          ;; This function calls:
+1543:          ;;		Nothing
+1544:          ;; This function is called by:
+1545:          ;;		_main
+1546:          ;; This function uses a non-reentrant model
+1547:          ;;
+1548:          psect	text2,class=CODE,space=0,reloc=2,group=0
+1549:          	line	7
+1550:          global __ptext2
+1551:          __ptext2:
+1552:          psect	text2
+1553:          	file	"titan.c"
+1554:          	line	7
+1555:          	global	__size_of_INTERRUPT_InterruptsEnable
+1556:          	__size_of_INTERRUPT_InterruptsEnable	equ	__end_of_INTERRUPT_InterruptsEnable-_INTERRUPT_InterruptsEnable
+1557:          	
+1558:          _INTERRUPT_InterruptsEnable:
+1559:          ;incstack = 0
+1560:          	opt	stack 30
+1561:          	line	9
+1562:          	
+1563:          l22:
+1564:          	return	;funcret
+1565:          	opt stack 0
+1566:          GLOBAL	__end_of_INTERRUPT_InterruptsEnable
+1567:          	__end_of_INTERRUPT_InterruptsEnable:
+1568:          	signat	_INTERRUPT_InterruptsEnable,89
+1569:          	global	_Do_All
+1570:          
+1571:          ;; *************** function _Do_All *****************
+1572:          ;; Defined at:
+1573:          ;;		line 11 in file "titan.c"
+1574:          ;; Parameters:    Size  Location     Type
+1575:          ;;		None
+1576:          ;; Auto vars:     Size  Location     Type
+1577:          ;;		None
+1578:          ;; Return value:  Size  Location     Type
+1579:          ;;                  1    wreg      void 
+1580:          ;; Registers used:
+1581:          ;;		None
+1582:          ;; Tracked objects:
+1583:          ;;		On entry : 0/0
+1584:          ;;		On exit  : 0/0
+1585:          ;;		Unchanged: 0/0
+1586:          ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
+1587:          ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1588:          ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1589:          ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1590:          ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+1591:          ;;Total ram usage:        0 bytes
+1592:          ;; Hardware stack levels used:    1
+1593:          ;; This function calls:
+1594:          ;;		Nothing
+1595:          ;; This function is called by:
+1596:          ;;		_main
+1597:          ;; This function uses a non-reentrant model
+1598:          ;;
+1599:          psect	text3,class=CODE,space=0,reloc=2,group=0
+1600:          	line	11
+1601:          global __ptext3
+1602:          __ptext3:
+1603:          psect	text3
+1604:          	file	"titan.c"
+1605:          	line	11
+1606:          	global	__size_of_Do_All
+1607:          	__size_of_Do_All	equ	__end_of_Do_All-_Do_All
+1608:          	
+1609:          _Do_All:
+1610:          ;incstack = 0
+1611:          	opt	stack 30
+1612:          	line	13
+1613:          	
+1614:          l25:
+1615:          	return	;funcret
+1616:          	opt stack 0
+1617:          GLOBAL	__end_of_Do_All
+1618:          	__end_of_Do_All:
+1619:          	signat	_Do_All,89
+1620:          	GLOBAL	__activetblptr
+1621:          __activetblptr	EQU	0
+1622:          	psect	intsave_regs,class=BIGRAM,space=1,noexec
+1623:          	PSECT	rparam,class=COMRAM,space=1,noexec
+1624:          	GLOBAL	__Lrparam
+1625:          	FNCONF	rparam,??,?
+1626:          	GLOBAL	___rparam_used
+1627:          	___rparam_used EQU 1
+1628:          	GLOBAL	___param_bank
+1629:          	___param_bank EQU 0
+1630:          GLOBAL	__Lparam, __Hparam
+1631:          GLOBAL	__Lrparam, __Hrparam
+1632:          __Lparam	EQU	__Lrparam
+1633:          __Hparam	EQU	__Hrparam
+1634:          	end

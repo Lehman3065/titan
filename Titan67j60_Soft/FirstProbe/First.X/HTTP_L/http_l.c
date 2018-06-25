@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-#include "mcc_generated_files/mcc.h"
+#include "../mcc_generated_files/mcc.h"
+#include "../mcc_generated_files/TCPIPLibrary/tcpv4.h"
+#include "../mcc_generated_files/TCPIPLibrary/ipv4.h"
+#include "../mcc_generated_files/TCPIPLibrary/tcpip_config.h"
 #include "http_l.h"
-#include "mcc_generated_files/TCPIPLibrary/tcpv4.h"
-#include "mcc_generated_files/TCPIPLibrary/ipv4.h"
-#include "mcc_generated_files/TCPIPLibrary/tcpip_config.h"
 
 
 // sockaddr_in_t remoteSocket;

@@ -94,6 +94,7 @@
     <Elem>CocoOs</Elem>
     <Elem>UPnP</Elem>
     <Elem>HTTP_L</Elem>
+    <Elem>mcc_generated_files</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

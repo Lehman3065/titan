@@ -1,0 +1,2936 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.44 build -154322312 
+                                                                                               Mon Jun 25 13:50:36 2018
+
+Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140600
+     1                           	processor	18F67J60
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+     6                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     7                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     8                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,lowdata,noexec
+    10                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+    11                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    12                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    18                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    23                           	psect	text11,global,reloc=2,class=CODE,delta=1,inline
+    24                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    25                           	psect	text13,global,reloc=2,class=CODE,delta=1
+    26                           	psect	text14,global,reloc=2,class=CODE,delta=1
+    27                           	psect	text15,global,reloc=2,class=CODE,delta=1
+    28                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    29                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    30                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    31  0000                     
+    32                           ; Version 1.44
+    33                           ; Generated 14/09/2017 GMT
+    34                           ; 
+    35                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    36                           ; All rights reserved.
+    37                           ; 
+    38                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    39                           ; 
+    40                           ; Redistribution and use in source and binary forms, with or without modification, are
+    41                           ; permitted provided that the following conditions are met:
+    42                           ; 
+    43                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    44                           ;        conditions and the following disclaimer.
+    45                           ; 
+    46                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    47                           ;        of conditions and the following disclaimer in the documentation and/or other
+    48                           ;        materials provided with the distribution.
+    49                           ; 
+    50                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    51                           ;        software without specific prior written permission.
+    52                           ; 
+    53                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    54                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    55                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    56                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    57                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    58                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    59                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    60                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    61                           ; 
+    62                           ; 
+    63                           ; Code-generator required, PIC18F67J60 Definitions
+    64                           ; 
+    65                           ; SFR Addresses
+    66  0000                     
+    67                           	psect	smallconst
+    68  001000                     __psmallconst:
+    69                           	opt stack 0
+    70  001000  00                 	db	0
+    71  001001                     _ADC_Input:
+    72                           	opt stack 0
+    73  001001  06                 	db	6
+    74  001002  07                 	db	7
+    75  001003  08                 	db	8
+    76  001004  09                 	db	9
+    77  001005  0A                 	db	10
+    78  001006  0B                 	db	11
+    79  001007  02                 	db	2
+    80  001008  04                 	db	4
+    81  001009                     __end_of_ADC_Input:
+    82                           	opt stack 0
+    83  001009  00                 	db	0	; dummy byte at the end
+    84  0000                     
+    85                           	psect	nvCOMRAM
+    86  000053                     __pnvCOMRAM:
+    87                           	opt stack 0
+    88  000053                     _ResetSource:
+    89                           	opt stack 0
+    90  000053                     	ds	1
+    91  0000                     _ADRES	set	4035
+    92  0000                     _CCPR4	set	3956
+    93  0000                     _CCPR5	set	3953
+    94  0000                     _LATFbits	set	3982
+    95  0000                     _PORTGbits	set	3974
+    96  0000                     _LATEbits	set	3981
+    97  0000                     _ADCON0	set	4034
+    98  0000                     _PORTEbits	set	3972
+    99  0000                     _OSCTUNE	set	3995
+   100  0000                     _OSCCON	set	4051
+   101  0000                     _INTCONbits	set	4082
+   102  0000                     _LATG	set	3983
+   103  0000                     _LATF	set	3982
+   104  0000                     _LATE	set	3981
+   105  0000                     _LATD	set	3980
+   106  0000                     _LATC	set	3979
+   107  0000                     _LATB	set	3978
+   108  0000                     _LATA	set	3977
+   109  0000                     _TRISG	set	3992
+   110  0000                     _TRISF	set	3991
+   111  0000                     _TRISE	set	3990
+   112  0000                     _TRISD	set	3989
+   113  0000                     _TRISC	set	3988
+   114  0000                     _TRISB	set	3987
+   115  0000                     _TRISA	set	3986
+   116  0000                     _ADCON2	set	4032
+   117  0000                     _ADCON1	set	4033
+   118  0000                     _ADCON0bits	set	4034
+   119  0000                     _CCPR5H	set	3954
+   120  0000                     _PIR2bits	set	4001
+   121  0000                     _TMR3H	set	4019
+   122  0000                     _TMR3L	set	4018
+   123  0000                     _CCP5CON	set	3952
+   124  0000                     _PIE3bits	set	4003
+   125  0000                     _PIR3bits	set	4004
+   126  0000                     _CCP4CON	set	3955
+   127  0000                     _PIE2bits	set	4000
+   128  0000                     _T3CON	set	4017
+   129  0000                     _RCONbits	set	4048
+   130  0000                     _RCON	set	4048
+   131                           
+   132                           ; #config settings
+   133  0000                     
+   134                           	psect	cinit
+   135  001498                     __pcinit:
+   136                           	opt stack 0
+   137  001498                     start_initialization:
+   138                           	opt stack 0
+   139  001498                     __initialization:
+   140                           	opt stack 0
+   141  001498                     end_of_initialization:
+   142                           	opt stack 0
+   143  001498                     __end_of__initialization:
+   144                           	opt stack 0
+   145  001498  9054               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   146  00149A  9254               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   147  00149C  0E00               	movlw	low (__Lsmallconst shr (0+16))
+   148  00149E  6EF8               	movwf	tblptru,c
+   149  0014A0  0E10               	movlw	high __Lsmallconst
+   150  0014A2  6EF7               	movwf	tblptrh,c
+   151  0014A4  0100               	movlb	0
+   152  0014A6  EF3B  F00A         	goto	_main	;jump to C main() function
+   153                           tblptru	equ	0xFF8
+   154                           tblptrh	equ	0xFF7
+   155                           
+   156                           	psect	bssCOMRAM
+   157  000001                     __pbssCOMRAM:
+   158                           	opt stack 0
+   159  000001                     _DebounceCounter:
+   160                           	opt stack 0
+   161  000001                     	ds	8
+   162  000009                     _PrevExtendedCCP4:
+   163                           	opt stack 0
+   164  000009                     	ds	4
+   165  00000D                     _DataInterval:
+   166                           	opt stack 0
+   167  00000D                     	ds	4
+   168  000011                     _ReceiveBuffer:
+   169                           	opt stack 0
+   170  000011                     	ds	4
+   171  000015                     _ExtendedCCP4:
+   172                           	opt stack 0
+   173  000015                     	ds	4
+   174  000019                     titan@RelayRegister:
+   175                           	opt stack 0
+   176  000019                     	ds	2
+   177  00001B                     _T3compare:
+   178                           	opt stack 0
+   179  00001B                     	ds	2
+   180  00001D                     	ds	2
+   181  00001F                     WriteRelayRegister@MakeIgnitionCounter:
+   182                           	opt stack 0
+   183  00001F                     	ds	1
+   184  000020                     _ADC_Channel:
+   185                           	opt stack 0
+   186  000020                     	ds	1
+   187  000021                     _AfterPOResetTimer:
+   188                           	opt stack 0
+   189  000021                     	ds	1
+   190  000022                     _TitanSwitchPrev:
+   191                           	opt stack 0
+   192  000022                     	ds	1
+   193  000023                     titan@TitanHwFlags:
+   194                           	opt stack 0
+   195  000023                     	ds	1
+   196  000024                     titan@TitanSwitch:
+   197                           	opt stack 0
+   198  000024                     	ds	1
+   199  000025                     CCP4_ISR@ByteToShift:
+   200                           	opt stack 0
+   201  000025                     	ds	1
+   202  000026                     CCP4_ISR@ReceiverBitCounter:
+   203                           	opt stack 0
+   204  000026                     	ds	1
+   205  000027                     _Precizion1msCounter:
+   206                           	opt stack 0
+   207  000027                     	ds	1
+   208  000028                     _Interval_Lo:
+   209                           	opt stack 0
+   210  000028                     	ds	1
+   211  000029                     _Interval_Hi:
+   212                           	opt stack 0
+   213  000029                     	ds	1
+   214  00002A                     _PorogInterval:
+   215                           	opt stack 0
+   216  00002A                     	ds	1
+   217  00002B                     	ds	1
+   218  00002C                     	ds	1
+   219  00002D                     _TimersCCP:
+   220                           	opt stack 0
+   221  00002D                     	ds	1
+   222  00002E                     _ReceiverStatus:
+   223                           	opt stack 0
+   224  00002E                     	ds	1
+   225  00002F                     _ReceiveQuantity:
+   226                           	opt stack 0
+   227  00002F                     	ds	1
+   228  000030                     _Count_1_ms:
+   229                           	opt stack 0
+   230  000030                     	ds	1
+   231                           tblptru	equ	0xFF8
+   232                           tblptrh	equ	0xFF7
+   233                           
+   234                           	psect	bssBANK0
+   235  000060                     __pbssBANK0:
+   236                           	opt stack 0
+   237  000060                     	ds	12
+   238  00006C                     	ds	12
+   239  000078                     	ds	12
+   240  000084                     _ADC_500uA:
+   241                           	opt stack 0
+   242  000084                     	ds	16
+   243  000094                     _ADC_10uA:
+   244                           	opt stack 0
+   245  000094                     	ds	16
+   246                           tblptru	equ	0xFF8
+   247                           tblptrh	equ	0xFF7
+   248                           
+   249                           	psect	cstackBANK0
+   250  0000A4                     __pcstackBANK0:
+   251                           	opt stack 0
+   252  0000A4                     HardwareInit@i:
+   253                           	opt stack 0
+   254                           
+   255                           ; 1 bytes @ 0x0
+   256  0000A4                     	ds	1
+   257  0000A5                     ??_main:
+   258                           
+   259                           ; 1 bytes @ 0x1
+   260  0000A5                     	ds	1
+   261                           tblptru	equ	0xFF8
+   262                           tblptrh	equ	0xFF7
+   263                           
+   264                           	psect	cstackCOMRAM
+   265  000031                     __pcstackCOMRAM:
+   266                           	opt stack 0
+   267  000031                     _BoilerLogic$1187:
+   268                           	opt stack 0
+   269  000031                     WriteRelayRegister@ByteToShift:
+   270                           	opt stack 0
+   271  000031                     LowPassFilterADC@pFiltrValue:
+   272                           	opt stack 0
+   273                           
+   274                           ; 2 bytes @ 0x0
+   275  000031                     	ds	1
+   276  000032                     WriteRelayRegister@BitCounter:
+   277                           	opt stack 0
+   278                           
+   279                           ; 1 bytes @ 0x1
+   280  000032                     	ds	1
+   281  000033                     LowPassFilterADC@Ch:
+   282                           	opt stack 0
+   283                           
+   284                           ; 1 bytes @ 0x2
+   285  000033                     	ds	1
+   286  000034                     ??_LowPassFilterADC:
+   287                           
+   288                           ; 1 bytes @ 0x3
+   289  000034                     	ds	3
+   290  000037                     LowPassFilterADC@Val:
+   291                           	opt stack 0
+   292                           
+   293                           ; 2 bytes @ 0x6
+   294  000037                     	ds	2
+   295  000039                     LowPassFilterADC@p:
+   296                           	opt stack 0
+   297                           
+   298                           ; 2 bytes @ 0x8
+   299  000039                     	ds	2
+   300  00003B                     ??_GetAllSensor:
+   301                           
+   302                           ; 1 bytes @ 0xA
+   303  00003B                     	ds	2
+   304  00003D                     GetAllSensor@ChMask:
+   305                           	opt stack 0
+   306                           
+   307                           ; 1 bytes @ 0xC
+   308  00003D                     	ds	1
+   309  00003E                     GetAllSensor@NumChannel:
+   310                           	opt stack 0
+   311                           
+   312                           ; 1 bytes @ 0xD
+   313  00003E                     	ds	1
+   314  00003F                     ??_TitanApp:
+   315                           
+   316                           ; 1 bytes @ 0xE
+   317  00003F                     	ds	1
+   318  000040                     ??_CCP5_ISR:
+   319                           
+   320                           ; 1 bytes @ 0xF
+   321  000040                     	ds	1
+   322  000041                     ??_INTERRUPT_InterruptManager:
+   323                           
+   324                           ; 1 bytes @ 0x10
+   325  000041                     	ds	18
+   326                           tblptru	equ	0xFF8
+   327                           tblptrh	equ	0xFF7
+   328                           
+   329 ;;
+   330 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   331 ;;
+   332 ;; *************** function _main *****************
+   333 ;; Defined at:
+   334 ;;		line 12 in file "main.c"
+   335 ;; Parameters:    Size  Location     Type
+   336 ;;		None
+   337 ;; Auto vars:     Size  Location     Type
+   338 ;;		None
+   339 ;; Return value:  Size  Location     Type
+   340 ;;                  1    wreg      void 
+   341 ;; Registers used:
+   342 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   343 ;; Tracked objects:
+   344 ;;		On entry : 0/0
+   345 ;;		On exit  : 0/0
+   346 ;;		Unchanged: 0/0
+   347 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   348 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   349 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   350 ;;      Temps:          0       1       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   351 ;;      Totals:         0       1       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   352 ;;Total ram usage:        1 bytes
+   353 ;; Hardware stack levels required when called:    7
+   354 ;; This function calls:
+   355 ;;		_HardwareInit
+   356 ;;		_VariablesInit
+   357 ;; This function is called by:
+   358 ;;		Startup code after reset
+   359 ;; This function uses a non-reentrant model
+   360 ;;
+   361                           
+   362                           	psect	text0
+   363  001476                     __ptext0:
+   364                           	opt stack 0
+   365  001476                     _main:
+   366                           	opt stack 24
+   367                           
+   368                           ;main.c: 14: ResetSource = RCON;
+   369                           
+   370                           ;incstack = 0
+   371  001476  CFD0 F053          	movff	4048,_ResetSource	;volatile
+   372                           
+   373                           ;main.c: 15: if ((ResetSource & 0x03) == 0x00) {
+   374  00147A  C053  F0A5         	movff	_ResetSource,??_main
+   375  00147E  0E03               	movlw	3
+   376  001480  0100               	movlb	0	; () banked
+   377  001482  17A5               	andwf	??_main& (0+255),f,b
+   378  001484  A4D8               	btfss	status,2,c
+   379  001486  D004               	goto	l35
+   380                           
+   381                           ; BSR set to: 0
+   382                           ;main.c: 16: VariablesInit();
+   383  001488  ECD2  F009         	call	_VariablesInit	;wreg free
+   384                           
+   385                           ;main.c: 17: RCONbits.POR = 1;
+   386  00148C  82D0               	bsf	4048,1,c	;volatile
+   387                           
+   388                           ;main.c: 18: RCONbits.BOR = 1;
+   389  00148E  80D0               	bsf	4048,0,c	;volatile
+   390  001490                     l35:
+   391                           
+   392                           ;main.c: 19: }
+   393                           ;main.c: 20: HardwareInit();
+   394  001490  EC7B  F009         	call	_HardwareInit	;wreg free
+   395  001494                     l36:
+   396  001494  0004               	clrwdt		;# 
+   397  001496  D7FE               	goto	l36
+   398  001498                     __end_of_main:
+   399                           	opt stack 0
+   400                           tblptru	equ	0xFF8
+   401                           tblptrh	equ	0xFF7
+   402                           status	equ	0xFD8
+   403                           
+   404 ;; *************** function _VariablesInit *****************
+   405 ;; Defined at:
+   406 ;;		line 63 in file "titan.c"
+   407 ;; Parameters:    Size  Location     Type
+   408 ;;		None
+   409 ;; Auto vars:     Size  Location     Type
+   410 ;;		None
+   411 ;; Return value:  Size  Location     Type
+   412 ;;                  1    wreg      void 
+   413 ;; Registers used:
+   414 ;;		wreg, status,2
+   415 ;; Tracked objects:
+   416 ;;		On entry : 0/0
+   417 ;;		On exit  : 0/0
+   418 ;;		Unchanged: 0/0
+   419 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   420 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   421 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   422 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   423 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   424 ;;Total ram usage:        0 bytes
+   425 ;; Hardware stack levels used:    1
+   426 ;; Hardware stack levels required when called:    5
+   427 ;; This function calls:
+   428 ;;		Nothing
+   429 ;; This function is called by:
+   430 ;;		_main
+   431 ;; This function uses a non-reentrant model
+   432 ;;
+   433                           
+   434                           	psect	text1
+   435  0013A4                     __ptext1:
+   436                           	opt stack 0
+   437  0013A4                     _VariablesInit:
+   438                           	opt stack 25
+   439                           
+   440                           ;titan.c: 64: LATA = 0x00;
+   441                           
+   442                           ;incstack = 0
+   443  0013A4  0E00               	movlw	0
+   444  0013A6  6E89               	movwf	3977,c	;volatile
+   445                           
+   446                           ;titan.c: 65: LATB = 0x00;
+   447  0013A8  0E00               	movlw	0
+   448  0013AA  6E8A               	movwf	3978,c	;volatile
+   449                           
+   450                           ;titan.c: 66: LATC = (1<<6);
+   451  0013AC  0E40               	movlw	64
+   452  0013AE  6E8B               	movwf	3979,c	;volatile
+   453                           
+   454                           ;titan.c: 67: LATD = (1<<0);
+   455  0013B0  0E01               	movlw	1
+   456  0013B2  6E8C               	movwf	3980,c	;volatile
+   457                           
+   458                           ;titan.c: 68: LATE = ((1<<0)|(1<<4));
+   459  0013B4  0E11               	movlw	17
+   460  0013B6  6E8D               	movwf	3981,c	;volatile
+   461                           
+   462                           ;titan.c: 69: LATF = 0x00;
+   463  0013B8  0E00               	movlw	0
+   464  0013BA  6E8E               	movwf	3982,c	;volatile
+   465                           
+   466                           ;titan.c: 70: LATG = 0x00;
+   467  0013BC  0E00               	movlw	0
+   468  0013BE  6E8F               	movwf	3983,c	;volatile
+   469                           
+   470                           ;titan.c: 72: AfterPOResetTimer = 100;
+   471  0013C0  0E64               	movlw	100
+   472  0013C2  6E21               	movwf	_AfterPOResetTimer,c
+   473                           
+   474                           ;titan.c: 76: TitanHwFlags.value = 0;
+   475  0013C4  0E00               	movlw	0
+   476  0013C6  6E23               	movwf	titan@TitanHwFlags,c
+   477                           
+   478                           ;titan.c: 78: ADC_Channel = 0x20;
+   479  0013C8  0E20               	movlw	32
+   480  0013CA  6E20               	movwf	_ADC_Channel,c
+   481                           
+   482                           ;titan.c: 79: RelayRegister.value = (0x0208 + (0x20 & 0x07));
+   483  0013CC  0E02               	movlw	2
+   484  0013CE  6E1A               	movwf	titan@RelayRegister+1,c
+   485  0013D0  0E08               	movlw	8
+   486  0013D2  6E19               	movwf	titan@RelayRegister,c
+   487                           
+   488                           ;titan.c: 81: TitanSwitch.value = 0x00;
+   489  0013D4  0E00               	movlw	0
+   490  0013D6  6E24               	movwf	titan@TitanSwitch,c
+   491                           
+   492                           ;titan.c: 82: TitanSwitchPrev = TitanSwitch;
+   493  0013D8  C024  F022         	movff	titan@TitanSwitch,_TitanSwitchPrev
+   494  0013DC  0012               	return		;funcret
+   495  0013DE                     __end_of_VariablesInit:
+   496                           	opt stack 0
+   497                           tblptru	equ	0xFF8
+   498                           tblptrh	equ	0xFF7
+   499                           status	equ	0xFD8
+   500                           
+   501 ;; *************** function _HardwareInit *****************
+   502 ;; Defined at:
+   503 ;;		line 33 in file "titan.c"
+   504 ;; Parameters:    Size  Location     Type
+   505 ;;		None
+   506 ;; Auto vars:     Size  Location     Type
+   507 ;;  i               1    0[BANK0 ] unsigned char 
+   508 ;; Return value:  Size  Location     Type
+   509 ;;                  1    wreg      void 
+   510 ;; Registers used:
+   511 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   512 ;; Tracked objects:
+   513 ;;		On entry : 0/0
+   514 ;;		On exit  : 0/0
+   515 ;;		Unchanged: 0/0
+   516 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   517 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   518 ;;      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   519 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   520 ;;      Totals:         0       1       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   521 ;;Total ram usage:        1 bytes
+   522 ;; Hardware stack levels used:    1
+   523 ;; Hardware stack levels required when called:    6
+   524 ;; This function calls:
+   525 ;;		_INTERRUPT_Initialize
+   526 ;;		_OSCILLATOR_Initialize
+   527 ;;		_Timers_Initialize
+   528 ;; This function is called by:
+   529 ;;		_main
+   530 ;; This function uses a non-reentrant model
+   531 ;;
+   532                           
+   533                           	psect	text2
+   534  0012F6                     __ptext2:
+   535                           	opt stack 0
+   536  0012F6                     _HardwareInit:
+   537                           	opt stack 24
+   538                           
+   539                           ;titan.c: 34: ADCON0bits.ADCAL = 1;
+   540                           
+   541                           ;incstack = 0
+   542  0012F6  8EC2               	bsf	4034,7,c	;volatile
+   543                           
+   544                           ;titan.c: 35: ADCON1 = 0x13;
+   545  0012F8  0E13               	movlw	19
+   546  0012FA  6EC1               	movwf	4033,c	;volatile
+   547                           
+   548                           ;titan.c: 36: ADCON2 = 0xBE;
+   549  0012FC  0EBE               	movlw	190
+   550  0012FE  6EC0               	movwf	4032,c	;volatile
+   551                           
+   552                           ;titan.c: 38: ADCON0bits.ADON = 1;
+   553  001300  80C2               	bsf	4034,0,c	;volatile
+   554                           
+   555                           ;titan.c: 42: TRISA = ((1<<2)|(1<<5)|(1<<3));
+   556  001302  0E2C               	movlw	44
+   557  001304  6E92               	movwf	3986,c	;volatile
+   558                           
+   559                           ;titan.c: 43: TRISB = (0xFF - (1<<5)- (1<<4));
+   560  001306  0ECF               	movlw	207
+   561  001308  6E93               	movwf	3987,c	;volatile
+   562                           
+   563                           ;titan.c: 44: TRISC = ((1<<4)|(1<<7));
+   564  00130A  0E90               	movlw	144
+   565  00130C  6E94               	movwf	3988,c	;volatile
+   566                           
+   567                           ;titan.c: 45: TRISD = ((1<<1)|(1<<2));
+   568  00130E  0E06               	movlw	6
+   569  001310  6E95               	movwf	3989,c	;volatile
+   570                           
+   571                           ;titan.c: 46: TRISE = (1<<3);
+   572  001312  0E08               	movlw	8
+   573  001314  6E96               	movwf	3990,c	;volatile
+   574                           
+   575                           ;titan.c: 47: TRISF = (0xFF - (1<<7));
+   576  001316  0E7F               	movlw	127
+   577  001318  6E97               	movwf	3991,c	;volatile
+   578                           
+   579                           ;titan.c: 48: TRISG = 0x00;
+   580  00131A  0E00               	movlw	0
+   581  00131C  6E98               	movwf	3992,c	;volatile
+   582                           
+   583                           ;titan.c: 49: ADCON0bits.ADCAL = 1;
+   584  00131E  8EC2               	bsf	4034,7,c	;volatile
+   585                           
+   586                           ;titan.c: 50: ADCON1 = 0x13;
+   587  001320  0E13               	movlw	19
+   588  001322  6EC1               	movwf	4033,c	;volatile
+   589                           
+   590                           ;titan.c: 51: ADCON2 = 0xBE;
+   591  001324  0EBE               	movlw	190
+   592  001326  6EC0               	movwf	4032,c	;volatile
+   593                           
+   594                           ;titan.c: 53: ADCON0bits.ADON = 1;
+   595  001328  80C2               	bsf	4034,0,c	;volatile
+   596                           
+   597                           ;titan.c: 57: OSCILLATOR_Initialize();
+   598  00132A  EC55  F00A         	call	_OSCILLATOR_Initialize	;wreg free
+   599                           
+   600                           ;titan.c: 58: Timers_Initialize();
+   601  00132E  EC0A  F00A         	call	_Timers_Initialize	;wreg free
+   602                           
+   603                           ;titan.c: 59: INTERRUPT_Initialize();
+   604  001332  EC5A  F00A         	call	_INTERRUPT_Initialize	;wreg free
+   605                           
+   606                           ;titan.c: 60: for (uint8_t i=0; i<8; i++) DebounceCounter[i] = 0;
+   607  001336  0E00               	movlw	0
+   608  001338  0100               	movlb	0	; () banked
+   609  00133A  6FA4               	movwf	HardwareInit@i& (0+255),b
+   610  00133C                     l1487:
+   611                           
+   612                           ; BSR set to: 0
+   613  00133C  0E07               	movlw	7
+   614  00133E  65A4               	cpfsgt	HardwareInit@i& (0+255),b
+   615  001340  D001               	goto	l252
+   616  001342  0012               	return	
+   617  001344                     l252:
+   618                           
+   619                           ; BSR set to: 0
+   620                           
+   621                           ; BSR set to: 0
+   622  001344  51A4               	movf	HardwareInit@i& (0+255),w,b
+   623  001346  0D01               	mullw	1
+   624  001348  0E01               	movlw	low _DebounceCounter
+   625  00134A  24F3               	addwf	prodl,w,c
+   626  00134C  6ED9               	movwf	fsr2l,c
+   627  00134E  0E00               	movlw	high _DebounceCounter
+   628  001350  20F4               	addwfc	prodh,w,c
+   629  001352  6EDA               	movwf	fsr2h,c
+   630  001354  0E00               	movlw	0
+   631  001356  6EDF               	movwf	indf2,c
+   632                           
+   633                           ; BSR set to: 0
+   634  001358  2BA4               	incf	HardwareInit@i& (0+255),f,b
+   635  00135A  D7F0               	goto	l1487
+   636  00135C                     __end_of_HardwareInit:
+   637                           	opt stack 0
+   638                           tblptru	equ	0xFF8
+   639                           tblptrh	equ	0xFF7
+   640                           prodh	equ	0xFF4
+   641                           prodl	equ	0xFF3
+   642                           indf2	equ	0xFDF
+   643                           fsr2h	equ	0xFDA
+   644                           fsr2l	equ	0xFD9
+   645                           status	equ	0xFD8
+   646                           
+   647 ;; *************** function _Timers_Initialize *****************
+   648 ;; Defined at:
+   649 ;;		line 9 in file "timers.c"
+   650 ;; Parameters:    Size  Location     Type
+   651 ;;		None
+   652 ;; Auto vars:     Size  Location     Type
+   653 ;;		None
+   654 ;; Return value:  Size  Location     Type
+   655 ;;                  1    wreg      void 
+   656 ;; Registers used:
+   657 ;;		wreg, status,2, status,0
+   658 ;; Tracked objects:
+   659 ;;		On entry : 0/0
+   660 ;;		On exit  : 0/0
+   661 ;;		Unchanged: 0/0
+   662 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   663 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   664 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   665 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   666 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   667 ;;Total ram usage:        0 bytes
+   668 ;; Hardware stack levels used:    1
+   669 ;; Hardware stack levels required when called:    5
+   670 ;; This function calls:
+   671 ;;		Nothing
+   672 ;; This function is called by:
+   673 ;;		_HardwareInit
+   674 ;; This function uses a non-reentrant model
+   675 ;;
+   676                           
+   677                           	psect	text3
+   678  001414                     __ptext3:
+   679                           	opt stack 0
+   680  001414                     _Timers_Initialize:
+   681                           	opt stack 24
+   682                           
+   683                           ;timers.c: 12: T3CON = 0x41;
+   684                           
+   685                           ; BSR set to: 0
+   686                           ;incstack = 0
+   687  001414  0E41               	movlw	65
+   688  001416  6EB1               	movwf	4017,c	;volatile
+   689                           
+   690                           ;timers.c: 15: PIE2bits.TMR3IE = 1;
+   691  001418  82A0               	bsf	4000,1,c	;volatile
+   692                           
+   693                           ;timers.c: 18: CCP4CON = 0x04;
+   694  00141A  0E04               	movlw	4
+   695  00141C  6E73               	movwf	3955,c	;volatile
+   696                           
+   697                           ;timers.c: 19: PIR3bits.CCP4IF = 0;
+   698  00141E  92A4               	bcf	4004,1,c	;volatile
+   699                           
+   700                           ;timers.c: 20: PIE3bits.CCP4IE = 1;
+   701  001420  82A3               	bsf	4003,1,c	;volatile
+   702                           
+   703                           ;timers.c: 21: ReceiverStatus = 255;
+   704  001422  682E               	setf	_ReceiverStatus,c	;volatile
+   705                           
+   706                           ;timers.c: 22: TimersCCP.value = 0;
+   707  001424  0E00               	movlw	0
+   708  001426  6E2D               	movwf	_TimersCCP,c	;volatile
+   709                           
+   710                           ;timers.c: 25: CCP5CON = 0x0A;
+   711  001428  0E0A               	movlw	10
+   712  00142A  6E70               	movwf	3952,c	;volatile
+   713                           
+   714                           ;timers.c: 27: PIE3bits.CCP5IE = 0;
+   715  00142C  94A3               	bcf	4003,2,c	;volatile
+   716                           
+   717                           ;timers.c: 28: PIR3bits.CCP5IF = 0;
+   718  00142E  94A4               	bcf	4004,2,c	;volatile
+   719                           
+   720                           ;timers.c: 29: T3compare.byte.lo = TMR3L;
+   721  001430  CFB2 F01B          	movff	4018,_T3compare	;volatile
+   722                           
+   723                           ;timers.c: 30: T3compare.byte.hi = TMR3H;
+   724  001434  CFB3 F01C          	movff	4019,_T3compare+1	;volatile
+   725                           
+   726                           ;timers.c: 31: CCPR5 = T3compare.word + ((uint16_t) (41666666.6667/4000));
+   727  001438  0EB0               	movlw	176
+   728  00143A  241B               	addwf	_T3compare,w,c
+   729  00143C  6E71               	movwf	3953,c	;volatile
+   730  00143E  0E28               	movlw	40
+   731  001440  201C               	addwfc	_T3compare+1,w,c
+   732  001442  6E72               	movwf	3954,c	;volatile
+   733                           
+   734                           ;timers.c: 32: PIE3bits.CCP5IE = 1;
+   735  001444  84A3               	bsf	4003,2,c	;volatile
+   736  001446  0012               	return		;funcret
+   737  001448                     __end_of_Timers_Initialize:
+   738                           	opt stack 0
+   739                           tblptru	equ	0xFF8
+   740                           tblptrh	equ	0xFF7
+   741                           prodh	equ	0xFF4
+   742                           prodl	equ	0xFF3
+   743                           indf2	equ	0xFDF
+   744                           fsr2h	equ	0xFDA
+   745                           fsr2l	equ	0xFD9
+   746                           status	equ	0xFD8
+   747                           
+   748 ;; *************** function _OSCILLATOR_Initialize *****************
+   749 ;; Defined at:
+   750 ;;		line 92 in file "titan.c"
+   751 ;; Parameters:    Size  Location     Type
+   752 ;;		None
+   753 ;; Auto vars:     Size  Location     Type
+   754 ;;		None
+   755 ;; Return value:  Size  Location     Type
+   756 ;;                  1    wreg      void 
+   757 ;; Registers used:
+   758 ;;		wreg, status,2
+   759 ;; Tracked objects:
+   760 ;;		On entry : 0/0
+   761 ;;		On exit  : 0/0
+   762 ;;		Unchanged: 0/0
+   763 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   764 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   765 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   766 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   767 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   768 ;;Total ram usage:        0 bytes
+   769 ;; Hardware stack levels used:    1
+   770 ;; Hardware stack levels required when called:    5
+   771 ;; This function calls:
+   772 ;;		Nothing
+   773 ;; This function is called by:
+   774 ;;		_HardwareInit
+   775 ;; This function uses a non-reentrant model
+   776 ;;
+   777                           
+   778                           	psect	text4
+   779  0014AA                     __ptext4:
+   780                           	opt stack 0
+   781  0014AA                     _OSCILLATOR_Initialize:
+   782                           	opt stack 24
+   783                           
+   784                           ;titan.c: 94: OSCCON = 0x02;
+   785                           
+   786                           ;incstack = 0
+   787  0014AA  0E02               	movlw	2
+   788  0014AC  6ED3               	movwf	4051,c	;volatile
+   789                           
+   790                           ;titan.c: 96: OSCTUNE = 0x40;
+   791  0014AE  0E40               	movlw	64
+   792  0014B0  6E9B               	movwf	3995,c	;volatile
+   793  0014B2  0012               	return		;funcret
+   794  0014B4                     __end_of_OSCILLATOR_Initialize:
+   795                           	opt stack 0
+   796                           tblptru	equ	0xFF8
+   797                           tblptrh	equ	0xFF7
+   798                           prodh	equ	0xFF4
+   799                           prodl	equ	0xFF3
+   800                           indf2	equ	0xFDF
+   801                           fsr2h	equ	0xFDA
+   802                           fsr2l	equ	0xFD9
+   803                           status	equ	0xFD8
+   804                           
+   805 ;; *************** function _INTERRUPT_Initialize *****************
+   806 ;; Defined at:
+   807 ;;		line 85 in file "titan.c"
+   808 ;; Parameters:    Size  Location     Type
+   809 ;;		None
+   810 ;; Auto vars:     Size  Location     Type
+   811 ;;		None
+   812 ;; Return value:  Size  Location     Type
+   813 ;;                  1    wreg      void 
+   814 ;; Registers used:
+   815 ;;		None
+   816 ;; Tracked objects:
+   817 ;;		On entry : 0/0
+   818 ;;		On exit  : 0/0
+   819 ;;		Unchanged: 0/0
+   820 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   821 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   822 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   823 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   824 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   825 ;;Total ram usage:        0 bytes
+   826 ;; Hardware stack levels used:    1
+   827 ;; Hardware stack levels required when called:    5
+   828 ;; This function calls:
+   829 ;;		Nothing
+   830 ;; This function is called by:
+   831 ;;		_HardwareInit
+   832 ;; This function uses a non-reentrant model
+   833 ;;
+   834                           
+   835                           	psect	text5
+   836  0014B4                     __ptext5:
+   837                           	opt stack 0
+   838  0014B4                     _INTERRUPT_Initialize:
+   839                           	opt stack 24
+   840                           
+   841                           ;titan.c: 87: RCONbits.IPEN = 0;
+   842                           
+   843                           ;incstack = 0
+   844  0014B4  9ED0               	bcf	4048,7,c	;volatile
+   845                           
+   846                           ;titan.c: 88: (INTCONbits.GIE = 1);
+   847  0014B6  8EF2               	bsf	intcon,7,c	;volatile
+   848                           
+   849                           ;titan.c: 89: (INTCONbits.PEIE = 1);
+   850  0014B8  8CF2               	bsf	intcon,6,c	;volatile
+   851  0014BA  0012               	return		;funcret
+   852  0014BC                     __end_of_INTERRUPT_Initialize:
+   853                           	opt stack 0
+   854                           tblptru	equ	0xFF8
+   855                           tblptrh	equ	0xFF7
+   856                           prodh	equ	0xFF4
+   857                           prodl	equ	0xFF3
+   858                           intcon	equ	0xFF2
+   859                           indf2	equ	0xFDF
+   860                           fsr2h	equ	0xFDA
+   861                           fsr2l	equ	0xFD9
+   862                           status	equ	0xFD8
+   863                           
+   864 ;; *************** function _INTERRUPT_InterruptManager *****************
+   865 ;; Defined at:
+   866 ;;		line 99 in file "titan.c"
+   867 ;; Parameters:    Size  Location     Type
+   868 ;;		None
+   869 ;; Auto vars:     Size  Location     Type
+   870 ;;		None
+   871 ;; Return value:  Size  Location     Type
+   872 ;;                  1    wreg      void 
+   873 ;; Registers used:
+   874 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   875 ;; Tracked objects:
+   876 ;;		On entry : 0/0
+   877 ;;		On exit  : 0/0
+   878 ;;		Unchanged: 0/0
+   879 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   880 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   881 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   882 ;;      Temps:         18       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   883 ;;      Totals:        18       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   884 ;;Total ram usage:       18 bytes
+   885 ;; Hardware stack levels used:    1
+   886 ;; Hardware stack levels required when called:    4
+   887 ;; This function calls:
+   888 ;;		_CCP4_ISR
+   889 ;;		_CCP5_ISR
+   890 ;;		_TMR3_ISR
+   891 ;; This function is called by:
+   892 ;;		Interrupt level 2
+   893 ;; This function uses a non-reentrant model
+   894 ;;
+   895                           
+   896                           	psect	intcode
+   897  000008                     __pintcode:
+   898                           	opt stack 0
+   899  000008                     _INTERRUPT_InterruptManager:
+   900                           	opt stack 24
+   901                           
+   902                           ;incstack = 0
+   903  000008  8254               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
+   904  00000A  CFFA F041          	movff	pclath,??_INTERRUPT_InterruptManager
+   905  00000E  CFFB F042          	movff	pclatu,??_INTERRUPT_InterruptManager+1
+   906  000012  CFE9 F043          	movff	fsr0l,??_INTERRUPT_InterruptManager+2
+   907  000016  CFEA F044          	movff	fsr0h,??_INTERRUPT_InterruptManager+3
+   908  00001A  CFE1 F045          	movff	fsr1l,??_INTERRUPT_InterruptManager+4
+   909  00001E  CFE2 F046          	movff	fsr1h,??_INTERRUPT_InterruptManager+5
+   910  000022  CFD9 F047          	movff	fsr2l,??_INTERRUPT_InterruptManager+6
+   911  000026  CFDA F048          	movff	fsr2h,??_INTERRUPT_InterruptManager+7
+   912  00002A  CFF3 F049          	movff	prodl,??_INTERRUPT_InterruptManager+8
+   913  00002E  CFF4 F04A          	movff	prodh,??_INTERRUPT_InterruptManager+9
+   914  000032  CFF6 F04B          	movff	tblptrl,??_INTERRUPT_InterruptManager+10
+   915  000036  CFF7 F04C          	movff	tblptrh,??_INTERRUPT_InterruptManager+11
+   916  00003A  CFF8 F04D          	movff	tblptru,??_INTERRUPT_InterruptManager+12
+   917  00003E  CFF5 F04E          	movff	tablat,??_INTERRUPT_InterruptManager+13
+   918  000042  C054  F04F         	movff	btemp,??_INTERRUPT_InterruptManager+14
+   919  000046  C055  F050         	movff	btemp+1,??_INTERRUPT_InterruptManager+15
+   920  00004A  C056  F051         	movff	btemp+2,??_INTERRUPT_InterruptManager+16
+   921  00004E  C057  F052         	movff	btemp+3,??_INTERRUPT_InterruptManager+17
+   922                           
+   923                           ;titan.c: 101: if(INTCONbits.PEIE == 1) {
+   924  000052  ACF2               	btfss	intcon,6,c	;volatile
+   925  000054  D00D               	goto	i2l273
+   926                           
+   927                           ;titan.c: 102: if (PIR3bits.CCP4IF) {
+   928  000056  A2A4               	btfss	4004,1,c	;volatile
+   929  000058  D003               	goto	i2l269
+   930                           
+   931                           ;titan.c: 103: CCP4_ISR();
+   932  00005A  EC93  F008         	call	_CCP4_ISR	;wreg free
+   933                           
+   934                           ;titan.c: 104: }
+   935  00005E  D008               	goto	i2l273
+   936  000060                     i2l269:
+   937                           
+   938                           ;titan.c: 105: else if (PIR3bits.CCP5IF) {
+   939  000060  A4A4               	btfss	4004,2,c	;volatile
+   940  000062  D003               	goto	i2l271
+   941                           
+   942                           ;titan.c: 106: CCP5_ISR();
+   943  000064  ECAE  F009         	call	_CCP5_ISR	;wreg free
+   944                           
+   945                           ;titan.c: 107: }
+   946  000068  D003               	goto	i2l273
+   947  00006A                     i2l271:
+   948                           
+   949                           ;titan.c: 108: else if (PIR2bits.TMR3IF) {
+   950  00006A  B2A1               	btfsc	4001,1,c	;volatile
+   951                           
+   952                           ;titan.c: 109: TMR3_ISR();
+   953  00006C  EC62  F00A         	call	_TMR3_ISR	;wreg free
+   954  000070                     i2l273:
+   955                           
+   956                           ;titan.c: 111: else {
+   957  000070  C052  F057         	movff	??_INTERRUPT_InterruptManager+17,btemp+3
+   958  000074  C051  F056         	movff	??_INTERRUPT_InterruptManager+16,btemp+2
+   959  000078  C050  F055         	movff	??_INTERRUPT_InterruptManager+15,btemp+1
+   960  00007C  C04F  F054         	movff	??_INTERRUPT_InterruptManager+14,btemp
+   961  000080  C04E  FFF5         	movff	??_INTERRUPT_InterruptManager+13,tablat
+   962  000084  C04D  FFF8         	movff	??_INTERRUPT_InterruptManager+12,tblptru
+   963  000088  C04C  FFF7         	movff	??_INTERRUPT_InterruptManager+11,tblptrh
+   964  00008C  C04B  FFF6         	movff	??_INTERRUPT_InterruptManager+10,tblptrl
+   965  000090  C04A  FFF4         	movff	??_INTERRUPT_InterruptManager+9,prodh
+   966  000094  C049  FFF3         	movff	??_INTERRUPT_InterruptManager+8,prodl
+   967  000098  C048  FFDA         	movff	??_INTERRUPT_InterruptManager+7,fsr2h
+   968  00009C  C047  FFD9         	movff	??_INTERRUPT_InterruptManager+6,fsr2l
+   969  0000A0  C046  FFE2         	movff	??_INTERRUPT_InterruptManager+5,fsr1h
+   970  0000A4  C045  FFE1         	movff	??_INTERRUPT_InterruptManager+4,fsr1l
+   971  0000A8  C044  FFEA         	movff	??_INTERRUPT_InterruptManager+3,fsr0h
+   972  0000AC  C043  FFE9         	movff	??_INTERRUPT_InterruptManager+2,fsr0l
+   973  0000B0  C042  FFFB         	movff	??_INTERRUPT_InterruptManager+1,pclatu
+   974  0000B4  C041  FFFA         	movff	??_INTERRUPT_InterruptManager,pclath
+   975  0000B8  9254               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
+   976  0000BA  0011               	retfie		f
+   977  0000BC                     __end_of_INTERRUPT_InterruptManager:
+   978                           	opt stack 0
+   979                           pclatu	equ	0xFFB
+   980                           pclath	equ	0xFFA
+   981                           tblptru	equ	0xFF8
+   982                           tblptrh	equ	0xFF7
+   983                           tblptrl	equ	0xFF6
+   984                           tablat	equ	0xFF5
+   985                           prodh	equ	0xFF4
+   986                           prodl	equ	0xFF3
+   987                           intcon	equ	0xFF2
+   988                           fsr0h	equ	0xFEA
+   989                           fsr0l	equ	0xFE9
+   990                           fsr1h	equ	0xFE2
+   991                           fsr1l	equ	0xFE1
+   992                           indf2	equ	0xFDF
+   993                           fsr2h	equ	0xFDA
+   994                           fsr2l	equ	0xFD9
+   995                           status	equ	0xFD8
+   996                           
+   997 ;; *************** function _CCP5_ISR *****************
+   998 ;; Defined at:
+   999 ;;		line 125 in file "timers.c"
+  1000 ;; Parameters:    Size  Location     Type
+  1001 ;;		None
+  1002 ;; Auto vars:     Size  Location     Type
+  1003 ;;		None
+  1004 ;; Return value:  Size  Location     Type
+  1005 ;;                  1    wreg      void 
+  1006 ;; Registers used:
+  1007 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+  1008 ;; Tracked objects:
+  1009 ;;		On entry : 0/0
+  1010 ;;		On exit  : 0/0
+  1011 ;;		Unchanged: 0/0
+  1012 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1013 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1014 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1015 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1016 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1017 ;;Total ram usage:        1 bytes
+  1018 ;; Hardware stack levels used:    1
+  1019 ;; Hardware stack levels required when called:    3
+  1020 ;; This function calls:
+  1021 ;;		_TitanApp
+  1022 ;; This function is called by:
+  1023 ;;		_INTERRUPT_InterruptManager
+  1024 ;; This function uses a non-reentrant model
+  1025 ;;
+  1026                           
+  1027                           	psect	text7
+  1028  00135C                     __ptext7:
+  1029                           	opt stack 0
+  1030  00135C                     _CCP5_ISR:
+  1031                           	opt stack 24
+  1032                           
+  1033                           ;timers.c: 127: PIR3bits.CCP5IF = 0;
+  1034                           
+  1035                           ;incstack = 0
+  1036  00135C  94A4               	bcf	4004,2,c	;volatile
+  1037                           
+  1038                           ;timers.c: 129: T3compare.byte.lo = TMR3L;
+  1039  00135E  CFB2 F01B          	movff	4018,_T3compare	;volatile
+  1040                           
+  1041                           ;timers.c: 130: T3compare.byte.hi = TMR3H;
+  1042  001362  CFB3 F01C          	movff	4019,_T3compare+1	;volatile
+  1043                           
+  1044                           ;timers.c: 131: if (((uint8_t)(T3compare.byte.hi - CCPR5H)) < ((uint8_t)((((uint16_t) (4
+      +                          1666666.6667/4000)) >> 8) - 2))){
+  1045  001366  5072               	movf	3954,w,c	;volatile
+  1046  001368  0800               	sublw	0
+  1047  00136A  241C               	addwf	_T3compare+1,w,c
+  1048  00136C  6E40               	movwf	??_CCP5_ISR& (0+255),c
+  1049  00136E  0E26               	movlw	38
+  1050  001370  6040               	cpfslt	??_CCP5_ISR,c
+  1051  001372  D005               	goto	i2l127
+  1052                           
+  1053                           ;timers.c: 132: CCPR5 += ((uint16_t) (41666666.6667/4000));
+  1054  001374  0EB0               	movlw	176
+  1055  001376  2671               	addwf	3953,f,c	;volatile
+  1056  001378  0E28               	movlw	40
+  1057  00137A  2272               	addwfc	3954,f,c	;volatile
+  1058                           
+  1059                           ;timers.c: 133: }
+  1060  00137C  D006               	goto	i2l128
+  1061  00137E                     i2l127:
+  1062                           
+  1063                           ;timers.c: 134: else{
+  1064                           ;timers.c: 135: CCPR5 = T3compare.word + ((uint16_t) (41666666.6667/4000));
+  1065  00137E  0EB0               	movlw	176
+  1066  001380  241B               	addwf	_T3compare,w,c
+  1067  001382  6E71               	movwf	3953,c	;volatile
+  1068  001384  0E28               	movlw	40
+  1069  001386  201C               	addwfc	_T3compare+1,w,c
+  1070  001388  6E72               	movwf	3954,c	;volatile
+  1071  00138A                     i2l128:
+  1072                           
+  1073                           ;timers.c: 136: }
+  1074                           ;timers.c: 137: if (++Precizion1msCounter > 2) {
+  1075  00138A  2A27               	incf	_Precizion1msCounter,f,c
+  1076  00138C  0E02               	movlw	2
+  1077  00138E  6427               	cpfsgt	_Precizion1msCounter,c
+  1078  001390  D003               	goto	i2l129
+  1079                           
+  1080                           ;timers.c: 138: Precizion1msCounter = 0;
+  1081  001392  0E00               	movlw	0
+  1082  001394  6E27               	movwf	_Precizion1msCounter,c
+  1083                           
+  1084                           ;timers.c: 139: }
+  1085  001396  D002               	goto	i2l130
+  1086  001398                     i2l129:
+  1087                           
+  1088                           ;timers.c: 140: else {
+  1089                           ;timers.c: 141: CCPR5 += 1;
+  1090  001398  4A71               	infsnz	3953,f,c	;volatile
+  1091  00139A  2A72               	incf	3954,f,c	;volatile
+  1092  00139C                     i2l130:
+  1093                           
+  1094                           ;timers.c: 142: }
+  1095                           ;timers.c: 144: Count_1_ms++;
+  1096  00139C  2A30               	incf	_Count_1_ms,f,c	;volatile
+  1097                           
+  1098                           ;timers.c: 145: TitanApp();
+  1099  00139E  ECEF  F009         	call	_TitanApp	;wreg free
+  1100  0013A2  0012               	return		;funcret
+  1101  0013A4                     __end_of_CCP5_ISR:
+  1102                           	opt stack 0
+  1103                           pclatu	equ	0xFFB
+  1104                           pclath	equ	0xFFA
+  1105                           tblptru	equ	0xFF8
+  1106                           tblptrh	equ	0xFF7
+  1107                           tblptrl	equ	0xFF6
+  1108                           tablat	equ	0xFF5
+  1109                           prodh	equ	0xFF4
+  1110                           prodl	equ	0xFF3
+  1111                           intcon	equ	0xFF2
+  1112                           fsr0h	equ	0xFEA
+  1113                           fsr0l	equ	0xFE9
+  1114                           fsr1h	equ	0xFE2
+  1115                           fsr1l	equ	0xFE1
+  1116                           indf2	equ	0xFDF
+  1117                           fsr2h	equ	0xFDA
+  1118                           fsr2l	equ	0xFD9
+  1119                           status	equ	0xFD8
+  1120                           
+  1121 ;; *************** function _TitanApp *****************
+  1122 ;; Defined at:
+  1123 ;;		line 264 in file "titan.c"
+  1124 ;; Parameters:    Size  Location     Type
+  1125 ;;		None
+  1126 ;; Auto vars:     Size  Location     Type
+  1127 ;;		None
+  1128 ;; Return value:  Size  Location     Type
+  1129 ;;                  1    wreg      void 
+  1130 ;; Registers used:
+  1131 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+  1132 ;; Tracked objects:
+  1133 ;;		On entry : 0/0
+  1134 ;;		On exit  : 0/0
+  1135 ;;		Unchanged: 0/0
+  1136 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1137 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1138 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1139 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1140 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1141 ;;Total ram usage:        1 bytes
+  1142 ;; Hardware stack levels used:    1
+  1143 ;; Hardware stack levels required when called:    2
+  1144 ;; This function calls:
+  1145 ;;		_BoilerLogic
+  1146 ;;		_GetAllSensor
+  1147 ;;		_StartADC
+  1148 ;; This function is called by:
+  1149 ;;		_CCP5_ISR
+  1150 ;; This function uses a non-reentrant model
+  1151 ;;
+  1152                           
+  1153                           	psect	text8
+  1154  0013DE                     __ptext8:
+  1155                           	opt stack 0
+  1156  0013DE                     _TitanApp:
+  1157                           	opt stack 24
+  1158                           
+  1159                           ;titan.c: 266: if ((Count_1_ms & 0x03) == 0){
+  1160                           
+  1161                           ;incstack = 0
+  1162  0013DE  C030  F03F         	movff	_Count_1_ms,??_TitanApp	;volatile
+  1163  0013E2  0E03               	movlw	3
+  1164  0013E4  163F               	andwf	??_TitanApp,f,c
+  1165  0013E6  A4D8               	btfss	status,2,c
+  1166  0013E8  D003               	goto	i2l333
+  1167                           
+  1168                           ;titan.c: 267: StartADC();
+  1169  0013EA  EC5E  F00A         	call	_StartADC	;wreg free
+  1170                           
+  1171                           ;titan.c: 268: }
+  1172  0013EE  0012               	return	
+  1173  0013F0                     i2l333:
+  1174                           
+  1175                           ;titan.c: 269: else if ((Count_1_ms & 0x03) == 1){
+  1176  0013F0  5030               	movf	_Count_1_ms,w,c	;volatile
+  1177  0013F2  0B03               	andlw	3
+  1178  0013F4  06E8               	decf	wreg,f,c
+  1179  0013F6  A4D8               	btfss	status,2,c
+  1180  0013F8  D004               	goto	i2l335
+  1181                           
+  1182                           ;titan.c: 270: GetAllSensor();
+  1183  0013FA  EC05  F008         	call	_GetAllSensor	;wreg free
+  1184                           
+  1185                           ;titan.c: 271: __nop();
+  1186  0013FE  F000               	nop	
+  1187                           
+  1188                           ;titan.c: 272: }
+  1189  001400  0012               	return	
+  1190  001402                     i2l335:
+  1191                           
+  1192                           ;titan.c: 273: else if ((Count_1_ms & 0x03) == 2){
+  1193  001402  5030               	movf	_Count_1_ms,w,c	;volatile
+  1194  001404  0B03               	andlw	3
+  1195  001406  0A02               	xorlw	2
+  1196  001408  B4D8               	btfsc	status,2,c
+  1197  00140A  0012               	return	
+  1198                           
+  1199                           ;titan.c: 276: else {
+  1200                           ;titan.c: 277: BoilerLogic();
+  1201                           
+  1202                           ;titan.c: 275: }
+  1203  00140C  EC24  F00A         	call	_BoilerLogic	;wreg free
+  1204                           
+  1205                           ;titan.c: 278: __nop();
+  1206  001410  F000               	nop	
+  1207  001412  0012               	return	
+  1208  001414                     __end_of_TitanApp:
+  1209                           	opt stack 0
+  1210                           pclatu	equ	0xFFB
+  1211                           pclath	equ	0xFFA
+  1212                           tblptru	equ	0xFF8
+  1213                           tblptrh	equ	0xFF7
+  1214                           tblptrl	equ	0xFF6
+  1215                           tablat	equ	0xFF5
+  1216                           prodh	equ	0xFF4
+  1217                           prodl	equ	0xFF3
+  1218                           intcon	equ	0xFF2
+  1219                           fsr0h	equ	0xFEA
+  1220                           fsr0l	equ	0xFE9
+  1221                           wreg	equ	0xFE8
+  1222                           fsr1h	equ	0xFE2
+  1223                           fsr1l	equ	0xFE1
+  1224                           indf2	equ	0xFDF
+  1225                           fsr2h	equ	0xFDA
+  1226                           fsr2l	equ	0xFD9
+  1227                           status	equ	0xFD8
+  1228                           
+  1229 ;; *************** function _StartADC *****************
+  1230 ;; Defined at:
+  1231 ;;		line 117 in file "titan.c"
+  1232 ;; Parameters:    Size  Location     Type
+  1233 ;;		None
+  1234 ;; Auto vars:     Size  Location     Type
+  1235 ;;		None
+  1236 ;; Return value:  Size  Location     Type
+  1237 ;;                  1    wreg      void 
+  1238 ;; Registers used:
+  1239 ;;		None
+  1240 ;; Tracked objects:
+  1241 ;;		On entry : 0/0
+  1242 ;;		On exit  : 0/0
+  1243 ;;		Unchanged: 0/0
+  1244 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1245 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1246 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1247 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1248 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1249 ;;Total ram usage:        0 bytes
+  1250 ;; Hardware stack levels used:    1
+  1251 ;; This function calls:
+  1252 ;;		Nothing
+  1253 ;; This function is called by:
+  1254 ;;		_TitanApp
+  1255 ;; This function uses a non-reentrant model
+  1256 ;;
+  1257                           
+  1258                           	psect	text9
+  1259  0014BC                     __ptext9:
+  1260                           	opt stack 0
+  1261  0014BC                     _StartADC:
+  1262                           	opt stack 25
+  1263                           
+  1264                           ;titan.c: 118: while (ADCON0bits.GO_nDONE) { }
+  1265                           
+  1266                           ;incstack = 0
+  1267  0014BC  B2C2               	btfsc	4034,1,c	;volatile
+  1268  0014BE  D7FE               	goto	_StartADC
+  1269                           
+  1270                           ;titan.c: 119: ADCON0bits.GO = 1;
+  1271  0014C0  82C2               	bsf	4034,1,c	;volatile
+  1272  0014C2  0012               	return		;funcret
+  1273  0014C4                     __end_of_StartADC:
+  1274                           	opt stack 0
+  1275                           pclatu	equ	0xFFB
+  1276                           pclath	equ	0xFFA
+  1277                           tblptru	equ	0xFF8
+  1278                           tblptrh	equ	0xFF7
+  1279                           tblptrl	equ	0xFF6
+  1280                           tablat	equ	0xFF5
+  1281                           prodh	equ	0xFF4
+  1282                           prodl	equ	0xFF3
+  1283                           intcon	equ	0xFF2
+  1284                           fsr0h	equ	0xFEA
+  1285                           fsr0l	equ	0xFE9
+  1286                           wreg	equ	0xFE8
+  1287                           fsr1h	equ	0xFE2
+  1288                           fsr1l	equ	0xFE1
+  1289                           indf2	equ	0xFDF
+  1290                           fsr2h	equ	0xFDA
+  1291                           fsr2l	equ	0xFD9
+  1292                           status	equ	0xFD8
+  1293                           
+  1294 ;; *************** function _GetAllSensor *****************
+  1295 ;; Defined at:
+  1296 ;;		line 123 in file "titan.c"
+  1297 ;; Parameters:    Size  Location     Type
+  1298 ;;		None
+  1299 ;; Auto vars:     Size  Location     Type
+  1300 ;;  NumChannel      1   13[COMRAM] struct .
+  1301 ;;  ChMask          1   12[COMRAM] unsigned char 
+  1302 ;; Return value:  Size  Location     Type
+  1303 ;;                  1    wreg      void 
+  1304 ;; Registers used:
+  1305 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+  1306 ;; Tracked objects:
+  1307 ;;		On entry : 0/0
+  1308 ;;		On exit  : 0/0
+  1309 ;;		Unchanged: 0/0
+  1310 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1311 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1312 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1313 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1314 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1315 ;;Total ram usage:        4 bytes
+  1316 ;; Hardware stack levels used:    1
+  1317 ;; Hardware stack levels required when called:    1
+  1318 ;; This function calls:
+  1319 ;;		_LowPassFilterADC
+  1320 ;;		_WriteRelayRegister
+  1321 ;; This function is called by:
+  1322 ;;		_TitanApp
+  1323 ;; This function uses a non-reentrant model
+  1324 ;;
+  1325                           
+  1326                           	psect	text10
+  1327  00100A                     __ptext10:
+  1328                           	opt stack 0
+  1329  00100A                     _GetAllSensor:
+  1330                           	opt stack 24
+  1331                           
+  1332                           ;titan.c: 124: uint8_t ChMask;
+  1333                           ;titan.c: 125: uint8Bits_t NumChannel;
+  1334                           ;titan.c: 128: while (ADCON0bits.GO_nDONE) { }
+  1335                           
+  1336                           ;incstack = 0
+  1337  00100A  B2C2               	btfsc	4034,1,c	;volatile
+  1338  00100C  D7FE               	goto	_GetAllSensor
+  1339                           
+  1340                           ;titan.c: 129: if (AfterPOResetTimer != 0) AfterPOResetTimer--;
+  1341  00100E  5021               	movf	_AfterPOResetTimer,w,c
+  1342  001010  A4D8               	btfss	status,2,c
+  1343  001012  0621               	decf	_AfterPOResetTimer,f,c
+  1344                           
+  1345                           ;titan.c: 130: if (AfterPOResetTimer < 25) {
+  1346  001014  0E19               	movlw	25
+  1347  001016  6021               	cpfslt	_AfterPOResetTimer,c
+  1348  001018  0012               	return	
+  1349                           
+  1350                           ;titan.c: 132: NumChannel.value = ADC_Channel & 0x07;
+  1351  00101A  5020               	movf	_ADC_Channel,w,c
+  1352  00101C  0B07               	andlw	7
+  1353  00101E  6E3E               	movwf	GetAllSensor@NumChannel,c
+  1354                           
+  1355                           ;titan.c: 135: if (ADC_Channel <= 15) {
+  1356  001020  0E10               	movlw	16
+  1357  001022  6020               	cpfslt	_ADC_Channel,c
+  1358  001024  D02E               	goto	i2l297
+  1359                           
+  1360                           ;titan.c: 136: ChMask = (uint8_t) (1 << NumChannel.value);
+  1361  001026  C03E  F03B         	movff	GetAllSensor@NumChannel,??_GetAllSensor
+  1362  00102A  0E01               	movlw	1
+  1363  00102C  6E3C               	movwf	(??_GetAllSensor+1)& (0+255),c
+  1364  00102E  2A3B               	incf	??_GetAllSensor,f,c
+  1365  001030  D002               	goto	i2u72_44
+  1366  001032                     i2u72_45:
+  1367  001032  90D8               	bcf	status,0,c
+  1368  001034  363C               	rlcf	??_GetAllSensor+1,f,c
+  1369  001036                     i2u72_44:
+  1370  001036  2E3B               	decfsz	??_GetAllSensor,f,c
+  1371  001038  D7FC               	goto	i2u72_45
+  1372  00103A  503C               	movf	??_GetAllSensor+1,w,c
+  1373  00103C  6E3D               	movwf	GetAllSensor@ChMask,c
+  1374                           
+  1375                           ;titan.c: 138: if ((TitanSwitch.value & ChMask) != 0) {
+  1376  00103E  5024               	movf	titan@TitanSwitch,w,c
+  1377  001040  143D               	andwf	GetAllSensor@ChMask,w,c
+  1378  001042  0900               	iorlw	0
+  1379  001044  B4D8               	btfsc	status,2,c
+  1380  001046  D003               	goto	i2l290
+  1381                           
+  1382                           ;titan.c: 139: if (PORTEbits.RE3 != 0) {
+  1383  001048  A684               	btfss	3972,3,c	;volatile
+  1384  00104A  D011               	goto	i2l1353
+  1385  00104C  D002               	goto	L1
+  1386  00104E                     i2l290:
+  1387                           
+  1388                           ;titan.c: 147: else if (PORTEbits.RE3 != 0) {
+  1389  00104E  B684               	btfsc	3972,3,c	;volatile
+  1390  001050  D00E               	goto	i2l1353
+  1391  001052                     L1:
+  1392                           
+  1393                           ;titan.c: 150: else {
+  1394                           ;titan.c: 151: if (++DebounceCounter[NumChannel.value] >= 3) {
+  1395                           
+  1396                           ;titan.c: 149: }
+  1397                           
+  1398                           ;titan.c: 148: DebounceCounter[NumChannel.value] = 0;
+  1399  001052  503E               	movf	GetAllSensor@NumChannel,w,c
+  1400  001054  0D01               	mullw	1
+  1401  001056  0E01               	movlw	low _DebounceCounter
+  1402  001058  24F3               	addwf	prodl,w,c
+  1403  00105A  6ED9               	movwf	fsr2l,c
+  1404  00105C  0E00               	movlw	high _DebounceCounter
+  1405  00105E  20F4               	addwfc	prodh,w,c
+  1406  001060  6EDA               	movwf	fsr2h,c
+  1407  001062  2ADF               	incf	indf2,f,c
+  1408  001064  0E02               	movlw	2
+  1409  001066  64DF               	cpfsgt	indf2,c
+  1410  001068  D00C               	goto	i2l297
+  1411                           
+  1412                           ;titan.c: 152: TitanSwitch.value ^= ChMask;
+  1413  00106A  503D               	movf	GetAllSensor@ChMask,w,c
+  1414  00106C  1A24               	xorwf	titan@TitanSwitch,f,c
+  1415  00106E                     i2l1353:
+  1416                           
+  1417                           ;titan.c: 153: DebounceCounter[NumChannel.value] = 0;
+  1418  00106E  503E               	movf	GetAllSensor@NumChannel,w,c
+  1419  001070  0D01               	mullw	1
+  1420  001072  0E01               	movlw	low _DebounceCounter
+  1421  001074  24F3               	addwf	prodl,w,c
+  1422  001076  6ED9               	movwf	fsr2l,c
+  1423  001078  0E00               	movlw	high _DebounceCounter
+  1424  00107A  20F4               	addwfc	prodh,w,c
+  1425  00107C  6EDA               	movwf	fsr2h,c
+  1426  00107E  0E00               	movlw	0
+  1427  001080  6EDF               	movwf	indf2,c
+  1428  001082                     i2l297:
+  1429                           
+  1430                           ;titan.c: 154: }
+  1431                           ;titan.c: 155: }
+  1432                           ;titan.c: 156: }
+  1433                           ;titan.c: 158: if (ADC_Channel <8) {
+  1434  001082  0E08               	movlw	8
+  1435  001084  6020               	cpfslt	_ADC_Channel,c
+  1436  001086  D009               	goto	i2l298
+  1437                           
+  1438                           ;titan.c: 159: LowPassFilterADC (&ADC_10uA, NumChannel.value);
+  1439  001088  0E94               	movlw	low _ADC_10uA
+  1440  00108A  6E31               	movwf	LowPassFilterADC@pFiltrValue,c
+  1441  00108C  0E00               	movlw	high _ADC_10uA
+  1442  00108E  6E32               	movwf	LowPassFilterADC@pFiltrValue+1,c
+  1443  001090  C03E  F033         	movff	GetAllSensor@NumChannel,LowPassFilterADC@Ch
+  1444  001094  ECF7  F008         	call	_LowPassFilterADC	;wreg free
+  1445                           
+  1446                           ;titan.c: 160: }
+  1447  001098  D00B               	goto	i2l300
+  1448  00109A                     i2l298:
+  1449                           
+  1450                           ;titan.c: 161: else if (ADC_Channel < 16) {
+  1451  00109A  0E10               	movlw	16
+  1452  00109C  6020               	cpfslt	_ADC_Channel,c
+  1453  00109E  D008               	goto	i2l300
+  1454                           
+  1455                           ;titan.c: 162: LowPassFilterADC (&ADC_500uA, NumChannel.value);
+  1456  0010A0  0E84               	movlw	low _ADC_500uA
+  1457  0010A2  6E31               	movwf	LowPassFilterADC@pFiltrValue,c
+  1458  0010A4  0E00               	movlw	high _ADC_500uA
+  1459  0010A6  6E32               	movwf	LowPassFilterADC@pFiltrValue+1,c
+  1460  0010A8  C03E  F033         	movff	GetAllSensor@NumChannel,LowPassFilterADC@Ch
+  1461  0010AC  ECF7  F008         	call	_LowPassFilterADC	;wreg free
+  1462  0010B0                     i2l300:
+  1463                           
+  1464                           ;titan.c: 163: }
+  1465                           ;titan.c: 165: ADC_Channel++;
+  1466  0010B0  2A20               	incf	_ADC_Channel,f,c
+  1467                           
+  1468                           ;titan.c: 166: if (ADC_Channel > 16) ADC_Channel = 0;
+  1469  0010B2  0E10               	movlw	16
+  1470  0010B4  6420               	cpfsgt	_ADC_Channel,c
+  1471  0010B6  D002               	goto	i2l301
+  1472  0010B8  0E00               	movlw	0
+  1473  0010BA  6E20               	movwf	_ADC_Channel,c
+  1474  0010BC                     i2l301:
+  1475                           
+  1476                           ;titan.c: 167: NumChannel.value = ADC_Channel & 0x07;
+  1477  0010BC  5020               	movf	_ADC_Channel,w,c
+  1478  0010BE  0B07               	andlw	7
+  1479  0010C0  6E3E               	movwf	GetAllSensor@NumChannel,c
+  1480                           
+  1481                           ;titan.c: 169: if (ADC_Channel < 8) {
+  1482  0010C2  0E08               	movlw	8
+  1483  0010C4  6020               	cpfslt	_ADC_Channel,c
+  1484  0010C6  D002               	goto	i2l302
+  1485                           
+  1486                           ;titan.c: 170: RelayRegister.RelayRegBit.nSel500uA = 1;
+  1487  0010C8  8E1A               	bsf	titan@RelayRegister+1,7,c
+  1488                           
+  1489                           ;titan.c: 171: }
+  1490  0010CA  D001               	goto	i2l303
+  1491  0010CC                     i2l302:
+  1492                           
+  1493                           ;titan.c: 172: else {
+  1494                           ;titan.c: 173: RelayRegister.RelayRegBit.nSel500uA = 0;
+  1495  0010CC  9E1A               	bcf	titan@RelayRegister+1,7,c
+  1496  0010CE                     i2l303:
+  1497                           
+  1498                           ;titan.c: 174: }
+  1499                           ;titan.c: 176: RelayRegister.RelayRegBit.ChannelBit0 = NumChannel.Bits.Bit0;
+  1500  0010CE  A03E               	btfss	GetAllSensor@NumChannel,0,c
+  1501  0010D0  D002               	bra	i2u82_45
+  1502  0010D2  8419               	bsf	titan@RelayRegister,2,c
+  1503  0010D4  D001               	bra	i2u82_47
+  1504  0010D6                     i2u82_45:
+  1505  0010D6  9419               	bcf	titan@RelayRegister,2,c
+  1506  0010D8                     i2u82_47:
+  1507                           
+  1508                           ;titan.c: 177: RelayRegister.RelayRegBit.ChannelBit1 = NumChannel.Bits.Bit1;
+  1509  0010D8  A23E               	btfss	GetAllSensor@NumChannel,1,c
+  1510  0010DA  D002               	bra	i2u83_45
+  1511  0010DC  8219               	bsf	titan@RelayRegister,1,c
+  1512  0010DE  D001               	bra	i2u83_47
+  1513  0010E0                     i2u83_45:
+  1514  0010E0  9219               	bcf	titan@RelayRegister,1,c
+  1515  0010E2                     i2u83_47:
+  1516                           
+  1517                           ;titan.c: 178: RelayRegister.RelayRegBit.ChannelBit2 = NumChannel.Bits.Bit2;
+  1518  0010E2  A43E               	btfss	GetAllSensor@NumChannel,2,c
+  1519  0010E4  D002               	bra	i2u84_45
+  1520  0010E6  8019               	bsf	titan@RelayRegister,0,c
+  1521  0010E8  D001               	bra	i2u84_47
+  1522  0010EA                     i2u84_45:
+  1523  0010EA  9019               	bcf	titan@RelayRegister,0,c
+  1524  0010EC                     i2u84_47:
+  1525                           
+  1526                           ;titan.c: 179: WriteRelayRegister();
+  1527  0010EC  EC45  F009         	call	_WriteRelayRegister	;wreg free
+  1528                           
+  1529                           ;titan.c: 181: ADCON0 = (ADC_Input[NumChannel.value] << 2) + 1;
+  1530  0010F0  503E               	movf	GetAllSensor@NumChannel,w,c
+  1531  0010F2  0D01               	mullw	1
+  1532  0010F4  0E01               	movlw	low _ADC_Input
+  1533  0010F6  24F3               	addwf	prodl,w,c
+  1534  0010F8  6EF6               	movwf	tblptrl,c
+  1535  0010FA  0E10               	movlw	high _ADC_Input
+  1536  0010FC  20F4               	addwfc	prodh,w,c
+  1537  0010FE  6EF7               	movwf	tblptrh,c
+  1538  001100                     	if	0	;There are less than 3 active tblptr bytes
+  1539  001100                     	endif
+  1540  001100  0008               	tblrd		*
+  1541  001102  CFF5 F03B          	movff	tablat,??_GetAllSensor
+  1542  001106  90D8               	bcf	status,0,c
+  1543  001108  363B               	rlcf	??_GetAllSensor,f,c
+  1544  00110A  90D8               	bcf	status,0,c
+  1545  00110C  363B               	rlcf	??_GetAllSensor,f,c
+  1546  00110E  283B               	incf	??_GetAllSensor,w,c
+  1547  001110  6EC2               	movwf	4034,c	;volatile
+  1548                           
+  1549                           ;titan.c: 183: if ((ADC_Channel == 16)) {
+  1550  001112  0E10               	movlw	16
+  1551  001114  1820               	xorwf	_ADC_Channel,w,c
+  1552  001116  A4D8               	btfss	status,2,c
+  1553  001118  D002               	goto	i2l304
+  1554                           
+  1555                           ;titan.c: 184: ADCON0bits.ADCAL = 1;
+  1556  00111A  8EC2               	bsf	4034,7,c	;volatile
+  1557                           
+  1558                           ;titan.c: 185: }
+  1559  00111C  D001               	goto	i2l305
+  1560  00111E                     i2l304:
+  1561                           
+  1562                           ;titan.c: 186: else {
+  1563                           ;titan.c: 187: ADCON0bits.ADCAL = 0;
+  1564  00111E  9EC2               	bcf	4034,7,c	;volatile
+  1565  001120                     i2l305:
+  1566                           
+  1567                           ;titan.c: 188: }
+  1568                           ;titan.c: 189: ADCON2 = 0x83;
+  1569  001120  0E83               	movlw	131
+  1570  001122  6EC0               	movwf	4032,c	;volatile
+  1571  001124  0012               	return	
+  1572  001126                     __end_of_GetAllSensor:
+  1573                           	opt stack 0
+  1574                           pclatu	equ	0xFFB
+  1575                           pclath	equ	0xFFA
+  1576                           tblptru	equ	0xFF8
+  1577                           tblptrh	equ	0xFF7
+  1578                           tblptrl	equ	0xFF6
+  1579                           tablat	equ	0xFF5
+  1580                           prodh	equ	0xFF4
+  1581                           prodl	equ	0xFF3
+  1582                           intcon	equ	0xFF2
+  1583                           fsr0h	equ	0xFEA
+  1584                           fsr0l	equ	0xFE9
+  1585                           wreg	equ	0xFE8
+  1586                           fsr1h	equ	0xFE2
+  1587                           fsr1l	equ	0xFE1
+  1588                           indf2	equ	0xFDF
+  1589                           fsr2h	equ	0xFDA
+  1590                           fsr2l	equ	0xFD9
+  1591                           status	equ	0xFD8
+  1592                           
+  1593 ;; *************** function _WriteRelayRegister *****************
+  1594 ;; Defined at:
+  1595 ;;		line 219 in file "titan.c"
+  1596 ;; Parameters:    Size  Location     Type
+  1597 ;;		None
+  1598 ;; Auto vars:     Size  Location     Type
+  1599 ;;  BitCounter      1    1[COMRAM] unsigned char 
+  1600 ;;  ByteToShift     1    0[COMRAM] unsigned char 
+  1601 ;; Return value:  Size  Location     Type
+  1602 ;;                  1    wreg      void 
+  1603 ;; Registers used:
+  1604 ;;		wreg, status,2, status,0
+  1605 ;; Tracked objects:
+  1606 ;;		On entry : 0/0
+  1607 ;;		On exit  : 0/0
+  1608 ;;		Unchanged: 0/0
+  1609 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1610 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1611 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1612 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1613 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1614 ;;Total ram usage:        2 bytes
+  1615 ;; Hardware stack levels used:    1
+  1616 ;; This function calls:
+  1617 ;;		Nothing
+  1618 ;; This function is called by:
+  1619 ;;		_GetAllSensor
+  1620 ;; This function uses a non-reentrant model
+  1621 ;;
+  1622                           
+  1623                           	psect	text11
+  1624  00128A                     __ptext11:
+  1625                           	opt stack 0
+  1626  00128A                     _WriteRelayRegister:
+  1627                           	opt stack 24
+  1628                           
+  1629                           ;titan.c: 220: static uint8_t MakeIgnitionCounter;
+  1630                           ;titan.c: 221: uint8_t ByteToShift;
+  1631                           ;titan.c: 222: uint8_t BitCounter;
+  1632                           ;titan.c: 224: ByteToShift = RelayRegister.RelayRegByte.Lo;
+  1633                           
+  1634                           ;incstack = 0
+  1635  00128A  C019  F031         	movff	titan@RelayRegister,WriteRelayRegister@ByteToShift
+  1636                           
+  1637                           ;titan.c: 225: for (BitCounter = 0; BitCounter < 8; BitCounter++){
+  1638  00128E  0E00               	movlw	0
+  1639  001290  6E32               	movwf	WriteRelayRegister@BitCounter,c
+  1640  001292                     i2l1289:
+  1641  001292  0E07               	movlw	7
+  1642  001294  6432               	cpfsgt	WriteRelayRegister@BitCounter,c
+  1643  001296  D001               	goto	i2l321
+  1644  001298  D00C               	goto	i2u62_40
+  1645  00129A                     i2l321:
+  1646                           
+  1647                           ;titan.c: 226: LATEbits.LATE0 = 0;
+  1648  00129A  908D               	bcf	3981,0,c	;volatile
+  1649                           
+  1650                           ;titan.c: 227: if (ByteToShift & 0x01){
+  1651  00129C  A031               	btfss	WriteRelayRegister@ByteToShift,0,c
+  1652  00129E  D002               	goto	i2l323
+  1653                           
+  1654                           ;titan.c: 228: LATEbits.LATE1 = 1;
+  1655  0012A0  828D               	bsf	3981,1,c	;volatile
+  1656                           
+  1657                           ;titan.c: 229: }
+  1658  0012A2  D001               	goto	i2l324
+  1659  0012A4                     i2l323:
+  1660                           
+  1661                           ;titan.c: 230: else{
+  1662                           ;titan.c: 231: LATEbits.LATE1 = 0;
+  1663  0012A4  928D               	bcf	3981,1,c	;volatile
+  1664  0012A6                     i2l324:
+  1665                           
+  1666                           ;titan.c: 232: }
+  1667                           ;titan.c: 233: ByteToShift = ByteToShift >> 1;
+  1668  0012A6  90D8               	bcf	status,0,c
+  1669  0012A8  3031               	rrcf	WriteRelayRegister@ByteToShift,w,c
+  1670  0012AA  6E31               	movwf	WriteRelayRegister@ByteToShift,c
+  1671                           
+  1672                           ;titan.c: 234: LATEbits.LATE0 = 1;
+  1673  0012AC  808D               	bsf	3981,0,c	;volatile
+  1674  0012AE  2A32               	incf	WriteRelayRegister@BitCounter,f,c
+  1675  0012B0  D7F0               	goto	i2l1289
+  1676  0012B2                     i2u62_40:
+  1677                           
+  1678                           ;titan.c: 235: }
+  1679                           ;titan.c: 238: if (++MakeIgnitionCounter >= (32/4)) {
+  1680  0012B2  2A1F               	incf	WriteRelayRegister@MakeIgnitionCounter,f,c
+  1681  0012B4  0E07               	movlw	7
+  1682  0012B6  641F               	cpfsgt	WriteRelayRegister@MakeIgnitionCounter,c
+  1683  0012B8  D007               	goto	i2u64_47
+  1684                           
+  1685                           ;titan.c: 239: MakeIgnitionCounter = 0;
+  1686  0012BA  0E00               	movlw	0
+  1687  0012BC  6E1F               	movwf	WriteRelayRegister@MakeIgnitionCounter,c
+  1688                           
+  1689                           ;titan.c: 240: PORTGbits.RG4 = TitanHwFlags.Flags.MakeIgnition;
+  1690  0012BE  A023               	btfss	titan@TitanHwFlags,0,c
+  1691  0012C0  D002               	bra	i2u64_45
+  1692  0012C2  8886               	bsf	3974,4,c	;volatile
+  1693  0012C4  D001               	bra	i2u64_47
+  1694  0012C6                     i2u64_45:
+  1695  0012C6  9886               	bcf	3974,4,c	;volatile
+  1696  0012C8                     i2u64_47:
+  1697                           
+  1698                           ;titan.c: 241: }
+  1699                           ;titan.c: 244: ByteToShift = RelayRegister.RelayRegByte.Hi;
+  1700  0012C8  C01A  F031         	movff	titan@RelayRegister+1,WriteRelayRegister@ByteToShift
+  1701                           
+  1702                           ;titan.c: 245: for (BitCounter = 0; BitCounter < 8; BitCounter++){
+  1703  0012CC  0E00               	movlw	0
+  1704  0012CE  6E32               	movwf	WriteRelayRegister@BitCounter,c
+  1705  0012D0  D00B               	goto	i2l1323
+  1706  0012D2                     i2l326:
+  1707                           
+  1708                           ;titan.c: 246: LATEbits.LATE0 = 0;
+  1709  0012D2  908D               	bcf	3981,0,c	;volatile
+  1710                           
+  1711                           ;titan.c: 247: if (ByteToShift & 0x01){
+  1712  0012D4  A031               	btfss	WriteRelayRegister@ByteToShift,0,c
+  1713  0012D6  D002               	goto	i2l328
+  1714                           
+  1715                           ;titan.c: 248: LATEbits.LATE1 = 1;
+  1716  0012D8  828D               	bsf	3981,1,c	;volatile
+  1717                           
+  1718                           ;titan.c: 249: }
+  1719  0012DA  D001               	goto	i2l329
+  1720  0012DC                     i2l328:
+  1721                           
+  1722                           ;titan.c: 250: else{
+  1723                           ;titan.c: 251: LATEbits.LATE1 = 0;
+  1724  0012DC  928D               	bcf	3981,1,c	;volatile
+  1725  0012DE                     i2l329:
+  1726                           
+  1727                           ;titan.c: 252: }
+  1728                           ;titan.c: 253: ByteToShift = ByteToShift >> 1;
+  1729  0012DE  90D8               	bcf	status,0,c
+  1730  0012E0  3031               	rrcf	WriteRelayRegister@ByteToShift,w,c
+  1731  0012E2  6E31               	movwf	WriteRelayRegister@ByteToShift,c
+  1732                           
+  1733                           ;titan.c: 254: LATEbits.LATE0 = 1;
+  1734  0012E4  808D               	bsf	3981,0,c	;volatile
+  1735  0012E6  2A32               	incf	WriteRelayRegister@BitCounter,f,c
+  1736  0012E8                     i2l1323:
+  1737  0012E8  0E07               	movlw	7
+  1738  0012EA  6432               	cpfsgt	WriteRelayRegister@BitCounter,c
+  1739  0012EC  D7F2               	goto	i2l326
+  1740                           
+  1741                           ;titan.c: 255: }
+  1742                           ;titan.c: 257: LATFbits.LATF7 = 1;
+  1743  0012EE  8E8E               	bsf	3982,7,c	;volatile
+  1744                           
+  1745                           ;titan.c: 259: PORTGbits.RG4 = 0;
+  1746  0012F0  9886               	bcf	3974,4,c	;volatile
+  1747                           
+  1748                           ;titan.c: 261: LATFbits.LATF7 = 0;
+  1749  0012F2  9E8E               	bcf	3982,7,c	;volatile
+  1750  0012F4  0012               	return		;funcret
+  1751  0012F6                     __end_of_WriteRelayRegister:
+  1752                           	opt stack 0
+  1753                           pclatu	equ	0xFFB
+  1754                           pclath	equ	0xFFA
+  1755                           tblptru	equ	0xFF8
+  1756                           tblptrh	equ	0xFF7
+  1757                           tblptrl	equ	0xFF6
+  1758                           tablat	equ	0xFF5
+  1759                           prodh	equ	0xFF4
+  1760                           prodl	equ	0xFF3
+  1761                           intcon	equ	0xFF2
+  1762                           fsr0h	equ	0xFEA
+  1763                           fsr0l	equ	0xFE9
+  1764                           wreg	equ	0xFE8
+  1765                           fsr1h	equ	0xFE2
+  1766                           fsr1l	equ	0xFE1
+  1767                           indf2	equ	0xFDF
+  1768                           fsr2h	equ	0xFDA
+  1769                           fsr2l	equ	0xFD9
+  1770                           status	equ	0xFD8
+  1771                           
+  1772 ;; *************** function _LowPassFilterADC *****************
+  1773 ;; Defined at:
+  1774 ;;		line 194 in file "titan.c"
+  1775 ;; Parameters:    Size  Location     Type
+  1776 ;;  pFiltrValue     2    0[COMRAM] PTR struct .
+  1777 ;;		 -> ADC_500uA(16), ADC_10uA(16), 
+  1778 ;;  Ch              1    2[COMRAM] unsigned char 
+  1779 ;; Auto vars:     Size  Location     Type
+  1780 ;;  p               2    8[COMRAM] PTR unsigned int 
+  1781 ;;		 -> RAM(3935), 
+  1782 ;;  Val             2    6[COMRAM] unsigned int 
+  1783 ;; Return value:  Size  Location     Type
+  1784 ;;                  1    wreg      void 
+  1785 ;; Registers used:
+  1786 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+  1787 ;; Tracked objects:
+  1788 ;;		On entry : 0/0
+  1789 ;;		On exit  : 0/0
+  1790 ;;		Unchanged: 0/0
+  1791 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1792 ;;      Params:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1793 ;;      Locals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1794 ;;      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1795 ;;      Totals:        10       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1796 ;;Total ram usage:       10 bytes
+  1797 ;; Hardware stack levels used:    1
+  1798 ;; This function calls:
+  1799 ;;		Nothing
+  1800 ;; This function is called by:
+  1801 ;;		_GetAllSensor
+  1802 ;; This function uses a non-reentrant model
+  1803 ;;
+  1804                           
+  1805                           	psect	text12
+  1806  0011EE                     __ptext12:
+  1807                           	opt stack 0
+  1808  0011EE                     _LowPassFilterADC:
+  1809                           	opt stack 24
+  1810                           
+  1811                           ;titan.c: 195: uint16_t Val;
+  1812                           ;titan.c: 196: uint16_t *p;
+  1813                           ;titan.c: 198: p = ((uint16_t) pFiltrValue) + (Ch << 1);
+  1814                           
+  1815                           ;incstack = 0
+  1816  0011EE  5033               	movf	LowPassFilterADC@Ch,w,c
+  1817  0011F0  6E34               	movwf	??_LowPassFilterADC& (0+255),c
+  1818  0011F2  6A35               	clrf	(??_LowPassFilterADC+1)& (0+255),c
+  1819  0011F4  90D8               	bcf	status,0,c
+  1820  0011F6  3634               	rlcf	??_LowPassFilterADC,f,c
+  1821  0011F8  3635               	rlcf	??_LowPassFilterADC+1,f,c
+  1822  0011FA  5031               	movf	LowPassFilterADC@pFiltrValue,w,c
+  1823  0011FC  2434               	addwf	??_LowPassFilterADC,w,c
+  1824  0011FE  6E39               	movwf	LowPassFilterADC@p,c
+  1825  001200  5032               	movf	LowPassFilterADC@pFiltrValue+1,w,c
+  1826  001202  2035               	addwfc	??_LowPassFilterADC+1,w,c
+  1827  001204  6E3A               	movwf	LowPassFilterADC@p+1,c
+  1828                           
+  1829                           ;titan.c: 199: if (AfterPOResetTimer != 0) {
+  1830  001206  5021               	movf	_AfterPOResetTimer,w,c
+  1831  001208  B4D8               	btfsc	status,2,c
+  1832  00120A  D009               	goto	i2l309
+  1833                           
+  1834                           ;titan.c: 200: *p = (uint16_t) ADRES;
+  1835  00120C  C039  FFD9         	movff	LowPassFilterADC@p,fsr2l
+  1836  001210  C03A  FFDA         	movff	LowPassFilterADC@p+1,fsr2h
+  1837  001214  CFC3 FFDE          	movff	4035,postinc2	;volatile
+  1838  001218  CFC4 FFDD          	movff	4036,postdec2	;volatile
+  1839                           
+  1840                           ;titan.c: 201: }
+  1841  00121C  0012               	return	
+  1842  00121E                     i2l309:
+  1843                           
+  1844                           ;titan.c: 202: else {
+  1845                           ;titan.c: 203: Val = *p;
+  1846  00121E  C039  FFD9         	movff	LowPassFilterADC@p,fsr2l
+  1847  001222  C03A  FFDA         	movff	LowPassFilterADC@p+1,fsr2h
+  1848  001226  CFDE F037          	movff	postinc2,LowPassFilterADC@Val
+  1849  00122A  CFDD F038          	movff	postdec2,LowPassFilterADC@Val+1
+  1850                           
+  1851                           ;titan.c: 204: Val = Val << 6;
+  1852  00122E  C037  F034         	movff	LowPassFilterADC@Val,??_LowPassFilterADC
+  1853  001232  C038  F035         	movff	LowPassFilterADC@Val+1,??_LowPassFilterADC+1
+  1854  001236  0E06               	movlw	6
+  1855  001238                     i2u58_45:
+  1856  001238  90D8               	bcf	status,0,c
+  1857  00123A  3634               	rlcf	??_LowPassFilterADC,f,c
+  1858  00123C  3635               	rlcf	??_LowPassFilterADC+1,f,c
+  1859  00123E  2EE8               	decfsz	wreg,f,c
+  1860  001240  D7FB               	goto	i2u58_45
+  1861  001242  C034  F037         	movff	??_LowPassFilterADC,LowPassFilterADC@Val
+  1862  001246  C035  F038         	movff	??_LowPassFilterADC+1,LowPassFilterADC@Val+1
+  1863                           
+  1864                           ;titan.c: 205: Val -= *p;
+  1865  00124A  C039  FFD9         	movff	LowPassFilterADC@p,fsr2l
+  1866  00124E  C03A  FFDA         	movff	LowPassFilterADC@p+1,fsr2h
+  1867  001252  50DE               	movf	postinc2,w,c
+  1868  001254  5E37               	subwf	LowPassFilterADC@Val,f,c
+  1869  001256  50DD               	movf	postdec2,w,c
+  1870  001258  5A38               	subwfb	LowPassFilterADC@Val+1,f,c
+  1871                           
+  1872                           ;titan.c: 206: Val += (uint16_t) ADRES;
+  1873  00125A  50C3               	movf	4035,w,c	;volatile
+  1874  00125C  2637               	addwf	LowPassFilterADC@Val,f,c
+  1875  00125E  50C4               	movf	4036,w,c	;volatile
+  1876  001260  2238               	addwfc	LowPassFilterADC@Val+1,f,c
+  1877                           
+  1878                           ;titan.c: 207: *p = Val >> 6;
+  1879  001262  C037  F034         	movff	LowPassFilterADC@Val,??_LowPassFilterADC
+  1880  001266  C038  F035         	movff	LowPassFilterADC@Val+1,??_LowPassFilterADC+1
+  1881  00126A  0E06               	movlw	6
+  1882  00126C  6E36               	movwf	(??_LowPassFilterADC+2)& (0+255),c
+  1883  00126E                     i2u59_45:
+  1884  00126E  90D8               	bcf	status,0,c
+  1885  001270  3235               	rrcf	??_LowPassFilterADC+1,f,c
+  1886  001272  3234               	rrcf	??_LowPassFilterADC,f,c
+  1887  001274  2E36               	decfsz	(??_LowPassFilterADC+2)& (0+255),f,c
+  1888  001276  D7FB               	goto	i2u59_45
+  1889  001278  C039  FFD9         	movff	LowPassFilterADC@p,fsr2l
+  1890  00127C  C03A  FFDA         	movff	LowPassFilterADC@p+1,fsr2h
+  1891  001280  C034  FFDE         	movff	??_LowPassFilterADC,postinc2
+  1892  001284  C035  FFDD         	movff	??_LowPassFilterADC+1,postdec2
+  1893  001288  0012               	return	
+  1894  00128A                     __end_of_LowPassFilterADC:
+  1895                           	opt stack 0
+  1896                           pclatu	equ	0xFFB
+  1897                           pclath	equ	0xFFA
+  1898                           tblptru	equ	0xFF8
+  1899                           tblptrh	equ	0xFF7
+  1900                           tblptrl	equ	0xFF6
+  1901                           tablat	equ	0xFF5
+  1902                           prodh	equ	0xFF4
+  1903                           prodl	equ	0xFF3
+  1904                           intcon	equ	0xFF2
+  1905                           fsr0h	equ	0xFEA
+  1906                           fsr0l	equ	0xFE9
+  1907                           wreg	equ	0xFE8
+  1908                           fsr1h	equ	0xFE2
+  1909                           fsr1l	equ	0xFE1
+  1910                           indf2	equ	0xFDF
+  1911                           postinc2	equ	0xFDE
+  1912                           postdec2	equ	0xFDD
+  1913                           fsr2h	equ	0xFDA
+  1914                           fsr2l	equ	0xFD9
+  1915                           status	equ	0xFD8
+  1916                           
+  1917 ;; *************** function _BoilerLogic *****************
+  1918 ;; Defined at:
+  1919 ;;		line 211 in file "titan.c"
+  1920 ;; Parameters:    Size  Location     Type
+  1921 ;;		None
+  1922 ;; Auto vars:     Size  Location     Type
+  1923 ;;		None
+  1924 ;; Return value:  Size  Location     Type
+  1925 ;;                  1    wreg      void 
+  1926 ;; Registers used:
+  1927 ;;		wreg, status,2
+  1928 ;; Tracked objects:
+  1929 ;;		On entry : 0/0
+  1930 ;;		On exit  : 0/0
+  1931 ;;		Unchanged: 0/0
+  1932 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1933 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1934 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1935 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1936 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1937 ;;Total ram usage:        1 bytes
+  1938 ;; Hardware stack levels used:    1
+  1939 ;; This function calls:
+  1940 ;;		Nothing
+  1941 ;; This function is called by:
+  1942 ;;		_TitanApp
+  1943 ;; This function uses a non-reentrant model
+  1944 ;;
+  1945                           
+  1946                           	psect	text13
+  1947  001448                     __ptext13:
+  1948                           	opt stack 0
+  1949  001448                     _BoilerLogic:
+  1950                           	opt stack 25
+  1951                           
+  1952                           ;titan.c: 213: RelayRegister.RelayRegBit.RelayEV1 = TitanSwitch.Switch.Switch1;
+  1953                           
+  1954                           ;incstack = 0
+  1955  001448  A224               	btfss	titan@TitanSwitch,1,c
+  1956  00144A  D002               	bra	i2u86_45
+  1957  00144C  8C19               	bsf	titan@RelayRegister,6,c
+  1958  00144E  D001               	bra	i2u86_47
+  1959  001450                     i2u86_45:
+  1960  001450  9C19               	bcf	titan@RelayRegister,6,c
+  1961  001452                     i2u86_47:
+  1962                           
+  1963                           ;titan.c: 214: RelayRegister.RelayRegBit.RelayEV2 = TitanSwitch.Switch.Switch2;
+  1964  001452  A424               	btfss	titan@TitanSwitch,2,c
+  1965  001454  D002               	bra	i2u87_45
+  1966  001456  8A19               	bsf	titan@RelayRegister,5,c
+  1967  001458  D001               	bra	i2u87_47
+  1968  00145A                     i2u87_45:
+  1969  00145A  9A19               	bcf	titan@RelayRegister,5,c
+  1970  00145C                     i2u87_47:
+  1971                           
+  1972                           ;titan.c: 215: TitanHwFlags.Flags.MakeIgnition = ((RelayRegister.RelayRegBit.RelayEV1 ==
+      +                           1) && (TitanSwitch.Switch.GasIgnition == 1));
+  1973  00145C  0E00               	movlw	0
+  1974  00145E  6E31               	movwf	_BoilerLogic$1187,c
+  1975  001460  BC19               	btfsc	titan@RelayRegister,6,c
+  1976  001462  A024               	btfss	titan@TitanSwitch,0,c
+  1977  001464  D002               	goto	i2l315
+  1978  001466  0E01               	movlw	1
+  1979  001468  6E31               	movwf	_BoilerLogic$1187,c
+  1980  00146A                     i2l315:
+  1981  00146A  B031               	btfsc	_BoilerLogic$1187,0,c
+  1982  00146C  D002               	bra	i2u90_45
+  1983  00146E  9023               	bcf	titan@TitanHwFlags,0,c
+  1984  001470  D001               	bra	i2u90_46
+  1985  001472                     i2u90_45:
+  1986  001472  8023               	bsf	titan@TitanHwFlags,0,c
+  1987  001474                     i2u90_46:
+  1988  001474  0012               	return		;funcret
+  1989  001476                     __end_of_BoilerLogic:
+  1990                           	opt stack 0
+  1991                           pclatu	equ	0xFFB
+  1992                           pclath	equ	0xFFA
+  1993                           tblptru	equ	0xFF8
+  1994                           tblptrh	equ	0xFF7
+  1995                           tblptrl	equ	0xFF6
+  1996                           tablat	equ	0xFF5
+  1997                           prodh	equ	0xFF4
+  1998                           prodl	equ	0xFF3
+  1999                           intcon	equ	0xFF2
+  2000                           fsr0h	equ	0xFEA
+  2001                           fsr0l	equ	0xFE9
+  2002                           wreg	equ	0xFE8
+  2003                           fsr1h	equ	0xFE2
+  2004                           fsr1l	equ	0xFE1
+  2005                           indf2	equ	0xFDF
+  2006                           postinc2	equ	0xFDE
+  2007                           postdec2	equ	0xFDD
+  2008                           fsr2h	equ	0xFDA
+  2009                           fsr2l	equ	0xFD9
+  2010                           status	equ	0xFD8
+  2011                           
+  2012 ;; *************** function _CCP4_ISR *****************
+  2013 ;; Defined at:
+  2014 ;;		line 36 in file "timers.c"
+  2015 ;; Parameters:    Size  Location     Type
+  2016 ;;		None
+  2017 ;; Auto vars:     Size  Location     Type
+  2018 ;;		None
+  2019 ;; Return value:  Size  Location     Type
+  2020 ;;                  1    wreg      void 
+  2021 ;; Registers used:
+  2022 ;;		wreg, status,2, status,0, cstack
+  2023 ;; Tracked objects:
+  2024 ;;		On entry : 0/0
+  2025 ;;		On exit  : 0/0
+  2026 ;;		Unchanged: 0/0
+  2027 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2028 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2029 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2030 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2031 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2032 ;;Total ram usage:        0 bytes
+  2033 ;; Hardware stack levels used:    1
+  2034 ;; Hardware stack levels required when called:    1
+  2035 ;; This function calls:
+  2036 ;;		_TMR3_ISR
+  2037 ;; This function is called by:
+  2038 ;;		_INTERRUPT_InterruptManager
+  2039 ;; This function uses a non-reentrant model
+  2040 ;;
+  2041                           
+  2042                           	psect	text14
+  2043  001126                     __ptext14:
+  2044                           	opt stack 0
+  2045  001126                     _CCP4_ISR:
+  2046                           	opt stack 26
+  2047                           
+  2048                           ;timers.c: 38: static uint8_t ReceiverBitCounter, ByteToShift;
+  2049                           ;timers.c: 41: PIR3bits.CCP4IF = 0;
+  2050                           
+  2051                           ;incstack = 0
+  2052  001126  92A4               	bcf	4004,1,c	;volatile
+  2053                           
+  2054                           ;timers.c: 43: if (PIR2bits.TMR3IF) {
+  2055  001128  B2A1               	btfsc	4001,1,c	;volatile
+  2056                           
+  2057                           ;timers.c: 44: TMR3_ISR();
+  2058  00112A  EC62  F00A         	call	_TMR3_ISR	;wreg free
+  2059                           
+  2060                           ;timers.c: 45: }
+  2061                           ;timers.c: 46: ExtendedCCP4.word.lo = (uint16_t) CCPR4;
+  2062  00112E  CF74 F015          	movff	3956,_ExtendedCCP4	;volatile
+  2063  001132  CF75 F016          	movff	3957,_ExtendedCCP4+1	;volatile
+  2064  001136  5009               	movf	_PrevExtendedCCP4,w,c	;# 
+  2065  001138  5C15               	subwf	_ExtendedCCP4,w,c	;# 
+  2066  00113A  6E0D               	movwf	_DataInterval,c	;# 
+  2067  00113C  500A               	movf	_PrevExtendedCCP4+1,w,c	;# 
+  2068  00113E  5816               	subwfb	_ExtendedCCP4+1,w,c	;# 
+  2069  001140  6E0E               	movwf	_DataInterval+1,c	;# 
+  2070  001142  500B               	movf	_PrevExtendedCCP4+2,w,c	;# 
+  2071  001144  5817               	subwfb	_ExtendedCCP4+2,w,c	;# 
+  2072  001146  6E0F               	movwf	_DataInterval+2,c	;# 
+  2073  001148  500C               	movf	_PrevExtendedCCP4+3,w,c	;# 
+  2074  00114A  5818               	subwfb	_ExtendedCCP4+3,w,c	;# 
+  2075  00114C  6E10               	movwf	_DataInterval+3,c	;# 
+  2076                           
+  2077                           ;timers.c: 63: PrevExtendedCCP4 = ExtendedCCP4;
+  2078  00114E  C015  F009         	movff	_ExtendedCCP4,_PrevExtendedCCP4	;volatile
+  2079  001152  C016  F00A         	movff	_ExtendedCCP4+1,_PrevExtendedCCP4+1	;volatile
+  2080  001156  C017  F00B         	movff	_ExtendedCCP4+2,_PrevExtendedCCP4+2	;volatile
+  2081  00115A  C018  F00C         	movff	_ExtendedCCP4+3,_PrevExtendedCCP4+3	;volatile
+  2082                           
+  2083                           ;timers.c: 68: if (DataInterval.value > ((uint16_t) (41666666.6667/4000))) {
+  2084  00115E  5010               	movf	_DataInterval+3,w,c
+  2085  001160  100F               	iorwf	_DataInterval+2,w,c
+  2086  001162  E106               	bnz	i2u42_40
+  2087  001164  0EB1               	movlw	177
+  2088  001166  5C0D               	subwf	_DataInterval,w,c
+  2089  001168  0E28               	movlw	40
+  2090  00116A  580E               	subwfb	_DataInterval+1,w,c
+  2091  00116C  A0D8               	btfss	status,0,c
+  2092  00116E  D003               	goto	i2l104
+  2093  001170                     i2u42_40:
+  2094                           
+  2095                           ;timers.c: 69: ReceiverStatus = 0;
+  2096  001170  0E00               	movlw	0
+  2097  001172  6E2E               	movwf	_ReceiverStatus,c	;volatile
+  2098                           
+  2099                           ;timers.c: 70: }
+  2100  001174  0012               	return	
+  2101  001176                     i2l104:
+  2102  001176  360D               	rlcf	_DataInterval,f,c	;# 
+  2103  001178  360E               	rlcf	_DataInterval+1,f,c	;# 
+  2104  00117A  360D               	rlcf	_DataInterval,f,c	;# 
+  2105  00117C  360E               	rlcf	_DataInterval+1,f,c	;# 
+  2106                           
+  2107                           ;timers.c: 78: if (ReceiverStatus == 0) {
+  2108  00117E  502E               	movf	_ReceiverStatus,w,c	;volatile
+  2109  001180  A4D8               	btfss	status,2,c
+  2110  001182  D00B               	goto	i2l106
+  2111  001184  500E               	movf	_DataInterval+1,w,c	;# 
+  2112  001186  6E2A               	movwf	_PorogInterval,c	;# 
+  2113  001188  300E               	rrcf	_DataInterval+1,w,c	;# 
+  2114  00118A  6E28               	movwf	_Interval_Lo,c	;# 
+  2115  00118C  242A               	addwf	_PorogInterval,w,c	;# 
+  2116  00118E  6E29               	movwf	_Interval_Hi,c	;# 
+  2117                           
+  2118                           ;timers.c: 87: ByteToShift = 0;
+  2119  001190  0E00               	movlw	0
+  2120  001192  6E25               	movwf	CCP4_ISR@ByteToShift,c
+  2121                           
+  2122                           ;timers.c: 88: ReceiverBitCounter = 6;
+  2123  001194  0E06               	movlw	6
+  2124  001196  6E26               	movwf	CCP4_ISR@ReceiverBitCounter,c
+  2125                           
+  2126                           ;timers.c: 89: } else if (ReceiverStatus != 255) {
+  2127  001198  0012               	return	
+  2128  00119A                     i2l106:
+  2129  00119A  282E               	incf	_ReceiverStatus,w,c	;volatile
+  2130  00119C  B4D8               	btfsc	status,2,c
+  2131  00119E  0012               	return	
+  2132                           
+  2133                           ;timers.c: 90: if (DataInterval.byte.b1 < Interval_Lo) {
+  2134  0011A0  5028               	movf	_Interval_Lo,w,c
+  2135  0011A2  5C0E               	subwf	_DataInterval+1,w,c
+  2136  0011A4  B0D8               	btfsc	status,0,c
+  2137  0011A6  D002               	goto	i2l109
+  2138                           
+  2139                           ;timers.c: 91: ReceiverStatus = 255;
+  2140  0011A8  682E               	setf	_ReceiverStatus,c	;volatile
+  2141                           
+  2142                           ;timers.c: 92: } else if (DataInterval.byte.b1 > Interval_Hi) {
+  2143  0011AA  0012               	return	
+  2144  0011AC                     i2l109:
+  2145  0011AC  500E               	movf	_DataInterval+1,w,c
+  2146  0011AE  5C29               	subwf	_Interval_Hi,w,c
+  2147  0011B0  B0D8               	btfsc	status,0,c
+  2148  0011B2  D002               	goto	i2l111
+  2149                           
+  2150                           ;timers.c: 93: ReceiverStatus = 255;
+  2151  0011B4  682E               	setf	_ReceiverStatus,c	;volatile
+  2152                           
+  2153                           ;timers.c: 94: } else {
+  2154  0011B6  0012               	return	
+  2155  0011B8                     i2l111:
+  2156                           
+  2157                           ;timers.c: 95: if (DataInterval.byte.b1 > PorogInterval) {
+  2158  0011B8  500E               	movf	_DataInterval+1,w,c
+  2159  0011BA  5C2A               	subwf	_PorogInterval,w,c
+  2160  0011BC  B0D8               	btfsc	status,0,c
+  2161  0011BE  D003               	goto	i2l113
+  2162                           
+  2163                           ;timers.c: 96: ByteToShift = 0x80 + (ByteToShift >> 1);
+  2164  0011C0  80D8               	bsf	status,0,c
+  2165  0011C2  3225               	rrcf	CCP4_ISR@ByteToShift,f,c
+  2166                           
+  2167                           ;timers.c: 97: } else {
+  2168  0011C4  D003               	goto	i2l114
+  2169  0011C6                     i2l113:
+  2170                           
+  2171                           ;timers.c: 98: ByteToShift = 0x00 + (ByteToShift >> 1);
+  2172  0011C6  90D8               	bcf	status,0,c
+  2173  0011C8  3025               	rrcf	CCP4_ISR@ByteToShift,w,c
+  2174  0011CA  6E25               	movwf	CCP4_ISR@ByteToShift,c
+  2175  0011CC                     i2l114:
+  2176                           
+  2177                           ;timers.c: 99: }
+  2178                           ;timers.c: 100: ReceiverStatus++;
+  2179  0011CC  2A2E               	incf	_ReceiverStatus,f,c	;volatile
+  2180                           
+  2181                           ;timers.c: 101: ReceiverBitCounter--;
+  2182  0011CE  0626               	decf	CCP4_ISR@ReceiverBitCounter,f,c
+  2183                           
+  2184                           ;timers.c: 102: if (ReceiverBitCounter == 0) {
+  2185  0011D0  5026               	movf	CCP4_ISR@ReceiverBitCounter,w,c
+  2186  0011D2  A4D8               	btfss	status,2,c
+  2187  0011D4  0012               	return	
+  2188                           
+  2189                           ;timers.c: 103: ReceiverBitCounter = 8;
+  2190  0011D6  0E08               	movlw	8
+  2191  0011D8  6E26               	movwf	CCP4_ISR@ReceiverBitCounter,c
+  2192                           
+  2193                           ;timers.c: 104: if (ReceiverStatus = 6) {
+  2194  0011DA  0E06               	movlw	6
+  2195  0011DC  6E2E               	movwf	_ReceiverStatus,c	;volatile
+  2196                           
+  2197                           ;timers.c: 105: ReceiveBuffer.byte.b0 = ByteToShift;
+  2198  0011DE  C025  F011         	movff	CCP4_ISR@ByteToShift,_ReceiveBuffer	;volatile
+  2199                           
+  2200                           ;timers.c: 106: if (ReceiveBuffer.byte.b0 & 0x02) {
+  2201  0011E2  A211               	btfss	_ReceiveBuffer,1,c	;volatile
+  2202  0011E4  0012               	return	
+  2203                           
+  2204                           ;timers.c: 107: ReceiveQuantity = 6;
+  2205  0011E6  0E06               	movlw	6
+  2206  0011E8  6E2F               	movwf	_ReceiveQuantity,c	;volatile
+  2207                           
+  2208                           ;timers.c: 108: TimersCCP.Flags.Receive = 1;
+  2209  0011EA  802D               	bsf	_TimersCCP,0,c	;volatile
+  2210                           
+  2211                           ;timers.c: 109: }
+  2212                           ;timers.c: 110: } else if (ReceiverStatus = 14) {
+  2213  0011EC  0012               	return	
+  2214  0011EE                     __end_of_CCP4_ISR:
+  2215                           	opt stack 0
+  2216                           pclatu	equ	0xFFB
+  2217                           pclath	equ	0xFFA
+  2218                           tblptru	equ	0xFF8
+  2219                           tblptrh	equ	0xFF7
+  2220                           tblptrl	equ	0xFF6
+  2221                           tablat	equ	0xFF5
+  2222                           prodh	equ	0xFF4
+  2223                           prodl	equ	0xFF3
+  2224                           intcon	equ	0xFF2
+  2225                           fsr0h	equ	0xFEA
+  2226                           fsr0l	equ	0xFE9
+  2227                           wreg	equ	0xFE8
+  2228                           fsr1h	equ	0xFE2
+  2229                           fsr1l	equ	0xFE1
+  2230                           indf2	equ	0xFDF
+  2231                           postinc2	equ	0xFDE
+  2232                           postdec2	equ	0xFDD
+  2233                           fsr2h	equ	0xFDA
+  2234                           fsr2l	equ	0xFD9
+  2235                           status	equ	0xFD8
+  2236                           
+  2237 ;; *************** function _TMR3_ISR *****************
+  2238 ;; Defined at:
+  2239 ;;		line 148 in file "timers.c"
+  2240 ;; Parameters:    Size  Location     Type
+  2241 ;;		None
+  2242 ;; Auto vars:     Size  Location     Type
+  2243 ;;		None
+  2244 ;; Return value:  Size  Location     Type
+  2245 ;;                  1    wreg      void 
+  2246 ;; Registers used:
+  2247 ;;		status,2, status,0
+  2248 ;; Tracked objects:
+  2249 ;;		On entry : 0/0
+  2250 ;;		On exit  : 0/0
+  2251 ;;		Unchanged: 0/0
+  2252 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2253 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2254 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2255 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2256 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2257 ;;Total ram usage:        0 bytes
+  2258 ;; Hardware stack levels used:    1
+  2259 ;; This function calls:
+  2260 ;;		Nothing
+  2261 ;; This function is called by:
+  2262 ;;		_CCP4_ISR
+  2263 ;;		_INTERRUPT_InterruptManager
+  2264 ;; This function uses a non-reentrant model
+  2265 ;;
+  2266                           
+  2267                           	psect	text15
+  2268  0014C4                     __ptext15:
+  2269                           	opt stack 0
+  2270  0014C4                     _TMR3_ISR:
+  2271                           	opt stack 27
+  2272                           
+  2273                           ;timers.c: 149: PIR2bits.TMR3IF = 0;
+  2274                           
+  2275                           ;incstack = 0
+  2276  0014C4  92A1               	bcf	4001,1,c	;volatile
+  2277                           
+  2278                           ;timers.c: 150: ExtendedCCP4.word.hi++;
+  2279  0014C6  4A17               	infsnz	_ExtendedCCP4+2,f,c	;volatile
+  2280  0014C8  2A18               	incf	_ExtendedCCP4+3,f,c	;volatile
+  2281  0014CA  0012               	return		;funcret
+  2282  0014CC                     __end_of_TMR3_ISR:
+  2283                           	opt stack 0
+  2284                           pclatu	equ	0xFFB
+  2285                           pclath	equ	0xFFA
+  2286                           tblptru	equ	0xFF8
+  2287                           tblptrh	equ	0xFF7
+  2288                           tblptrl	equ	0xFF6
+  2289                           tablat	equ	0xFF5
+  2290                           prodh	equ	0xFF4
+  2291                           prodl	equ	0xFF3
+  2292                           intcon	equ	0xFF2
+  2293                           fsr0h	equ	0xFEA
+  2294                           fsr0l	equ	0xFE9
+  2295                           wreg	equ	0xFE8
+  2296                           fsr1h	equ	0xFE2
+  2297                           fsr1l	equ	0xFE1
+  2298                           indf2	equ	0xFDF
+  2299                           postinc2	equ	0xFDE
+  2300                           postdec2	equ	0xFDD
+  2301                           fsr2h	equ	0xFDA
+  2302                           fsr2l	equ	0xFD9
+  2303                           status	equ	0xFD8
+  2304                           pclatu	equ	0xFFB
+  2305                           pclath	equ	0xFFA
+  2306                           tblptru	equ	0xFF8
+  2307                           tblptrh	equ	0xFF7
+  2308                           tblptrl	equ	0xFF6
+  2309                           tablat	equ	0xFF5
+  2310                           prodh	equ	0xFF4
+  2311                           prodl	equ	0xFF3
+  2312                           intcon	equ	0xFF2
+  2313                           fsr0h	equ	0xFEA
+  2314                           fsr0l	equ	0xFE9
+  2315                           wreg	equ	0xFE8
+  2316                           fsr1h	equ	0xFE2
+  2317                           fsr1l	equ	0xFE1
+  2318                           indf2	equ	0xFDF
+  2319                           postinc2	equ	0xFDE
+  2320                           postdec2	equ	0xFDD
+  2321                           fsr2h	equ	0xFDA
+  2322                           fsr2l	equ	0xFD9
+  2323                           status	equ	0xFD8
+  2324                           
+  2325                           	psect	rparam
+  2326  0000                     pclatu	equ	0xFFB
+  2327                           pclath	equ	0xFFA
+  2328                           tblptru	equ	0xFF8
+  2329                           tblptrh	equ	0xFF7
+  2330                           tblptrl	equ	0xFF6
+  2331                           tablat	equ	0xFF5
+  2332                           prodh	equ	0xFF4
+  2333                           prodl	equ	0xFF3
+  2334                           intcon	equ	0xFF2
+  2335                           fsr0h	equ	0xFEA
+  2336                           fsr0l	equ	0xFE9
+  2337                           wreg	equ	0xFE8
+  2338                           fsr1h	equ	0xFE2
+  2339                           fsr1l	equ	0xFE1
+  2340                           indf2	equ	0xFDF
+  2341                           postinc2	equ	0xFDE
+  2342                           postdec2	equ	0xFDD
+  2343                           fsr2h	equ	0xFDA
+  2344                           fsr2l	equ	0xFD9
+  2345                           status	equ	0xFD8
+  2346                           
+  2347                           	psect	temp
+  2348  000054                     btemp:
+  2349                           	opt stack 0
+  2350  000054                     	ds	1
+  2351  0000                     int$flags	set	btemp
+  2352  0000                     wtemp6	set	btemp+1
+  2353                           pclatu	equ	0xFFB
+  2354                           pclath	equ	0xFFA
+  2355                           tblptru	equ	0xFF8
+  2356                           tblptrh	equ	0xFF7
+  2357                           tblptrl	equ	0xFF6
+  2358                           tablat	equ	0xFF5
+  2359                           prodh	equ	0xFF4
+  2360                           prodl	equ	0xFF3
+  2361                           intcon	equ	0xFF2
+  2362                           fsr0h	equ	0xFEA
+  2363                           fsr0l	equ	0xFE9
+  2364                           wreg	equ	0xFE8
+  2365                           fsr1h	equ	0xFE2
+  2366                           fsr1l	equ	0xFE1
+  2367                           indf2	equ	0xFDF
+  2368                           postinc2	equ	0xFDE
+  2369                           postdec2	equ	0xFDD
+  2370                           fsr2h	equ	0xFDA
+  2371                           fsr2l	equ	0xFD9
+  2372                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    8
+    Data        0
+    BSS         116
+    Persistent  1
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           94     34      83
+    BANK0           160      2      70
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          128      0       0
+    BANK15           96      0       0
+
+Pointer List with Targets:
+
+    LowPassFilterADC@pFiltrValue	PTR struct . size(2) Largest target is 16
+		 -> ADC_500uA(BANK0[16]), ADC_10uA(BANK0[16]), 
+
+    LowPassFilterADC@p	PTR unsigned int  size(2) Largest target is 3935
+		 -> RAM(DATA[3935]), 
+
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in COMRAM
+
+    _INTERRUPT_InterruptManager->_CCP5_ISR
+    _CCP5_ISR->_TitanApp
+    _TitanApp->_GetAllSensor
+    _GetAllSensor->_LowPassFilterADC
+
+Critical Paths under _main in BANK0
+
+    _main->_HardwareInit
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK14
+
+    None.
+
+Critical Paths under _main in BANK15
+
+    None.
+
+Critical Paths under _INTERRUPT_InterruptManager in BANK15
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0      68
+                                              1 BANK0      1     1      0
+                       _HardwareInit
+                      _VariablesInit
+ ---------------------------------------------------------------------------------
+ (1) _VariablesInit                                        0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _HardwareInit                                         1     1      0      68
+                                              0 BANK0      1     1      0
+               _INTERRUPT_Initialize
+              _OSCILLATOR_Initialize
+                  _Timers_Initialize
+ ---------------------------------------------------------------------------------
+ (2) _Timers_Initialize                                    0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _OSCILLATOR_Initialize                                0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _INTERRUPT_Initialize                                 0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (3) _INTERRUPT_InterruptManager                          18    18      0    1048
+                                             16 COMRAM    18    18      0
+                           _CCP4_ISR
+                           _CCP5_ISR
+                           _TMR3_ISR
+ ---------------------------------------------------------------------------------
+ (4) _CCP5_ISR                                             1     1      0    1048
+                                             15 COMRAM     1     1      0
+                           _TitanApp
+ ---------------------------------------------------------------------------------
+ (5) _TitanApp                                             1     1      0    1048
+                                             14 COMRAM     1     1      0
+                        _BoilerLogic
+                       _GetAllSensor
+                           _StartADC
+ ---------------------------------------------------------------------------------
+ (6) _StartADC                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (6) _GetAllSensor                                         4     4      0    1024
+                                             10 COMRAM     4     4      0
+                   _LowPassFilterADC
+                 _WriteRelayRegister
+ ---------------------------------------------------------------------------------
+ (7) _WriteRelayRegister                                   2     2      0     184
+                                              0 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ (7) _LowPassFilterADC                                    10     7      3     485
+                                              0 COMRAM    10     7      3
+ ---------------------------------------------------------------------------------
+ (6) _BoilerLogic                                          1     1      0      24
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _CCP4_ISR                                             0     0      0       0
+                           _TMR3_ISR
+ ---------------------------------------------------------------------------------
+ (4) _TMR3_ISR                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 7
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _HardwareInit
+     _INTERRUPT_Initialize
+     _OSCILLATOR_Initialize
+     _Timers_Initialize
+   _VariablesInit
+
+ _INTERRUPT_InterruptManager (ROOT)
+   _CCP4_ISR
+     _TMR3_ISR
+   _CCP5_ISR
+     _TitanApp
+       _BoilerLogic
+       _GetAllSensor
+         _LowPassFilterADC
+         _WriteRelayRegister
+       _StartADC
+   _TMR3_ISR
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           5E      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              5E     22      53       1       88.3%
+STACK                0      0       0       2        0.0%
+DATA                 0      0      99       3        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      2      46       5       43.8%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK8           100      0       0      20        0.0%
+BANK8              100      0       0      21        0.0%
+BITBANK9           100      0       0      22        0.0%
+BANK9              100      0       0      23        0.0%
+BITBANK10          100      0       0      24        0.0%
+BANK10             100      0       0      25        0.0%
+BITBANK11          100      0       0      26        0.0%
+BANK11             100      0       0      27        0.0%
+BANK12             100      0       0      28        0.0%
+ABS                  0      0      99      29        0.0%
+BITBANK12          100      0       0      30        0.0%
+BITBANK13          100      0       0      31        0.0%
+BANK13             100      0       0      32        0.0%
+BITBANK14           80      0       0      33        0.0%
+BANK14              80      0       0      34        0.0%
+BITBANK15           60      0       0      35        0.0%
+BANK15              60      0       0      36        0.0%
+BIGRAM_1            60      0       0      37        0.0%
+BIGRAM             E7F      0       0      38        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.44 build -154322312 
+Symbol Table                                                                                   Mon Jun 25 13:50:36 2018
+
+                 __end_of_GetAllSensor 1126                       _PrevExtendedCCP4 0009  
+                                   l35 1490                                     l36 1494  
+                   GetAllSensor@ChMask 003D                           __CFG_CP0$OFF 000000  
+                          __CFG_WDT$ON 000000                                    l252 1344  
+                       _DeltaTitanTemp 0060                                    prod 000FF3  
+                                  wreg 000FE8                           __CFG_IESO$ON 000000  
+           CCP4_ISR@ReceiverBitCounter 0026                                   l1487 133C  
+                  __end_of_BoilerLogic 1476                                   _LATA 000F89  
+                                 _LATB 000F8A                                   _LATC 000F8B  
+                                 _LATD 000F8C                                   _LATE 000F8D  
+                                 _LATF 000F8E                                   _LATG 000F8F  
+                        __CFG_DEBUG$ON 000000                                   _RCON 000FD0  
+                        __CFG_FCMEN$ON 000000                           __CFG_STVR$ON 000000  
+                                 _main 1476                       __end_of_CCP4_ISR 11EE  
+                     __end_of_CCP5_ISR 13A4                                   fsr0h 000FEA  
+                                 fsr1h 000FE2                                   fsr2h 000FDA  
+                                 fsr0l 000FE9                                   indf2 000FDF  
+                                 fsr1l 000FE1                                   fsr2l 000FD9  
+                                 btemp 0054                                   prodh 000FF4  
+                                 prodl 000FF3                                   start 00BC  
+                        __CFG_FOSC2$ON 000000                           ___param_bank 000000  
+                      _ReceiveQuantity 002F         __size_of_OSCILLATOR_Initialize 000A  
+        __end_of_OSCILLATOR_Initialize 14B4                        _TitanSwitchPrev 0022  
+                  _Precizion1msCounter 0027                                  ?_main 0031  
+                                _ADRES 000FC3                                  _CCPR4 000F74  
+                                _CCPR5 000F71                                  _T3CON 000FB1  
+                                i2l111 11B8                                  i2l104 1176  
+                                i2l113 11C6                                  i2l114 11CC  
+                                i2l106 119A                                  i2l130 139C  
+                                i2l300 10B0                                  i2l109 11AC  
+                                i2l301 10BC                                  i2l302 10CC  
+                                i2l303 10CE                                  i2l127 137E  
+                                i2l304 111E                                  i2l128 138A  
+                                i2l321 129A                                  i2l305 1120  
+                                i2l129 1398                                  i2l315 146A  
+                                i2l323 12A4                                  i2l324 12A6  
+                                i2l309 121E                                  i2l333 13F0  
+                                i2l326 12D2                                  i2l335 1402  
+                                i2l271 006A                                  i2l328 12DC  
+                                i2l329 12DE                                  i2l273 0070  
+                                i2l290 104E                                  i2l269 0060  
+                                i2l297 1082                                  i2l298 109A  
+                                _TMR3H 000FB3                                  _TMR3L 000FB2  
+                        __CFG_WDTPS$64 000000                                  _TRISA 000F92  
+                                _TRISB 000F93                                  _TRISC 000F94  
+                                _TRISD 000F95                                  _TRISE 000F96  
+                                _TRISF 000F97                                  _TRISG 000F98  
+                     __end_of_TMR3_ISR 14CC                                  pclath 000FFA  
+                    __end_of_ADC_Input 1009                                  tablat 000FF5  
+                           _Count_1_ms 0030                                  status 000FD8  
+                                wtemp6 0055                         __CFG_ETHLED$ON 000000  
+                 __end_of_HardwareInit 135C                       _BoilerLogic$1187 0031  
+                      __initialization 1498                      ?_LowPassFilterADC 0031  
+                         __end_of_main 1498                     ??_LowPassFilterADC 0034  
+          ?_INTERRUPT_InterruptManager 0031                                 ??_main 00A5  
+                        __activetblptr 000001                           _DataInterval 000D  
+                __end_of_VariablesInit 13DE                            _BoilerLogic 1448  
+                     __end_of_TitanApp 1414                       __end_of_StartADC 14C4  
+                               _ADCON0 000FC2                                 _ADCON1 000FC1  
+                               _ADCON2 000FC0                                 _CCPR5H 000F72  
+                               i2l1323 12E8                                 i2l1353 106E  
+                               i2l1289 1292                                 _OSCCON 000FD3  
+                   _WriteRelayRegister 128A                  __size_of_GetAllSensor 011C  
+                       __CFG_XINST$OFF 000000                    ?_WriteRelayRegister 0031  
+                            ?_CCP4_ISR 0031                              ?_CCP5_ISR 0031  
+                         __mediumconst 0000                   ??_WriteRelayRegister 0031  
+                               tblptrh 000FF7                                 tblptrl 000FF6  
+                               tblptru 000FF8          __size_of_INTERRUPT_Initialize 0008  
+                         _GetAllSensor 100A                        __CFG_FOSC$HSPLL 000000  
+                           __accesstop 0060                __end_of__initialization 1498  
+                        ___rparam_used 000001                          _ReceiveBuffer 0011  
+                       __pcstackCOMRAM 0031                              ?_TMR3_ISR 0031  
+                           ??_CCP4_ISR 0031                             ??_CCP5_ISR 0040  
+                           __pbssBANK0 0060                  __size_of_HardwareInit 0066  
+                           __pnvCOMRAM 0053                            _Interval_Hi 0029  
+                          _Interval_Lo 0028                              ?_TitanApp 0031  
+                            ?_StartADC 0031                             ??_TMR3_ISR 0031  
+                              _CCP4CON 000F73                                _CCP5CON 000F70  
+               GetAllSensor@NumChannel 003E                           _HardwareInit 12F6  
+                              i2u42_40 1170                                i2u62_40 12B2  
+                              _OSCTUNE 000F9B                                i2u72_44 1036  
+                              i2u64_45 12C6                                i2u72_45 1032  
+                              i2u64_47 12C8                                i2u90_45 1472  
+                              i2u58_45 1238                                i2u82_45 10D6  
+                              i2u90_46 1474                                i2u82_47 10D8  
+                              i2u59_45 126E                                i2u83_45 10E0  
+                              i2u83_47 10E2                                i2u84_45 10EA  
+                              i2u84_47 10EC                                i2u86_45 1450  
+                              i2u86_47 1452                                i2u87_45 145A  
+                              i2u87_47 145C                              _ADC_500uA 0084  
+                          _ResetSource 0053                     titan@RelayRegister 0019  
+                  LowPassFilterADC@Val 0037                          _RelayRegister 001D  
+                            _ADC_Input 1001                                __Hparam 0000  
+                              __Lparam 0000                             ??_TitanApp 003F  
+                           ??_StartADC 0031                           __psmallconst 1000  
+                              __pcinit 1498                                __ramtop 1000  
+                              __ptext0 1476                                __ptext1 13A4  
+                              __ptext2 12F6                                __ptext3 1414  
+                              __ptext4 14AA                                __ptext5 14B4  
+                              __ptext7 135C                                __ptext8 13DE  
+                              __ptext9 14BC                  _OSCILLATOR_Initialize 14AA  
+                         ?_BoilerLogic 0031              __size_of_LowPassFilterADC 009C  
+                          _TitanSwitch 002C                   end_of_initialization 1498  
+                              postdec2 000FDD                                postinc2 000FDE  
+                            _PORTEbits 000F84                              _PORTGbits 000F86  
+        WriteRelayRegister@ByteToShift 0031                              _T3compare 001B  
+                    __size_of_CCP4_ISR 00C8                      __size_of_CCP5_ISR 0048  
+               __size_of_VariablesInit 003A           __end_of_INTERRUPT_Initialize 14BC  
+                    __size_of_TMR3_ISR 0008                 ?_OSCILLATOR_Initialize 0031  
+                          _ADC_Channel 0020                         _ReceiverStatus 002E  
+                  start_initialization 1498            __size_of_WriteRelayRegister 006C  
+                            _TimersCCP 002D                              _TitanTemp 0078  
+                    __size_of_TitanApp 0036                      __size_of_StartADC 0008  
+WriteRelayRegister@MakeIgnitionCounter 001F                            __pbssCOMRAM 0001  
+                        _VariablesInit 13A4                       _LowPassFilterADC 11EE  
+                        __pcstackBANK0 00A4                   __size_of_BoilerLogic 002E  
+                         _ExtendedCCP4 0015           WriteRelayRegister@BitCounter 0032  
+                            __pintcode 0008                      _Timers_Initialize 1414  
+                      _DebounceCounter 0001           ??_INTERRUPT_InterruptManager 0041  
+                   ?_Timers_Initialize 0031                               _ADC_10uA 0094  
+                          __smallconst 1000                         ?_VariablesInit 0031  
+                             _CCP4_ISR 1126                               _CCP5_ISR 135C  
+                   LowPassFilterADC@Ch 0033                    ??_Timers_Initialize 00A4  
+                 _INTERRUPT_Initialize 14B4                               _LATEbits 000F8D  
+                             _LATFbits 000F8E                               _PIE2bits 000FA0  
+                             _PIE3bits 000FA3    __size_of_INTERRUPT_InterruptManager 00B4  
+                        HardwareInit@i 00A4                               _PIR2bits 000FA1  
+                             _PIR3bits 000FA4                          _PorogInterval 002A  
+            __end_of_Timers_Initialize 1448                               _RCONbits 000FD0  
+                             _TMR3_ISR 14C4                             _ADCON0bits 000FC2  
+                ?_INTERRUPT_Initialize 0031                          ?_GetAllSensor 0031  
+                             __Hrparam 0000                               __Lrparam 0000  
+                         __Lsmallconst 1000                               _TitanApp 13DE  
+                             _StartADC 14BC                ??_OSCILLATOR_Initialize 00A4  
+                      ??_VariablesInit 00A4                               __ptext10 100A  
+                             __ptext11 128A                               __ptext12 11EE  
+                             __ptext13 1448                               __ptext14 1126  
+                             __ptext15 14C4                         ??_GetAllSensor 003B  
+                    LowPassFilterADC@p 0039                          __size_of_main 0022  
+                    titan@TitanHwFlags 0023                           _TitanHwFlags 002B  
+             __end_of_LowPassFilterADC 128A             __size_of_Timers_Initialize 0034  
+                             int$flags 0054     __end_of_INTERRUPT_InterruptManager 00BC  
+           _INTERRUPT_InterruptManager 0008             __end_of_WriteRelayRegister 12F6  
+                           _INTCONbits 000FF2                          ?_HardwareInit 0031  
+               ??_INTERRUPT_Initialize 00A4                               intlevel2 0000  
+                  CCP4_ISR@ByteToShift 0025                       titan@TitanSwitch 0024  
+                    _AfterPOResetTimer 0021                          ??_BoilerLogic 0031  
+                       ??_HardwareInit 00A4            LowPassFilterADC@pFiltrValue 0031  
+                       titan@TitanTemp 006C  

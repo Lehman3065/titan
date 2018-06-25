@@ -4,9 +4,9 @@
 - работа поджига по флагу  bIgnition
 - передача через оптопару 30 бит и 6 бит в разных режимах
 - значения 6 бит
+- прием через оптопару команды ПОДЖИГ
 Не проверено:
 - значения 30 бит
-- прием через оптопару команды ПОДЖИГ
 - установка флага bFire при наличии пламени
 - устойчивость работы при пересбросах
 Не сделано:
@@ -42,10 +42,13 @@
 .EQU	SendStart = 25		; задержка начала передачи через гальваническую развязку от старта передачи
 .EQU	Duration_0 = (Fclk/(3*4))	; длительность интервала при передаче 0 (0,25 мс)
 .EQU	Duration_1 = (Fclk/(3*2))	; длительность интервала при передаче 1 (0,5 мс) - передача 30 бит гарантировано укладывается в период
+; биты (30 шт.) передаются следующим образом - сначала бит 0 - FireStatus, 1 - Ignition, 2..5 - control sum и 3 байта напряжений (младшим битом вперед)
+; если бит Ignition == 1, то передаются всего 6 бит: 2 флага - сначала бит 0 - FireStatus, 1 - Ignition, потом они же 2 флага инверсных и снова 2 флага
 .EQU	DurationStart = ((Duration_0 + Duration_1)/2)	; длительность стартового интервала при передаче
 .EQU	EndOfFrame = (Fclk * 3) ; за 3 мс до конца кадра начинаем ждать переход фазы через 0 (Fclk кГц - частора процессора)
 .EQU	UFirePorog = 128	; порог срабатывания датчика пламени
 .EQU	CInputTimeout = ((50 * Fclk) / 256)	; 50 мс отсытствуют импульсы от оптрона - поджиг не нужен : IgnitionStatus = 0
+.EQU	CInputTimeoutMin = ((20 * Fclk) / 256)	; менее 20 мс между импульсами от оптрона - поджиг не нужен : IgnitionStatus = 0
 .EQU	CMinPeriodLength = ((12 * Fclk) / 256)	; 12 мс минимальный период сетевого напряжения
 .EQU	CMaxPeriodLength = ((25 * Fclk) / 256)	; 25 мс максимальный период сетевого напряжения
 .EQU	CInputDebounce = 3	; сколько должно совпасть периодов импульсов, чтобы IgnitionStatus стал 1
@@ -740,8 +743,9 @@ Receive_r16:	; Ждём флаг Input Capture Flag T1 .. r29 - InputTimeout increment
 	in r16, TCNT1L
 	in r16, TCNT1H
 	sub r16, r28
-	cpi r16, CInputTimeout
+	cpi r16, CInputTimeout // здесь сравнение на максимальное значение паузы !!!
 	brlo Receive_Exit
+BadReceive:
 	clr r27				; InputDebounce = 0
 	sts IgnitionStatus, r27
 	ret
@@ -754,6 +758,8 @@ ReceiveTrue:
 	mov	r28, r16
 	sub r16, r29
 	mov r29, r16		; ActualPause
+	cpi r16, CInputTimeoutMin // здесь сравнение на минимальное значение паузы !!!
+	brlo BadReceive
 	sub r16, r26		; InputPrevPause
 	mov r26, r29
 	brcs DeltaMinus
